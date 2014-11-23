@@ -1,0 +1,24 @@
+<% include ./layout/header.html %>
+
+<div class="container">
+<% if (header == "about_us") { %>
+	<% include ./sidebar/about_us_sidebar.html %>
+<% } %>
+<% if (header == "life_groups") { %>
+	<% include ./sidebar/life_groups_sidebar.html %>
+<% } %>
+<% if (header == "ministries") { %>
+	<% include ./sidebar/ministries_sidebar.html %>
+<% } %>
+
+<div class="sidepage" id="content">
+
+</div>
+</div>
+
+<!-- need .html here -->
+<script>
+$("#content").load("/html/<%= lang %><%= path %>.html");
+</script>
+
+<% include ./layout/footer.html %>

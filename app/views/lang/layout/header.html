@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- META -->
+		<meta charset="UTF-8" />
+
+		<!-- STYLE -->
+		<link rel="shortcut icon" type="image/ico" href="/img/favicon.ico" />
+		<link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/style.css">
+
+		<script src="/bower/jquery/dist/jquery.min.js"></script>
+		<script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+		
+		<title>Calgary Chinese Alliance Church</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-inner">
+					<a id="logo" class="header-logo left" href="/<%= lang %>">
+						<img src="/img/logo.png" height="80" />
+					</a>
+					<div class="header-row1 right">
+						<ul class="translate nav navbar-nav pull-right">
+							<li id="eng"><a href="/eng<%= path %>">ENG</a></li>
+							<li id="cht"><a href="/cht<%= path %>">繁</a></li>
+							<li id="chs"><a href="/chs<%= path %>">简</a></li>
+						</ul>
+					</div>
+					<div class="header-row2 right">
+						<ul class="menu nav navbar-nav pull-right">
+							<li id="news"><a href="/<%= lang %>/news/"><%= __('news') %></a></li>
+							<li id="about_us"><a href="/<%= lang %>/about_us/"><%= __('about_us') %></a></li>
+							<li id="life_groups"><a href="/<%= lang %>/life_groups/"><%= __('life_groups') %></a></li>
+							<li id="ministries"><a href="/<%= lang %>/ministries/"><%= __('ministries') %></a></li>
+							<li id="events"><a href="/<%= lang %>/events/"><%= __('events') %></a></li>
+							<li id="resources"><a href="/<%= lang %>/resources/"><%= __('resources') %></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<script>
+			<% if (lang) { %>
+				document.getElementById("<%= lang %>").className = "active";
+			<% } %>
+			<% if (header) { %>
+				document.getElementById("<%= header %>").className = "active"; 
+			<% } %>
+		</script>
+
