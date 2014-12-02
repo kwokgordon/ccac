@@ -7,11 +7,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var namespace = require('express-namespace');
 var ejs = require('ejs');
+var nodemailer = require('nodemailer');
 var i18n = require('i18n');
 
 var app = express();
 
 global.__basedir = __dirname;
+var configSecret = require(path.join(__basedir, 'config/secret.js'));
 
 // view engine setup
 app.engine('html', ejs.renderFile);
@@ -22,6 +24,15 @@ i18n.configure({
 	locales:['eng', 'cht', 'chs'],
 	directory: __basedir + '/locales'
 });
+
+var transporter = nodemailer.createTransport({
+	service: 'Gmail',
+	auth: {
+		user: configSecret.nodemailer.user,
+		pass: configSecret.nodemailer.pass
+	}
+});
+
 
 app.use(i18n.init);
 app.use(favicon(path.join(__basedir, 'public/img/favicon.ico')));
@@ -35,7 +46,7 @@ app.use(express.static(path.join(__basedir, 'public', 'images')));
 ////////////////////////////////////////////////////////////////////
 // Routes
 
-require(path.join(__basedir, 'app/controllers/routes'))(app);
+require(path.join(__basedir, 'app/controllers/routes'))(app, transporter);
 
 ////////////////////////////////////////////////////////////////////
 

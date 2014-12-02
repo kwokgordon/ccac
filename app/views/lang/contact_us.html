@@ -1,0 +1,38 @@
+<% include ./layout/header.html %>
+
+<div class="container">
+<div class="fullpage" id="content">
+
+<form action="/<%= lang %>/send_email" method="post">
+	<fieldset>
+		<input type="hidden" id="path" name="path" value="/<%= lang %><%= path %>" />
+	
+		<label for="to">To:</label>
+		<input type="text" id="to" name="to" />
+		
+		<br>
+
+		<label for="from">From:</label>
+		<input type="text" id="from" name="from" />
+		
+		<br>
+		
+		<label for="subject">Subject:</label>
+		<input type="text" id="subject" name="subject" />
+		
+		<br>
+
+		<label for="message">Message:</label>
+		<input type="text" id="message" name="message" />
+		
+		<br>
+		
+		<input type="submit" value="Send Message" />
+	</fieldset>
+</form>
+
+
+</div>
+</div>
+
+<% include ./layout/footer.html %>

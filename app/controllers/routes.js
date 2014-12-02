@@ -39,12 +39,6 @@ function setup_arg(req, res) {
 	res.locals.sidebar = req.params.sidebar;
 }
 
-function mainpageRender(req, res) {
-	setup_arg(req, res);
-	
-	res.render('lang/mainpage');
-}
-
 function fullpageRender(req, res) {
 	setup_arg(req, res);
 	
@@ -57,17 +51,17 @@ function sidepageRender(req, res) {
 	res.render('lang/sidepage');
 }
 
-module.exports = function(app) {
+module.exports = function(app, transporter) {
 	
 
 	app.get('/', function(req, res) {
 		res.render('main/index');
 	});
-	
+		
 	app.namespace('/:lang', function() {
 		
 		app.get('/', function(req, res) {
-			mainpageRender(req, res);
+			fullpageRender(req, res);
 		});
 
 		app.get('/news', function(req, res) {
@@ -76,6 +70,12 @@ module.exports = function(app) {
 
 		app.get('/about_us', function(req, res) {
 			sidepageRender(req, res);
+		});
+		
+		app.get('/about_us/contact_us', function(req, res) {
+			setup_arg(req, res);
+			
+			res.render('lang/contact_us');
 		});
 
 		app.get('/about_us/:sidebar', function(req, res) {
@@ -99,13 +99,41 @@ module.exports = function(app) {
 		});
 				
 		app.get('/events', function(req, res) {
-			fullpageRender(req, res);
+			setup_arg(req, res);
+			
+			res.render('lang/events');
 		});
 		
 		app.get('/resources', function(req, res) {
-			fullpageRender(req, res);
+			setup_arg(req, res);
+			
+			res.render('lang/resources');
 		});
+
+		// Contact Us send email
+		app.post('/send_email', function(req, res) {
 		
+			var mailOptions = {
+				from: req.body.from,
+				to: req.body.to,
+				subject: req.body.subject,
+				text: req.body.message
+			};
+			
+			transporter.sendMail(mailOptions, function(err, info) {
+				if(err) {
+					console.log("Send Email");
+					console.log(err);
+					
+					res.redirect(req.body.path);
+				} else {
+					console.log("Message sent");
+
+					res.redirect(req.body.path);
+				}
+			});
+		});
+
 /*
 		app.get('/*', function(req, res) {
 			fullpageRender(req, res);
