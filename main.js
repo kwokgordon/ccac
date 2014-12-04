@@ -33,7 +33,6 @@ var transporter = nodemailer.createTransport({
 	}
 });
 
-
 app.use(i18n.init);
 app.use(favicon(path.join(__basedir, 'public/img/favicon.ico')));
 app.use(logger('dev'));

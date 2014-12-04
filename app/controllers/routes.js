@@ -52,7 +52,6 @@ function sidepageRender(req, res) {
 }
 
 module.exports = function(app, transporter) {
-	
 
 	app.get('/', function(req, res) {
 		res.render('main/index');
@@ -107,16 +106,19 @@ module.exports = function(app, transporter) {
 		app.get('/resources', function(req, res) {
 			setup_arg(req, res);
 			
-			res.render('lang/resources');
+			res.render('lang/resources');	
 		});
 
 		// Contact Us send email
 		app.post('/send_email', function(req, res) {
 		
 			var mailOptions = {
-				from: req.body.from,
-				to: req.body.to,
-				subject: req.body.subject,
+				from: {
+					name: req.body.name,
+					address: req.body.email
+				},
+				to: "kwokgordon@gmail.com",
+				subject: "Inquiry from church website",
 				text: req.body.message
 			};
 			

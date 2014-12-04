@@ -1,38 +1,42 @@
 <% include ./layout/header.html %>
 
 <div class="container">
-<div class="fullpage" id="content">
+<% include ./sidebar/about_us_sidebar.html %>
 
-<form action="/<%= lang %>/send_email" method="post">
-	<fieldset>
-		<input type="hidden" id="path" name="path" value="/<%= lang %><%= path %>" />
+<div class="sidepage">
+	<div class="sidepage_top" id="content">
+	</div>
 	
-		<label for="to">To:</label>
-		<input type="text" id="to" name="to" />
+	<form action="/<%= lang %>/send_email" method="post">
+		<fieldset>
+			<input type="hidden" id="path" name="path" value="/<%= lang %><%= path %>" />
 		
-		<br>
+			<label for="name"><%= __('contact_us_name') %></label>
+			<br />
+			<input type="text" id="name" name="name" />
+			<br />
 
-		<label for="from">From:</label>
-		<input type="text" id="from" name="from" />
-		
-		<br>
-		
-		<label for="subject">Subject:</label>
-		<input type="text" id="subject" name="subject" />
-		
-		<br>
+			<label for="email"><%= __('contact_us_email') %></label>
+			<br />
+			<input type="email" id="email" name="email" />
+			<br />
+			
+			<label for="message"><%= __('contact_us_message') %></label>
+			<br />
+			<textarea type="text" rows="4" cols="50" id="message" name="message" ></textarea>
+			<br />
+			
+			<input type="submit" value="<%= __('contact_us_submit') %>" />
+		</fieldset>
+	</form>
 
-		<label for="message">Message:</label>
-		<input type="text" id="message" name="message" />
-		
-		<br>
-		
-		<input type="submit" value="Send Message" />
-	</fieldset>
-</form>
-
-
+	<p />
 </div>
 </div>
+
+<!-- need .html here -->
+<script>
+$("#content").load("/html/<%= lang %><%= path %>.html");
+</script>
 
 <% include ./layout/footer.html %>

@@ -11,9 +11,14 @@
 	"our_vision": "教会异象",
 	"contact_us": "联络我们",
 
-	"english_life_group": "英语",
-	"cantonese_life_group": "粤语",
-	"mandarin_life_group": "国语",
+	"contact_us_name": "姓名",
+	"contact_us_email": "电邮地址",
+	"contact_us_message": "问题/意见",
+	"contact_us_submit": "传送",
+
+	"english": "英语",
+	"cantonese": "粤语",
+	"mandarin": "国语",
 
 	"eng_junior_rock": "Junior Rock",
 	"eng_senior_rock": "Senior Rock",
@@ -40,5 +45,7 @@
 	"chinese_school": "中文学校",
 	"esl": "ESL",
 
+	"sermon": "讲道",
+	
 	"aaa": "aaa"
 }

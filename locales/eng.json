@@ -10,10 +10,15 @@
 	"our_staff": "Our Staff",
 	"our_vision": "Our Vision",
 	"contact_us": "Contact Us",
+	
+	"contact_us_name": "Name",
+	"contact_us_email": "Email",
+	"contact_us_message": "Questions/Comments",
+	"contact_us_submit": "Submit",
 
-	"english_life_group": "English",
-	"cantonese_life_group": "Cantonese",
-	"mandarin_life_group": "Mandarin",
+	"english": "English",
+	"cantonese": "Cantonese",
+	"mandarin": "Mandarin",
 
 	"eng_junior_rock": "Junior Rock",
 	"eng_senior_rock": "Senior Rock",
@@ -39,6 +44,8 @@
 	"children_ministry": "Children Ministry",
 	"chinese_school": "Chinese School",
 	"esl": "ESL",
+	
+	"sermon": "Sermon",
 	
 	"aaa": "aaa"
 }

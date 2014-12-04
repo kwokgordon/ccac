@@ -1,0 +1,34 @@
+<div class="sidebar">
+	<div class="panel-group" id="resources_sidebar" role="tablist" aria-multiselectable="true">
+		<div class="panel">
+			<div class="panel-heading" role="tab" id="sermon_heading">
+				<a class="panel-title" data-toggle="collapse" data-parent="#resources_sidebar" href="#sermon" aria-expanded="true" aria-controls="sermon">
+					<%= __('sermon') %><span class="glyphicon glyphicon-collapse-down right" />
+				</a>
+			</div>
+			<div id="sermon" class="panel-collapse collapse" role="tabpanel" aria-labelledby="sermon_heading">
+				<div class="panel-body">
+					<ul class="nav">
+						<li id="english_sermon"><a onclick="load_sermon('https://drive.google.com/folderview?ddrp=1&id=0B8aYrGxa3i7eaVppeF9lTk90LWc#list')"><%= __('english') %></a></li>
+						<li id="cantonese_sermon"><a href="#"><%= __('cantonese') %></a></li>
+						<li id="mandarin_sermon"><a href="#"><%= __('mandarin') %></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	<% if (lg_lang) { %>
+		document.getElementById("<%= lg_lang %>").className = "collapse in"; 
+	<% } %>
+	<% if (sidebar) { %>
+		document.getElementById("<%= sidebar %>").className = "active"; 
+	<% } %>
+
+	function load_sermon(path) {
+		$("#content").load(path);
+	}
+	
+</script>
