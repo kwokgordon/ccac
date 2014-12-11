@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var namespace = require('express-namespace');
 var ejs = require('ejs');
 var nodemailer = require('nodemailer');
+var cors = require('cors');
 var i18n = require('i18n');
 
 var app = express();
@@ -39,8 +40,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(cors());
 app.use(express.static(path.join(__basedir, 'public')));
-app.use(express.static(path.join(__basedir, 'public', 'images')));
 
 ////////////////////////////////////////////////////////////////////
 // Routes

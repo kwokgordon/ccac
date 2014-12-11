@@ -11,10 +11,22 @@
 		<% if (lang == "cht") { %>hl=zh_TW&<% } %>
 		<% if (lang == "chs") { %>hl=zh_CN&<% } %>
 		bgcolor=%23FFFFFF&
-		src=bethlehem.ccac@gmail.com&
-		color=%231B887A&
-		src=ccacflames@gmail.com&
-		color=%23AB8B00&
+		<% for(var i=0; i<calendar.general.length; i++) { %>
+		src=<%= calendar.general[i].email %>&
+		color=<%= calendar.general[i].color %>&
+		<% } %>
+		<% for(var i=0; i<calendar.english.length; i++) { %>
+		src=<%= calendar.english[i].email %>&
+		color=<%= calendar.english[i].color %>&
+		<% } %>
+		<% for(var i=0; i<calendar.cantonese.length; i++) { %>
+		src=<%= calendar.cantonese[i].email %>&
+		color=<%= calendar.cantonese[i].color %>&
+		<% } %>
+		<% for(var i=0; i<calendar.mandarin.length; i++) { %>
+		src=<%= calendar.mandarin[i].email %>&
+		color=<%= calendar.mandarin[i].color %>&
+		<% } %>
 		ctz=America/Edmonton" 
 	style=" border-width:0 " 
 	width="100%" 
