@@ -32,6 +32,72 @@ module.exports = {
 			'path': '/eng/life_groups/',
 			'doc_id': '1KZU05wdY3Pmwtbh-IPI8SymdhZFcd81vGkhEDtHTlEc'
 		},
+// English - Life Groups - English
+		{
+			'path': '/eng/life_groups/english/junior_rock/',
+			'doc_id': '16CnkCLk4R3FcYTRa_K9UbQn6_e45xlGrv2In7_wnwoc'
+		},
+		{
+			'path': '/eng/life_groups/english/senior_rock/',
+			'doc_id': '157xxgy6yOVnehRmYuDEzr6wrTorfwefbnsqJdk057b4'
+		},
+		{
+			'path': '/eng/life_groups/english/basic/',
+			'doc_id': '1ZEeLUiqpNLo8vpuM_TpMYKRXNedzWb9NgNN1N2kpmHA'
+		},
+		{
+			'path': '/eng/life_groups/english/clay/',
+			'doc_id': '1eMEcgwTW81ilMtpVRsc6JII6lb1Ug-Gc8v2gvIVii6k'
+		},
+		{
+			'path': '/eng/life_groups/english/married_couples/',
+			'doc_id': '1QcrWdJ75uCJUF0JbCMTqD9DD6hEHY0k8L1kY6n_LPCY'
+		},
+		{
+			'path': '/eng/life_groups/english/jericho/',
+			'doc_id': '1BXIzmd4D6vWX7OObpE4YaonYz2Vdi1-P7dL5T9QAx-c'
+		},
+// English - Life Groups - Cantonese
+		{
+			'path': '/eng/life_groups/cantonese/bethlehem/',
+			'doc_id': '1zcgQw55Bwoz3fSo25b1VNWrW0SJy4XTF-ySKvBf78M0'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/flames/',
+			'doc_id': '1OkRmgkahxJKucY2n0M6xmsq-q874V8a2opkCK5FdOvU'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/beracah/',
+			'doc_id': '15jjVpyh9_52h_Z0nGrw_ZU1eCN1_Ds1lDBaeZt9xWwQ'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/children_family/',
+			'doc_id': '1BZ5iQxVztB36O6nEAI62tNrx-evU5n4xR24p7SsB-H0'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/rainbow_groups/',
+			'doc_id': '1aGO_V-sA87gc9y091YYfCe-Wwr2Uacia1DRslvvNJhw'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/men_groups/',
+			'doc_id': '15xUmSUAXjDs3uI_eYMrHpWrFCh2EcjLrSBWxnpxjMm8'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/freedom_groups/',
+			'doc_id': '1i-oli8K-QAfO4PRTNYB5TwdrnnxSk3lBgZ-ztooxmPE'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/elijah/',
+			'doc_id': '1gGLF8SNCeHMPS2Mv6Y4o4oL1CdUYfytSKSA5Ek0UfsI'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/joshua/',
+			'doc_id': '1iwbAPS4Zq8PXLDngAfVpdJmFKI1TbPmoBmtx47HJpTs'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/caleb/',
+			'doc_id': '1GJU_L3B5MZnSYSZtAD673Q-ICheRiIO8p9Q_ojkJd1E'
+		},
 // English - Ministries
 		{
 			'path': '/eng/ministries/',
@@ -79,6 +145,31 @@ module.exports = {
 		{
 			'path': '/cht/life_groups/',
 			'doc_id': '1CEKPhN7wQdZCLXy7IJo3m0xH70Q8E-yU9x0WD80n5Sg'
+		},
+// Traditional Chinese - Life Groups - English
+		{
+			'path': '/cht/life_groups/english/junior_rock/',
+			'doc_id': '1W9XhajXl4FEFQN4jZPWxdQ8qbuLFVVbh3cDYdRwDB9c'
+		},
+		{
+			'path': '/cht/life_groups/english/senior_rock/',
+			'doc_id': '1rxIoA_TXYmz0AdYRHV5HuksBDNriGQveQ50LgiMCG24'
+		},
+		{
+			'path': '/cht/life_groups/english/basic/',
+			'doc_id': '1edoM0Vd03h2vFiFEHlCkmvVhbVM6YhPAGFNHlWUTew4'
+		},
+		{
+			'path': '/cht/life_groups/english/clay/',
+			'doc_id': '1h94goBDMRk1yWD3RMvczCdiNtV9MBSfu_mE6woBJVZ4'
+		},
+		{
+			'path': '/cht/life_groups/english/married_couples/',
+			'doc_id': '1fz6PyxWQunYwMFfw565tkYRisWUfXd82G2TXMq8H_Y0'
+		},
+		{
+			'path': '/cht/life_groups/english/jericho/',
+			'doc_id': '1LhvW-X0AEMVe3lK-eOeAS9T7rI0s0fuitv3sm09EXmI'
 		},
 // Traditional Chinese - Life Groups - Cantonese
 		{
@@ -169,10 +260,88 @@ module.exports = {
 			'path': '/chs/life_groups/',
 			'doc_id': '1zUA69fc5F4LFzSJen5FrFkC5Fl-yG6xXeGbV7SDOOfc'
 		},
+// Simplified Chinese - Life Groups - English
+		{
+			'path': '/chs/life_groups/english/junior_rock/',
+			'doc_id': '1RCTpKlTJLDrtgpvm7rPE6lEslwgc9qTdL-156o8WwS4'
+		},
+		{
+			'path': '/chs/life_groups/english/senior_rock/',
+			'doc_id': '1v1Equ-FjUUH7Zkf3hb-M3WCosBcXCCvCFv7iW4Oy4qY'
+		},
+		{
+			'path': '/chs/life_groups/english/basic/',
+			'doc_id': '1oAbE6uevV5akTuAacvPTywDWWnEFQ-EyGazkHwSPLhw'
+		},
+		{
+			'path': '/chs/life_groups/english/clay/',
+			'doc_id': '1JygbxKwAK3ll2zSdUpqLxL5eNruFzxpji4cRdbGBDeg'
+		},
+		{
+			'path': '/chs/life_groups/english/married_couples/',
+			'doc_id': '1bvaGUMB7xmy7IZZwdXM2Pz_3nDs8lfbb8b8ZbdCJrNI'
+		},
+		{
+			'path': '/chs/life_groups/english/jericho/',
+			'doc_id': '12FGLkR121ZDgWWgRAnJgqpARWByBvPvI0kidfF2UyZY'
+		},
+// Simplified Chinese - Life Groups - Cantonese
+		{
+			'path': '/chs/life_groups/cantonese/bethlehem/',
+			'doc_id': '1L4yjPH2kjMP77AsHJBWsNLlqLbNkQ8SkMKfi4gA5Hes'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/flames/',
+			'doc_id': '14U79Vj6ZhDA2QydH59BXD_rXyeWNNNYqty2Ni2cLXgE'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/beracah/',
+			'doc_id': '1DBsbemI-N8UgiNzfAqFBCJ1yrne77LkGm1EjRUbpjS4'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/children_family/',
+			'doc_id': '1p--Jk79U5yluVfMfe6sukqhJfg7Qrl6yvh5Iq6QztVA'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/rainbow_groups/',
+			'doc_id': '1TTHLB5oAHpCefs_HiqC2rKWB4uL9wunfSQlzMGr0EVk'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/men_groups/',
+			'doc_id': '1jQlKOOgxe6Rc7-jJsgtcGIGe1lZWIFShFOK67_DI5WE'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/freedom_groups/',
+			'doc_id': '1PvPJ4JPI8v9L9XnYkmzXYDMHTdVyGwtCeWTcHLgcEe8'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/elijah/',
+			'doc_id': '1DM2-rVBFQVCi2593tmGFuuGCJfxTFWuYfc-1ZcTulWE'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/joshua/',
+			'doc_id': '1wRC0hChSPp9hMN_rDxTF9qZWGgTOxmsnFZlHx5YmHpU'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/caleb/',
+			'doc_id': '1DP92uBNnBnOH1f47M3qWcOTODpn-CGLz9NOxIVqcrJU'
+		},
 // Simplified Chinese - Ministries
 		{
 			'path': '/chs/ministries/',
 			'doc_id': '1NNcSa2Z_CkAgBj02cx4P1YW5Lvr2qcSuOz8_euMoREQ'
+		},
+		{
+			'path': '/chs/ministries/children_ministry/',
+			'doc_id': '1PwhnylncYlXcXRvMf0-fWWR2tLk6uqYmFqjKIx-skOA'
+		},
+		{
+			'path': '/chs/ministries/chinese_school/',
+			'doc_id': '13R1txwDjtXbLouO4pNcrnFtkfoWISj7LDWxlTDkb_bU'
+		},
+		{
+			'path': '/chs/ministries/esl/',
+			'doc_id': '1PtJD8-8HC_J5REA5C641Y166dGKMGGy7uk_DV7Cc_6Q'
 		},
 	],
 };

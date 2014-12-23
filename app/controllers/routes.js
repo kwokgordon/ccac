@@ -3,12 +3,22 @@
 // http://url/lang/header/sidebar
 
 var path = require('path');
-var hashTable = require('node-hashtable');
 var calendars = require(path.join(__basedir, 'config/google_calendars.js'));
-var docs = require(path.join(__basedir, 'config/google_docs.js'));
 
+var docs = require(path.join(__basedir, 'config/google_docs.js'));
+var hashTable = require('node-hashtable');
+
+var lg_cal = require(path.join(__basedir, 'config/groups_calendars.js'));
+var hashTable_cal = require('node-hashtable');
+
+// Docs HashTable
 for(var i = 0; i < docs.docs.length; i++) {
 	hashTable.set(docs.docs[i].path, docs.docs[i].doc_id);
+}
+
+// Life Group Calendar HashTable
+for(var i = 0; i < lg_cal.calendars.length; i++) {
+	hashTable_cal.set(lg_cal.calendars[i].path, lg_cal.calendars[i].calendar);
 }
 
 // Argument index
@@ -32,15 +42,6 @@ String.prototype.right = function(n) {
 function setup_arg(req, res) {
 	arg = req.path.split("/");
 
-/*
-	console.log(req.path);
-	console.log(req.path.cut());
-	console.log(arg.length);
-	console.log(arg);
-	console.log(arg[lang_arg]);
-	console.log(arg[header_arg]);
-	console.log(arg[sidebar_arg]);
-*/
 	req.setLocale(req.params.lang);
 	
 	res.locals.path = req.path.cut();
@@ -50,6 +51,19 @@ function setup_arg(req, res) {
 	res.locals.sidebar = req.params.sidebar;
 	
 	res.locals.doc_id = hashTable.get(req.path);
+	res.locals.calendar = hashTable_cal.get(req.path.cut());
+
+/*
+	console.log(req.path);
+	console.log(req.path.cut());
+	console.log(arg.length);
+	console.log(arg);
+	console.log(arg[lang_arg]);
+	console.log(arg[header_arg]);
+	console.log(arg[sidebar_arg]);
+	console.log(res.locals.calendar);
+*/
+
 }
 
 function fullpageRender(req, res) {
