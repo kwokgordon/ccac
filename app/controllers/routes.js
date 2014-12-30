@@ -2,6 +2,9 @@
 //
 // http://url/lang/header/sidebar
 
+/////////////////////////////////////////////////////////////////////////////
+// pre-define function
+
 var path = require('path');
 var calendars = require(path.join(__basedir, 'config/google_calendars.js'));
 
@@ -31,6 +34,11 @@ String.prototype.cut = function() {
 	return this.substring(4); 
 };
 
+String.prototype.mobilecut = function() { 
+//	return this.replace(new RegExp('/' + "*$"),'').substring(4); 
+	return this.substring(11); 
+};
+
 String.prototype.right = function(n) {
 	if(this.length >= n) {
 		return this.substring(this.length - n);
@@ -44,15 +52,26 @@ function setup_arg(req, res) {
 
 	req.setLocale(req.params.lang);
 	
-	res.locals.path = req.path.cut();
-	res.locals.lang = req.params.lang;
-	res.locals.header = (arg.length > header_arg) ? arg[header_arg]:"";
-	res.locals.lg_lang = req.params.lg_lang;
-	res.locals.sidebar = req.params.sidebar;
-	
-	res.locals.doc_id = hashTable.get(req.path);
-	res.locals.calendar = hashTable_cal.get(req.path.cut());
+	if(arg[1] == "mobile") {
+		res.locals.path = req.path.mobilecut();
+		res.locals.lang = req.params.lang;
+		res.locals.header = (arg.length > (header_arg+1)) ? arg[header_arg+1]:"";
+		res.locals.lg_lang = req.params.lg_lang;
+		res.locals.sidebar = req.params.sidebar;
 
+		res.locals.doc_id = hashTable.get(req.path.substring(7));
+		res.locals.calendar = hashTable_cal.get(req.path.mobilecut());
+	} else {
+		res.locals.path = req.path.cut();
+		res.locals.lang = req.params.lang;
+		res.locals.header = (arg.length > header_arg) ? arg[header_arg]:"";
+		res.locals.lg_lang = req.params.lg_lang;
+		res.locals.sidebar = req.params.sidebar;
+
+		res.locals.doc_id = hashTable.get(req.path);
+		res.locals.calendar = hashTable_cal.get(req.path.cut());
+	}
+	
 /*
 	console.log(req.path);
 	console.log(req.path.cut());
@@ -61,9 +80,15 @@ function setup_arg(req, res) {
 	console.log(arg[lang_arg]);
 	console.log(arg[header_arg]);
 	console.log(arg[sidebar_arg]);
+
+	console.log(res.locals.path);
+	console.log(res.locals.lang);
+	console.log(res.locals.header);
+	console.log(res.locals.lg_lang);
+	console.log(res.locals.sidebar);
+	console.log(res.locals.doc_id);
 	console.log(res.locals.calendar);
 */
-
 }
 
 function fullpageRender(req, res) {
@@ -78,12 +103,75 @@ function sidepageRender(req, res) {
 	res.render('lang/sidepage');
 }
 
+function mobileRender(req, res) {
+	setup_arg(req, res);
+	
+	res.render('mobile/lang/fullpage');
+}
+
+function mobile_LGRender(req, res) {
+	setup_arg(req, res);
+	
+	res.render('mobile/lang/lg_page');
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// routing
+
 module.exports = function(app, transporter) {
 
+	// Welcome page
 	app.get('/', function(req, res) {
 		res.render('main/index');
 	});
 		
+	// Mobile page
+	app.namespace('/mobile', function() {
+
+		app.get('/', function(req, res) {
+			res.render('mobile/main/index');
+		});
+
+		app.get('/error', function(req, res) {
+			res.render('mobile/main/error');
+		});
+
+		app.namespace('/:lang', function() {
+			app.get('/', function(req, res) {
+				setup_arg(req, res);
+
+				res.render('mobile/lang/main');
+			});
+
+			app.get('/about_us/:sidebar', function(req, res) {
+				mobileRender(req, res);
+			});
+					
+			app.get('/life_groups/:lg_lang/:sidebar', function(req, res) {
+				mobile_LGRender(req, res);
+			});
+	
+			app.get('/ministries/:sidebar', function(req, res) {
+				mobileRender(req, res);
+			});
+					
+			app.get('/events', function(req, res) {
+				setup_arg(req, res);
+				
+				res.render('mobile/lang/events', {calendar: calendars});
+			});
+			
+			app.get('/resources', function(req, res) {
+				setup_arg(req, res);
+				
+				res.render('mobile/lang/resources');	
+			});
+			
+
+		});
+	});
+		
+	// Main page
 	app.namespace('/:lang', function() {
 		
 		app.get('/', function(req, res) {

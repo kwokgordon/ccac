@@ -1,0 +1,25 @@
+<% include ./layout/header.html %>
+
+<div data-role="page" id="one" tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
+
+	<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+		<h1 class="ui-title" role="heading" aria-level="1">
+			CCAC
+		</h1>
+	</div>
+	
+	<div role="main" class="ui-content" id="content">
+
+	</div>
+
+	<div data-role="footer" role="contentinfo" class="ui-footer ui-bar-inherit">
+		<h4 class="ui-title" role="heading" aria-level="1">Calgary Chinese Alliance Church</h4>
+	</div>
+</div>
+
+<!-- need .html here -->
+<script>
+$("#content").load("https://docs.google.com/document/d/<%= doc_id %>/pub?embedded=true");
+</script>
+
+<% include ./layout/footer.html %>

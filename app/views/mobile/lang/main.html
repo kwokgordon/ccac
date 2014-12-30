@@ -1,0 +1,89 @@
+<% include ./layout/header.html %>
+
+<div data-role="page" id="one" tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
+
+	<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+		<h1 class="ui-title" role="heading" aria-level="1">
+			CCAC
+		</h1>
+	</div>
+	
+	<div role="main" class="ui-content" id="content">
+		<div data-role="listview" class="ui-listview-outer" data-inset="true">
+			<div data-role="listview" class="ui-listview-outer" data-inset="true">
+				<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+					<li id="news"><a href="/mobile/<%= lang %>/news/"><%= __('news') %></a></li>
+				</ul>
+			</div>
+
+			<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+				<h3><%= __('about_us') %></h3>
+					<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+						<li id="when_where"><a href="/mobile/<%= lang %>/about_us/when_where/"><%= __('when_where') %></a></li>
+						<li id="our_staff"><a href="/mobile/<%= lang %>/about_us/our_staff/"><%= __('our_staff') %></a></li>
+						<li id="our_vision"><a href="/mobile/<%= lang %>/about_us/our_vision/"><%= __('our_vision') %></a></li>
+						<li id="contact_us"><a href="/mobile/<%= lang %>/about_us/contact_us/"><%= __('contact_us') %></a></li>
+					</ul>
+			</div>
+
+			<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+				<h3><%= __('life_groups') %></h3>
+				<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+					<h3><%= __('english') %></h3>
+						<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+							<li id="junior_rock"><a href="/mobile/<%= lang %>/life_groups/english/junior_rock/"><%= __('english_junior_rock') %></a></li>
+							<li id="senior_rock"><a href="/mobile/<%= lang %>/life_groups/english/senior_rock/"><%= __('english_senior_rock') %></a></li>
+							<li id="basic"><a href="/mobile/<%= lang %>/life_groups/english/basic/"><%= __('english_basic') %></a></li>
+							<li id="clay"><a href="/mobile/<%= lang %>/life_groups/english/clay/"><%= __('english_clay') %></a></li>
+							<li id="married_couples"><a href="/mobile/<%= lang %>/life_groups/english/married_couples/"><%= __('english_married_couples') %></a></li>
+							<li id="jericho"><a href="/mobile/<%= lang %>/life_groups/english/jericho/"><%= __('english_jericho') %></a></li>
+						</ul>
+				</div>
+				<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+					<h3><%= __('cantonese') %></h3>
+						<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+							<li id="bethlehem"><a href="/mobile/<%= lang %>/life_groups/cantonese/bethlehem/"><%= __('cantonese_bethlehem') %></a></li>
+							<li id="flames"><a href="/mobile/<%= lang %>/life_groups/cantonese/flames/"><%= __('cantonese_flames') %></a></li>
+							<li id="beracah"><a href="/mobile/<%= lang %>/life_groups/cantonese/beracah/"><%= __('cantonese_beracah') %></a></li>
+							<li id="children_family"><a href="/mobile/<%= lang %>/life_groups/cantonese/children_family/"><%= __('cantonese_children_family') %></a></li>
+							<li id="rainbow_groups"><a href="/mobile/<%= lang %>/life_groups/cantonese/rainbow_groups/"><%= __('cantonese_rainbow_groups') %></a></li>
+							<li id="men_groups"><a href="/mobile/<%= lang %>/life_groups/cantonese/men_groups/"><%= __('cantonese_men_groups') %></a></li>
+							<li id="freedom_groups"><a href="/mobile/<%= lang %>/life_groups/cantonese/freedom_groups/"><%= __('cantonese_freedom_groups') %></a></li>
+							<li id="elijah"><a href="/mobile/<%= lang %>/life_groups/cantonese/elijah/"><%= __('cantonese_elijah') %></a></li>
+							<li id="joshua"><a href="/mobile/<%= lang %>/life_groups/cantonese/joshua/"><%= __('cantonese_joshua') %></a></li>
+							<li id="caleb"><a href="/mobile/<%= lang %>/life_groups/cantonese/caleb/"><%= __('cantonese_caleb') %></a></li>
+						</ul>
+				</div>
+				<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+					<h3><%= __('mandarin') %></h3>
+						<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+							<li id="group_1"><a href="/mobile/<%= lang %>/life_groups/mandarin/group_1/"><%= __('mandarin_group_1') %></a></li>
+							<li id="group_2"><a href="/mobile/<%= lang %>/life_groups/mandarin/group_2/"><%= __('mandarin_group_2') %></a></li>
+						</ul>
+				</div>
+			</div>
+
+			<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+				<h3><%= __('ministries') %></h3>
+					<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+						<li id="children_ministry"><a href="/mobile/<%= lang %>/ministries/children_ministry/"><%= __('children_ministry') %></a></li>
+						<li id="chinese_school"><a href="/mobile/<%= lang %>/ministries/chinese_school/"><%= __('chinese_school') %></a></li>
+						<li id="esl"><a href="/mobile/<%= lang %>/ministries/esl/"><%= __('esl') %></a></li>
+					</ul>
+			</div>
+
+			<div data-role="listview" class="ui-listview-outer" data-inset="true">
+				<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+					<li id="events"><a href="/mobile/<%= lang %>/events/"><%= __('events') %></a></li>
+					<li id="resources"><a href="/mobile/<%= lang %>/resources/"><%= __('resources') %></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="footer" role="contentinfo" class="ui-footer ui-bar-inherit">
+		<h4 class="ui-title" role="heading" aria-level="1">Calgary Chinese Alliance Church</h4>
+	</div>
+</div>
+
+<% include ./layout/footer.html %>

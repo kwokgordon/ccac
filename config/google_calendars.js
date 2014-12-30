@@ -1,8 +1,15 @@
 module.exports = {
 	
-	'general': [],
+	'general': [
+		{
+			'name': 'CCAC',
+			'email': 'calgarychinesealliancechurch@gmail.com',
+			'color': '%232F6309'
+		}
+	],
 	'english' : [],
 	'cantonese' : [
+/*
 		{
 			'name': 'Bethlehem Fellowship',
 			'email': 'bethlehem.ccac@gmail.com',
@@ -13,6 +20,7 @@ module.exports = {
 			'email': 'ccacflames@gmail.com',
 			'color': '%23AB8B00'
 		}
+*/
 	],
 	'mandarin' : [],
 };
