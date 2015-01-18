@@ -98,6 +98,11 @@ module.exports = {
 			'path': '/eng/life_groups/cantonese/caleb/',
 			'doc_id': '1GJU_L3B5MZnSYSZtAD673Q-ICheRiIO8p9Q_ojkJd1E'
 		},
+// English - Life Groups - Mandarin
+		{
+			'path': '/eng/life_groups/mandarin/daniel/',
+			'doc_id': '1LAQCSOMV7QG4Sm7ucGPn2XvieMlJwrSXTat4W8FXsPE'
+		},
 // English - Ministries
 		{
 			'path': '/eng/ministries/',
@@ -212,6 +217,11 @@ module.exports = {
 			'path': '/cht/life_groups/cantonese/caleb/',
 			'doc_id': '1SuEE2RM5qHss86oCiJbhKo5yBQPXqLW8FlZzzjhAgos'
 		},
+// Traditional Chinese - Life Groups - Mandarin
+		{
+			'path': '/cht/life_groups/mandarin/daniel/',
+			'doc_id': '1emrpmyEIaFnb7urOo2WTsZk94pOCx98lrN90fQKDA-o'
+		},
 // Traditional Chinese - Ministries
 		{
 			'path': '/cht/ministries/',
@@ -325,6 +335,11 @@ module.exports = {
 		{
 			'path': '/chs/life_groups/cantonese/caleb/',
 			'doc_id': '1DP92uBNnBnOH1f47M3qWcOTODpn-CGLz9NOxIVqcrJU'
+		},
+// Simplified Chinese - Life Groups - Mandarin
+		{
+			'path': '/chs/life_groups/mandarin/daniel/',
+			'doc_id': '1-XvAEq2AQxqkkdUURdV54frEaYxEVPKLUYRQMKVXdiA'
 		},
 // Simplified Chinese - Ministries
 		{
