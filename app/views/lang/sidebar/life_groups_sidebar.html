@@ -32,7 +32,28 @@
 						<li id="flames"><a href="/<%= lang %>/<%= header %>/cantonese/flames/"><%= __('cantonese_flames') %></a></li>
 						<li id="beracah"><a href="/<%= lang %>/<%= header %>/cantonese/beracah/"><%= __('cantonese_beracah') %></a></li>
 						<li id="children_family"><a href="/<%= lang %>/<%= header %>/cantonese/children_family/"><%= __('cantonese_children_family') %></a></li>
-						<li id="rainbow_groups"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_groups/"><%= __('cantonese_rainbow_groups') %></a></li>
+						<li>
+							<div class="panel">
+								<div class="panel-heading" role="tab" id="rainbow_groups_heading">
+									<a class="panel-title collapsed" data-toggle="collapse" data-parent="#rainbow_groups_sidebar" href="#rainbow_groups" aria-expanded="false" aria-controls="rainbow_groups">
+										<%= __('cantonese_rainbow_groups') %><span class="glyphicon glyphicon-collapse-down right" />
+									</a>
+								</div>
+								<div id="rainbow_groups" class="panel-collapse collapse" role="tabpanel" aria-labelledby="rainbow_groups_heading">
+									<div class="panel-body">
+										<ul class="nav">
+											<li id="rainbow_1"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_1/"><%= __('cantonese_rainbow_1') %></a></li>
+											<li id="rainbow_2"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_2/"><%= __('cantonese_rainbow_2') %></a></li>
+											<li id="rainbow_3"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_3/"><%= __('cantonese_rainbow_3') %></a></li>
+											<li id="rainbow_4"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_4/"><%= __('cantonese_rainbow_4') %></a></li>
+											<li id="rainbow_5"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_5/"><%= __('cantonese_rainbow_5') %></a></li>
+											<li id="rainbow_6"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_6/"><%= __('cantonese_rainbow_6') %></a></li>
+											<li id="rainbow_7"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_7/"><%= __('cantonese_rainbow_7') %></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
 						<li id="men_groups"><a href="/<%= lang %>/<%= header %>/cantonese/men_groups/"><%= __('cantonese_men_groups') %></a></li>
 						<li id="freedom_groups"><a href="/<%= lang %>/<%= header %>/cantonese/freedom_groups/"><%= __('cantonese_freedom_groups') %></a></li>
 						<li id="elijah"><a href="/<%= lang %>/<%= header %>/cantonese/elijah/"><%= __('cantonese_elijah') %></a></li>
@@ -66,4 +87,8 @@
 	<% if (sidebar) { %>
 		document.getElementById("<%= sidebar %>").className = "active"; 
 	<% } %>
+	<% if (sidebar && sidebar.indexOf("rainbow_") != -1) { %>
+		document.getElementById("rainbow_groups").className = "active"; 
+	<% } %>
+	
 </script>

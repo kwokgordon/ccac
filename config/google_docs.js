@@ -79,6 +79,34 @@ module.exports = {
 			'doc_id': '1aGO_V-sA87gc9y091YYfCe-Wwr2Uacia1DRslvvNJhw'
 		},
 		{
+			'path': '/eng/life_groups/cantonese/rainbow_1/',
+			'doc_id': '16HI9Quxm4cjQkHesYDZKwQ8MSZ0hb82H_d6gYnhTGi8'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/rainbow_2/',
+			'doc_id': '1SJCV2KW99U41zrSZhGn7YZ5OccV7JlaIS_iZu5EeptM'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/rainbow_3/',
+			'doc_id': '1YpTD2j2z_4Z6rL_-oddiSXYgV-IqATPJf9mXuR3yg6o'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/rainbow_4/',
+			'doc_id': '1bc4vzsE1ozuLqMgZRYQx6-rC2vPc2Yi0uLSge53XGzU'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/rainbow_5/',
+			'doc_id': '1blcUe1gNpYDSNxtLyzrOkfn_L5bpnthOZbgOBSna14M'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/rainbow_6/',
+			'doc_id': '1ObTP2tFNEG6awQgqEQiDiAg-POwMv4dvp25A-rWhFbQ'
+		},
+		{
+			'path': '/eng/life_groups/cantonese/rainbow_7/',
+			'doc_id': '1CM8XiA1SqN2oA1qmysUjep8b55xyEavwYh-EEr_iSdM'
+		},
+		{
 			'path': '/eng/life_groups/cantonese/men_groups/',
 			'doc_id': '15xUmSUAXjDs3uI_eYMrHpWrFCh2EcjLrSBWxnpxjMm8'
 		},
@@ -198,6 +226,34 @@ module.exports = {
 			'doc_id': '1hD4nufyyC6ndzBRWJ2L4MuZgqFmE3fBMwhfKHA3wjL8'
 		},
 		{
+			'path': '/cht/life_groups/cantonese/rainbow_1/',
+			'doc_id': '1xlhYH5cs5m6kO2H0HOwrid1E77jPAeNjBM4wF8QWt84'
+		},
+		{
+			'path': '/cht/life_groups/cantonese/rainbow_2/',
+			'doc_id': '1gw2PhL7na2LqkKEkODiizTLXt0ZXooFAgx1s6Qrnsz4'
+		},
+		{
+			'path': '/cht/life_groups/cantonese/rainbow_3/',
+			'doc_id': '12m14_Oum3avnyE43NHVr1oTvDwhr3qI0NMlq6CQttPU'
+		},
+		{
+			'path': '/cht/life_groups/cantonese/rainbow_4/',
+			'doc_id': '1tAGM2jOMXXywYxhyQS3lfcXZc0QrDuI7dOih_JKtOqA'
+		},
+		{
+			'path': '/cht/life_groups/cantonese/rainbow_5/',
+			'doc_id': '1YhQE6K-mRw7jkYIWcnaMmLbRCD8R2bClkSL5iTD-khY'
+		},
+		{
+			'path': '/cht/life_groups/cantonese/rainbow_6/',
+			'doc_id': '1Y6TtAzOvPR2BfYgyILrTNJjIAiMQxWIZsjuT9a5t0ys'
+		},
+		{
+			'path': '/cht/life_groups/cantonese/rainbow_7/',
+			'doc_id': '110ie7dhnwzmKRWhQtBleWsYMzJieD_nYxN51IcRkVZI'
+		},
+		{
 			'path': '/cht/life_groups/cantonese/men_groups/',
 			'doc_id': '1Zhym2ERonq0O5AKjv6dMKaXE1fwS7sVn84bcgype77U'
 		},
@@ -315,6 +371,34 @@ module.exports = {
 		{
 			'path': '/chs/life_groups/cantonese/rainbow_groups/',
 			'doc_id': '1TTHLB5oAHpCefs_HiqC2rKWB4uL9wunfSQlzMGr0EVk'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/rainbow_1/',
+			'doc_id': '1BoLAoYAOuGWbj4HGkl1SW4MeVhEe_b4LinuHs7BF-8U'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/rainbow_2/',
+			'doc_id': '1KyOqpknjwJ5P2u3iNmw7Mzz6NKRtvSUyUQtcxVJthAM'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/rainbow_3/',
+			'doc_id': '15ZX1mp7-zjdKXOHNAKtLAoE_pOT8U5Ya0Sg-ymfB7Fc'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/rainbow_4/',
+			'doc_id': '122IOjbCmTZ9_AEvNrnT0jWB8uQDFG6Ftb3evuS2AqxI'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/rainbow_5/',
+			'doc_id': '1q0QrmwZGa4ZEcZIFb1SUFJUtLMp4ijXLqwrhJBzYYnE'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/rainbow_6/',
+			'doc_id': '1b6QTmoJiG5dVT7_Xs-9BLdjj6dVrmFEz94G-UEdEURM'
+		},
+		{
+			'path': '/chs/life_groups/cantonese/rainbow_7/',
+			'doc_id': '11ZJqzv2ffhl2rxoqh4eN-BDUIwYCv3pvfntUvONFmMg'
 		},
 		{
 			'path': '/chs/life_groups/cantonese/men_groups/',

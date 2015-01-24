@@ -92,9 +92,21 @@ body {
 	color: #428bca;
 }
 
+.sidebar>* {
+	color: #428bca;
+}
+
 .sidebar>.panel-group>.panel>.panel-heading>.panel-title {
 	font-size: 14pt;
 	width: 100%;
+	color: #428bca;
+}
+
+.sidebar>.panel-group>.panel>.panel-collapse>.panel-body>ul>li {
+	color: #428bca;
+}
+
+.sidebar>.panel-group>.panel>.panel-collapse>.panel-body>ul>li>.panel>.panel-heading>.panel-title {
 	color: #428bca;
 }
 
