@@ -85,6 +85,14 @@ body {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
+.panel {
+	margin-bottom: 0;
+}
+
+.panel-title {
+	font-size: 14pt;
+	color: #428bca;
+}
 
 .sidebar>ul>li {
 	font-size: 14pt;
@@ -92,17 +100,15 @@ body {
 	color: #428bca;
 }
 
-.sidebar>.panel-group>.panel>.panel-heading>.panel-title {
+.panel>.panel-heading>.panel-title {
 	font-size: 14pt;
 	width: 100%;
 	color: #428bca;
 }
 
-.sidebar>.panel-group>.panel>.panel-collapse>.panel-body>ul>li {
-	color: #428bca;
-}
-
-.sidebar>.panel-group>.panel>.panel-collapse>.panel-body>ul>li>.panel>.panel-heading>.panel-title {
+.panel>.collapse>.panel-body>ul>li {
+	font-size: 14pt;
+	width: 100%;
 	color: #428bca;
 }
 

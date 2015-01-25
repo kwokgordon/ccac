@@ -7,6 +7,9 @@
 	"resources": "资源",
 	"others": "其他",
 
+	"building_update": "Building Update",
+	"facebook": "Facebook",
+	
 	"when_where": "崇拜时间及地点",
 	"our_staff": "教牧同工",
 	"our_vision": "教会异象",
@@ -49,6 +52,9 @@
 	"mandarin_daniel": "但以理团契", 
 	
 	"children_ministry": "儿童事工",
+	"children_awana_club": "Awana Club",
+	"children_sunday_programs": "周日活动",
+	"children_special_events": "特别活动",
 	"chinese_school": "中文学校",
 	"esl": "ESL",
 

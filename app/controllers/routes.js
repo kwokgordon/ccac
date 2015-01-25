@@ -184,6 +184,12 @@ module.exports = function(app, transporter) {
 			res.render('lang/news');	
 		});
 
+		app.get('/news/:sidebar', function(req, res) {
+			setup_arg(req, res);
+			
+			res.render('lang/news');	
+		});
+		
 		app.get('/about_us', function(req, res) {
 			sidepageRender(req, res);
 		});

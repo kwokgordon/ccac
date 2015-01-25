@@ -10,12 +10,14 @@
 	
 	<div role="main" class="ui-content" id="content">
 		<div data-role="listview" class="ui-listview-outer" data-inset="true">
+<!--
 			<div data-role="listview" class="ui-listview-outer" data-inset="true">
 				<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
 					<li id="news"><a href="/mobile/<%= lang %>/news/"><%= __('news') %></a></li>
 				</ul>
 			</div>
-
+-->
+			
 			<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
 				<h3><%= __('about_us') %></h3>
 					<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
@@ -78,7 +80,20 @@
 			<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
 				<h3><%= __('ministries') %></h3>
 					<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+<!--
 						<li id="children_ministry"><a href="/mobile/<%= lang %>/ministries/children_ministry/"><%= __('children_ministry') %></a></li>
+-->
+						<li id="children_ministry">
+							<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+								<h3><%= __('children_ministry') %></h3>
+									<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+										<li id="children_ministry"><a href="/mobile/<%= lang %>/ministries/children_ministry/"><%= __('children_ministry') %></a></li>
+										<li id="children_awana_club"><a href="/mobile/<%= lang %>/ministries/children_awana_club/"><%= __('children_awana_club') %></a></li>
+										<li id="children_sunday_programs"><a href="/mobile/<%= lang %>/ministries/children_sunday_programs/"><%= __('children_sunday_programs') %></a></li>
+										<li id="children_special_events"><a href="/mobile/<%= lang %>/ministries/children_special_events/"><%= __('children_special_events') %></a></li>
+									</ul>
+							</div>
+						</li>
 						<li id="chinese_school"><a href="/mobile/<%= lang %>/ministries/chinese_school/"><%= __('chinese_school') %></a></li>
 						<li id="esl"><a href="/mobile/<%= lang %>/ministries/esl/"><%= __('esl') %></a></li>
 					</ul>
