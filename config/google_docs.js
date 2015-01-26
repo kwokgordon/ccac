@@ -148,6 +148,11 @@ module.exports = {
 			'path': '/eng/ministries/esl/',
 			'doc_id': '1MHWbiIqks5fxSQ2OXAI7ZvuDz17MtRkXGGIufejstYs'
 		},
+// English - Chinese School
+		{
+			'path': '/eng/chinese_school/',
+			'doc_id': '1odx_Z1fxXEJ3R08WyGF6fHBv-5q1W01qxRoOyqlvn94'
+		},
 // Traditional Chinese
 		{
 			'path': '/cht/',
@@ -295,6 +300,11 @@ module.exports = {
 			'path': '/cht/ministries/esl/',
 			'doc_id': '1H-1pGDGj54y_PCrE1KNOiWg3-K3X2_KzxZXL0CKsZdI'
 		},
+// Traditional Chinese - Chinese School
+		{
+			'path': '/cht/chinese_school/',
+			'doc_id': '1kdb14Wx39j9JSpdjqO_MkI02MwKBQT1aU1-W--9S5HQ'
+		},
 // Simplified Chinese
 		{
 			'path': '/chs/',
@@ -441,6 +451,11 @@ module.exports = {
 		{
 			'path': '/chs/ministries/esl/',
 			'doc_id': '1PtJD8-8HC_J5REA5C641Y166dGKMGGy7uk_DV7Cc_6Q'
+		},
+// Simplified Chinese - Chinese School
+		{
+			'path': '/chs/chinese_school/',
+			'doc_id': '13R1txwDjtXbLouO4pNcrnFtkfoWISj7LDWxlTDkb_bU'
 		},
 	],
 };

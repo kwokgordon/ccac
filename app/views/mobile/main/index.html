@@ -32,9 +32,10 @@
 		</script>			
 
 	</head>
+
 	<body class="ui-mobile-viewport ui-overlay-a">
 
-		<div data-role="page" id="one" tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
+		<div data-role="page" id="index" tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
 
 			<div role="main" class="ui-content">
 				<h2>Welcome to Calgary Chinese Alliance Church!</h2>
@@ -42,11 +43,16 @@
 
 				<br />
 
-				<a class="ui-btn" href="/mobile/eng/">English</a>
-				<a class="ui-btn" href="/mobile/cht/">繁體</a>
-				<a class="ui-btn" href="/mobile/chs/">简体</a>
+				<a class="ui-btn" onclick="to_main('/mobile/eng/')">English</a>
+				<a class="ui-btn" onclick="to_main('/mobile/cht/')">繁體</a>
+				<a class="ui-btn" onclick="to_main('/mobile/chs/')">简体</a>
 			</div>
 			
 		</div>
+		<script>
+			function to_main(s) {
+				window.location = s;
+			}
+		</script>
 	</body>
 </html>

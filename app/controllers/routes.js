@@ -154,7 +154,7 @@ module.exports = function(app, transporter) {
 			app.get('/ministries/:sidebar', function(req, res) {
 				mobileRender(req, res);
 			});
-					
+			
 			app.get('/events', function(req, res) {
 				setup_arg(req, res);
 				
@@ -219,7 +219,11 @@ module.exports = function(app, transporter) {
 		app.get('/ministries/:sidebar', function(req, res) {
 			sidepageRender(req, res);
 		});
-				
+
+		app.get('/chinese_school', function(req, res) {
+			fullpageRender(req, res);
+		});
+		
 		app.get('/events', function(req, res) {
 			setup_arg(req, res);
 			
