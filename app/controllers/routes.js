@@ -154,6 +154,10 @@ module.exports = function(app, transporter) {
 			app.get('/ministries/:sidebar', function(req, res) {
 				mobileRender(req, res);
 			});
+
+			app.get('/chinese_school', function(req, res) {
+				mobileRender(req, res);
+			});
 			
 			app.get('/events', function(req, res) {
 				setup_arg(req, res);
@@ -246,7 +250,7 @@ module.exports = function(app, transporter) {
 				},
 				to: "kwokgordon@gmail.com",
 				subject: "Inquiry from church website",
-				text: req.body.message
+				text: req.body.name + "\n" + req.body.email + "\n" + req.body.message
 			};
 			
 			transporter.sendMail(mailOptions, function(err, info) {

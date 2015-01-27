@@ -14,6 +14,10 @@ module.exports = {
 			'path': '/life_groups/cantonese/rainbow_2/',
 			'calendar': 'hdaskbk5orrub4rk5p20n6n4qo@group.calendar.google.com'
 		},
+// Ministries
+		{
+			'path': '/ministries/esl/',
+			'calendar': 'ccac.esl@gmail.com'
+		},
 	],
 };
-
