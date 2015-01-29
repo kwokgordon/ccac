@@ -3,6 +3,10 @@ body {
 	margin:0px !important;
 } 
 
+.ui-content {
+	height: 100%;
+}
+
 .ui-listview>.ui-li-static {
 	padding: 0px;
 }

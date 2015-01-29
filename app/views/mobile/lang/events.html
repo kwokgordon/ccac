@@ -2,7 +2,7 @@
 
 <div data-role="page" id="<%= path %>" tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
 
-	<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+	<div id="mobile_header" data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 		<h1 class="ui-title" role="heading" aria-level="1">
 			<%= __('events') %>
 		</h1>
@@ -55,12 +55,11 @@
 			$(document).ready(function() {
 				$("iframe").height(Math.round($(window).height() * 0.8));
 			});
-		
 		</script>
 
 	</div>
 
-	<div data-role="footer" role="contentinfo" class="ui-footer ui-bar-inherit">
+	<div id="mobile_footer" data-role="footer" data-position="fixed" role="contentinfo" class="ui-footer ui-bar-inherit">
 		<h4 class="ui-title" role="heading" aria-level="1">Calgary Chinese Alliance Church</h4>
 	</div>
 </div>

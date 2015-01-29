@@ -16,6 +16,22 @@ module.exports = {
 		},
 // Ministries
 		{
+			'path': '/ministries/children_ministry/',
+			'calendar': 'childrens@calgarychinesealliance.org'
+		},
+		{
+			'path': '/ministries/children_awana_club/',
+			'calendar': 'childrens@calgarychinesealliance.org'
+		},
+		{
+			'path': '/ministries/children_sunday_programs/',
+			'calendar': 'childrens@calgarychinesealliance.org'
+		},
+		{
+			'path': '/ministries/children_special_events/',
+			'calendar': 'childrens@calgarychinesealliance.org'
+		},
+		{
 			'path': '/ministries/esl/',
 			'calendar': 'ccac.esl@gmail.com'
 		},
