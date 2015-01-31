@@ -150,7 +150,7 @@ module.exports = function(app, transporter) {
 			app.get('/life_groups/:lg_lang/:sidebar', function(req, res) {
 				mobile_LGRender(req, res);
 			});
-	
+			
 			app.get('/ministries/:sidebar', function(req, res) {
 				mobileRender(req, res);
 			});
