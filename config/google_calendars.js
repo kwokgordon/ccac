@@ -6,11 +6,6 @@ module.exports = {
 			'email': 'websiteccac@gmail.com',
 			'color': '%23182C57'
 		},
-		{
-			'name': 'CCAC Children',
-			'email': 'lntuk5nlro8u6nerv3q16vhv60@group.calendar.google.com',
-			'color': '%2323164E'
-		},
 	],
 	'english' : [
 		{
@@ -31,6 +26,13 @@ module.exports = {
 			'name': 'CCAC Mandarin',
 			'email': 'losr4b5kb059b0tauqkb3jah14@group.calendar.google.com',
 			'color': '%23AB8B00'
+		},
+	],
+	'children': [
+		{
+			'name': 'CCAC Children',
+			'email': 'lntuk5nlro8u6nerv3q16vhv60@group.calendar.google.com',
+			'color': '%2323164E'
 		},
 	],
 };

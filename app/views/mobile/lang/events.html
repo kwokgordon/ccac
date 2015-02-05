@@ -27,22 +27,40 @@
 					hl=zh_CN&
 				<% } %>
 				bgcolor=%23FFFFFF&
+
 				<% for(var i=0; i<calendar.general.length; i++) { %>
-					src=<%= calendar.general[i].email %>&
-					color=<%= calendar.general[i].color %>&
+				src=<%= calendar.general[i].email %>&
+				color=<%= calendar.general[i].color %>&
 				<% } %>
-				<% for(var i=0; i<calendar.english.length; i++) { %>
+			
+				<% if (!sidebar || sidebar == "english") { %>
+					<% for(var i=0; i<calendar.english.length; i++) { %>
 					src=<%= calendar.english[i].email %>&
 					color=<%= calendar.english[i].color %>&
+					<% } %>
 				<% } %>
-				<% for(var i=0; i<calendar.cantonese.length; i++) { %>
+
+				<% if (!sidebar || sidebar == "cantonese") { %>
+					<% for(var i=0; i<calendar.cantonese.length; i++) { %>
 					src=<%= calendar.cantonese[i].email %>&
 					color=<%= calendar.cantonese[i].color %>&
+					<% } %>
 				<% } %>
-				<% for(var i=0; i<calendar.mandarin.length; i++) { %>
+
+				<% if (!sidebar || sidebar == "mandarin") { %>
+					<% for(var i=0; i<calendar.mandarin.length; i++) { %>
 					src=<%= calendar.mandarin[i].email %>&
 					color=<%= calendar.mandarin[i].color %>&
+					<% } %>
 				<% } %>
+
+				<% if (!sidebar || sidebar == "children") { %>
+					<% for(var i=0; i<calendar.children.length; i++) { %>
+					src=<%= calendar.children[i].email %>&
+					color=<%= calendar.children[i].color %>&
+					<% } %>
+				<% } %>
+				
 				ctz=America/Edmonton" 
 			style=" border-width:0; float:left; " 
 			width="100%" 

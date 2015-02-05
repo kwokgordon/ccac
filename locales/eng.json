@@ -7,6 +7,7 @@
 	"resources": "Resources",
 	"others": "Others",
 	
+	"church_update": "Church Update",
 	"building_update": "Building Update",
 	"facebook": "Facebook",
 	
@@ -57,6 +58,12 @@
 	"children_special_events": "Special Events",
 	"chinese_school": "Chinese School",
 	"esl": "ESL",
+
+	"events_all": "Events - All",
+	"events_cantonese": "Events - Cantonese",
+	"events_mandarin": "Events - Mandarin",
+	"events_english": "Events - English",
+	"events_children": "Events - Children",
 	
 	"sermon": "Sermon",
 	"bulletin": "Bulletin",

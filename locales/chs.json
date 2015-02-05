@@ -7,6 +7,7 @@
 	"resources": "资源",
 	"others": "其他",
 
+	"church_update": "Church Update",
 	"building_update": "Building Update",
 	"facebook": "Facebook",
 	
@@ -57,6 +58,12 @@
 	"children_special_events": "特别活动",
 	"chinese_school": "中文学校",
 	"esl": "ESL",
+
+	"events_all": "行事历 - 全部",
+	"events_cantonese": "行事历 - 粤语部",
+	"events_mandarin": "行事历 - 国语部",
+	"events_english": "行事历 - 英语部",
+	"events_children": "行事历 - 儿童部",
 
 	"sermon": "讲道",
 	"bulletin": "报告",
