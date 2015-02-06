@@ -7,6 +7,7 @@
 
 		<iframe 
 			src="https://www.google.com/calendar/embed?
+				mode=WEEK&
 				showTitle=0&
 				wkst=1&
 				<% if (lang == "eng") { %>hl=en&<% } %>
@@ -14,9 +15,18 @@
 				<% if (lang == "chs") { %>hl=zh_CN&<% } %>
 				bgcolor=%23FFFFFF&
 
-				<% for(var i=0; i<room_booking_calendar.room_booking.length; i++) { %>
-					src=<%= room_booking_calendar.room_booking[i].email %>&
-					color=<%= room_booking_calendar.room_booking[i].color %>&
+				<% if (!room) { %>
+					<% for(var i=0; i<room_booking_calendar.room_booking.length; i++) { %>
+						src=<%= room_booking_calendar.room_booking[i].email %>&
+						color=<%= room_booking_calendar.room_booking[i].color %>&
+					<% } %>
+				<% } else { %>
+					<% for(var i=0; i<room_booking_calendar.room_booking.length; i++) { %>
+						<% if (room == room_booking_calendar.room_booking[i].tag) { %>
+							src=<%= room_booking_calendar.room_booking[i].email %>&
+							color=<%= room_booking_calendar.room_booking[i].color %>&
+						<% } %>
+					<% } %>
 				<% } %>
 			
 				ctz=America/Edmonton" 

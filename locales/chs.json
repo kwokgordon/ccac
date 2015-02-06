@@ -67,6 +67,26 @@
 
 	"sermon": "讲道",
 	"bulletin": "报告",
+
+	"room_booking": "Room Booking",
+	"room_booking_all": "All Rooms",
+	"room_booking_banquet_room": "宴客厅",
+	"room_booking_fireside": "炉边厅",
+	"room_booking_gym": "体育馆",
+	"room_booking_kitchen": "厨房",
+	"room_booking_sanctuary": "礼堂",
+	"room_booking_infant_room": "婴儿房",
+	"room_booking_toddler_room": "幼儿室",
+	"room_booking_library": "图书馆",
+	"room_booking_room_201": "201 号房",
+	"room_booking_room_202": "202 号房",
+	"room_booking_room_1": "1 号房",
+	"room_booking_room_2": "2 号房",
+	"room_booking_room_3": "3 号房",
+	"room_booking_room_4": "4 号房",
+	"room_booking_room_5": "5 号房",
+	"room_booking_room_6": "6 号房",
+	"room_booking_room_8": "8 号房",
 	
 	"aaa": "aaa"
 }

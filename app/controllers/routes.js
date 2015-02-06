@@ -6,12 +6,18 @@
 // pre-define function
 
 var path = require('path');
+
+// Events Calendar
 var calendars = require(path.join(__basedir, 'config/google_calendars.js'));
+
+// Room Booking Calendar
 var room_booking = require(path.join(__basedir, 'config/room_booking_calendars.js'));
 
+// All Google Docs
 var docs = require(path.join(__basedir, 'config/google_docs.js'));
 var hashTable = require('node-hashtable');
 
+// Life Groups Calendar
 var lg_cal = require(path.join(__basedir, 'config/groups_calendars.js'));
 var hashTable_cal = require('node-hashtable');
 
@@ -52,24 +58,22 @@ function setup_arg(req, res) {
 	arg = req.path.split("/");
 
 	req.setLocale(req.params.lang);
+
+	res.locals.lang = req.params.lang;
+	res.locals.lg_lang = req.params.lg_lang;
+	res.locals.sidebar = req.params.sidebar;
+	res.locals.room = req.params.room;
+	res.locals.room_booking_calendar = room_booking;
 	
 	if(arg[1] == "mobile") {
 		res.locals.path = req.path.mobilecut();
-		res.locals.lang = req.params.lang;
 		res.locals.header = (arg.length > (header_arg+1)) ? arg[header_arg+1]:"";
-		res.locals.lg_lang = req.params.lg_lang;
-		res.locals.sidebar = req.params.sidebar;
-		res.locals.room = req.params.room;
 
 		res.locals.doc_id = hashTable.get(req.path.substring(7));
 		res.locals.calendar = hashTable_cal.get(req.path.mobilecut());
 	} else {
 		res.locals.path = req.path.cut();
-		res.locals.lang = req.params.lang;
 		res.locals.header = (arg.length > header_arg) ? arg[header_arg]:"";
-		res.locals.lg_lang = req.params.lg_lang;
-		res.locals.sidebar = req.params.sidebar;
-		res.locals.room = req.params.room;
 
 		res.locals.doc_id = hashTable.get(req.path);
 		res.locals.calendar = hashTable_cal.get(req.path.cut());
@@ -180,6 +184,20 @@ module.exports = function(app, transporter) {
 				res.render('mobile/lang/events', {calendar: calendars});
 			});			
 
+			app.get('/resources/room_booking', function(req, res) {
+				setup_arg(req, res);
+				
+				res.render('mobile/lang/room_booking');	
+//				res.render('mobile/lang/room_booking', {room_booking_calendar: room_booking});	
+			});
+			
+			app.get('/resources/room_booking/:room', function(req, res) {
+				setup_arg(req, res);
+				
+				res.render('mobile/lang/room_booking');	
+//				res.render('mobile/lang/room_booking', {room_booking_calendar: room_booking});	
+			});
+			
 		});
 	});
 		
@@ -257,13 +275,15 @@ module.exports = function(app, transporter) {
 		app.get('/resources/room_booking', function(req, res) {
 			setup_arg(req, res);
 			
-			res.render('lang/room_booking', {room_booking_calendar: room_booking});	
+			res.render('lang/room_booking');	
+//			res.render('lang/room_booking', {room_booking_calendar: room_booking});	
 		});
 
 		app.get('/resources/room_booking/:room', function(req, res) {
 			setup_arg(req, res);
 			
-			res.render('lang/room_booking', {room_booking_calendar: room_booking});	
+			res.render('lang/room_booking');	
+//			res.render('lang/room_booking', {room_booking_calendar: room_booking});	
 		});
 		
 		// Contact Us send email

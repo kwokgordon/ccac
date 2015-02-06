@@ -139,6 +139,21 @@
 						<li id="mandarin_bulletin"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-MjY5djZUUWhhWnc&usp=sharing#list" target="_blank"><%= __('mandarin') %></a></li>
 					</ul>
 				</div>
+
+				<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+					<h3><%= __('room_booking') %></h3>
+					<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+						<li id="room_booking_all"><a href="/mobile/<%= lang %>/resources/room_booking/"><%= __('room_booking_all') %></a></li>
+
+						<% for(var i=0; i<room_booking_calendar.room_booking.length; i++) { %>
+							<li id="room_booking_<%= room_booking_calendar.room_booking[i].tag %>">
+								<a href="/mobile/<%= lang %>/resources/room_booking/<%= room_booking_calendar.room_booking[i].tag %>">
+									<%= __('room_booking_' + room_booking_calendar.room_booking[i].tag) %>
+								</a>
+							</li>
+						<% } %>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
