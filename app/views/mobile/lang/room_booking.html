@@ -4,11 +4,18 @@
 
 	<div id="mobile_header" data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 		<h1 class="ui-title" role="heading" aria-level="1">
-			<%= __('room_booking') %>
+			<% if (!room) { %>
+				<%= __('room_booking_all') %>
+			<% } else { %>
+				<%= __('room_booking_' + room) %>
+			<% } %>
 		</h1>
 	</div>
 	
 	<div role="main" class="ui-content" id="content">
+		<p>
+			Please email <a href="mailto:ccacem@gmail.com">ccacem@gmail.com</a> to make booking
+		</p>
 		<iframe 
 			src="https://www.google.com/calendar/embed?
 				mode=AGENDA&
