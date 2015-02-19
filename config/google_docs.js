@@ -6,6 +6,11 @@ module.exports = {
 			'path': '/eng/',
 			'doc_id': '1-iv_Q3NgQbSn0mAFF0kP6EiQpu60LWZWS5xVOA1q_VA'
 		},
+// English - AGM
+		{
+			'path': '/eng/AGM',
+			'doc_id': '1yeDvid7f4YaU8JycVAjApr2Cq3pI_cISnTGwrQh9Sck'
+		},
 // English - About Us		
 		{
 			'path': '/eng/about_us/',
@@ -158,6 +163,11 @@ module.exports = {
 			'path': '/cht/',
 			'doc_id': '1lytSff_TQoulH4J-GJDNpHOtPhnChknadnpEBTe3tl0'
 		},
+// Traditional Chinese - AGM
+		{
+			'path': '/cht/AGM',
+			'doc_id': '1yeDvid7f4YaU8JycVAjApr2Cq3pI_cISnTGwrQh9Sck'
+		},
 // Traditional Chinese - About Us
 		{
 			'path': '/cht/about_us/',
@@ -309,6 +319,11 @@ module.exports = {
 		{
 			'path': '/chs/',
 			'doc_id': '1FWBeLGpxDkOVt6csn8FDixDKmiYq-lvMbdS_0UZf07A'
+		},
+// Simplified Chinese - AGM
+		{
+			'path': '/chs/AGM',
+			'doc_id': '1yeDvid7f4YaU8JycVAjApr2Cq3pI_cISnTGwrQh9Sck'
 		},
 // Simplified Chinese - About Us
 		{

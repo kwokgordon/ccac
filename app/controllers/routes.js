@@ -219,6 +219,10 @@ module.exports = function(app, transporter) {
 			
 			res.render('lang/news');	
 		});
+
+		app.get('/AGM', function(req, res) {
+			fullpageRender(req, res);
+		});
 		
 		app.get('/about_us', function(req, res) {
 			sidepageRender(req, res);
