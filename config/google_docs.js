@@ -8,7 +8,7 @@ module.exports = {
 		},
 // English - AGM
 		{
-			'path': '/eng/AGM',
+			'path': '/eng/AGM/',
 			'doc_id': '1yeDvid7f4YaU8JycVAjApr2Cq3pI_cISnTGwrQh9Sck'
 		},
 // English - About Us		
@@ -165,7 +165,7 @@ module.exports = {
 		},
 // Traditional Chinese - AGM
 		{
-			'path': '/cht/AGM',
+			'path': '/cht/AGM/',
 			'doc_id': '1yeDvid7f4YaU8JycVAjApr2Cq3pI_cISnTGwrQh9Sck'
 		},
 // Traditional Chinese - About Us
@@ -322,7 +322,7 @@ module.exports = {
 		},
 // Simplified Chinese - AGM
 		{
-			'path': '/chs/AGM',
+			'path': '/chs/AGM/',
 			'doc_id': '1yeDvid7f4YaU8JycVAjApr2Cq3pI_cISnTGwrQh9Sck'
 		},
 // Simplified Chinese - About Us
