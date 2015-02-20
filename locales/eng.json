@@ -6,6 +6,8 @@
 	"events": "Events",
 	"resources": "Resources",
 	"others": "Others",
+
+	"AGM": "AGM",
 	
 	"church_update": "Church Update",
 	"building_update": "Building Update",

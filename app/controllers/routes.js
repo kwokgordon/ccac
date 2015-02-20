@@ -156,6 +156,10 @@ module.exports = function(app, transporter) {
 				res.render('mobile/lang/news');
 			});
 			
+			app.get('/AGM', function(req, res) {
+				res.redirect('https://docs.google.com/document/d/1yeDvid7f4YaU8JycVAjApr2Cq3pI_cISnTGwrQh9Sck/pub?embedded=true');
+			});
+		
 			app.get('/about_us/:sidebar', function(req, res) {
 				mobileRender(req, res);
 			});
