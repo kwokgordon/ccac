@@ -10,7 +10,11 @@
 	"https://docs.google.com",
 	"https://drive.google.com",
 	"https://www.google.com",
-	"https://sites.google.com"
+	"https://sites.google.com",
+	"http://ccac-church-update.blogspot.com",
+	"http://calgarychinesealliance.org",
+	"http://church-update.calgarychinesealliance.org"
+	
   ],
   "dependencies": {
     "body-parser": "~1.0.0",

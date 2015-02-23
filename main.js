@@ -34,18 +34,6 @@ var transporter = nodemailer.createTransport({
 	}
 });
 
-var whitelist = ["https://docs.google.com",
-	"https://drive.google.com",
-	"https://www.google.com",
-	"https://sites.google.com"
-];
-
-var corsOptions = {
-	origin: function(origin, callback) {
-		var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-		callback(null, originIsWhitelisted);
-	}
-};
 
 app.use(i18n.init);
 app.use(favicon(path.join(__basedir, 'public/img/favicon.ico')));
@@ -53,10 +41,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.static(path.join(__basedir, 'public')));
-
-app.options('*', cors());
 
 ////////////////////////////////////////////////////////////////////
 // Routes

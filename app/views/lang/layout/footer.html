@@ -1,10 +1,17 @@
-<!--
-		<footer class="footer">
+		<footer id="footer" class="footer">
 			<hr />
+			<br />
 			<div class="container">
 				<small>&copy; <a href="http://calgarychinesealliance.org">Calgary Chinese Alliance Church</a>.</small>
 			</div>
 		</footer>
--->
+		
+		<script>
+			<% if (page_size && page_size == "side") { %>
+				document.getElementById("footer").className = "side_footer";
+			<% } else { %>
+				document.getElementById("footer").className = "full_footer";
+			<% } %>
+		</script>
 	</body>
 </html>

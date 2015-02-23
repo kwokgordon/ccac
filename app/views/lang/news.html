@@ -3,56 +3,35 @@
 <div class="container">
 	<% include ./sidebar/news_sidebar.html %>
 	
-	<div class="sidepage" id="content">
-
-		<div id="facebook">
-			<iframe 
-				src="//www.facebook.com/plugins/likebox.php?
-					href=https://www.facebook.com/pages/Calgary-Chinese-Alliance-Church/690506447729653?pnref=lhc&amp;
-					colorscheme=light&amp;
-					show_faces=true&amp;
-					header=true&amp;
-					stream=true&amp;
-					show_border=true&amp;
-					appId=1532523910335784" 
-				scrolling="no" 
-				frameborder="0" 
-				style="border:none; overflow:hidden;" 
-				width="100%"
-				height="600px"
-				allowTransparency="true">
-			</iframe>
-		</div>
-	
-<!--	
-	<% if (!sidebar || sidebar == "church_update") { %>
-		<div id="church_update">
-			<iframe src="http://ccac-church-update.blogspot.com/" width="100%" height="600px"></iframe>
-		</div>
-	<% } else if (sidebar == "building_update") {%>
-		<div id="building_update">
-			<iframe src="http://ccac-building-update.blogspot.com/" width="100%" height="600px"></iframe>
-		</div>
-	<% } else if (sidebar == "facebook") {%>
-		<div id="facebook">
-			<iframe 
-				src="//www.facebook.com/plugins/likebox.php?
-					href=https://www.facebook.com/pages/Calgary-Chinese-Alliance-Church/690506447729653?pnref=lhc&amp;
-					colorscheme=light&amp;
-					show_faces=true&amp;
-					header=true&amp;
-					stream=true&amp;
-					show_border=true&amp;
-					appId=1532523910335784" 
-				scrolling="no" 
-				frameborder="0" 
-				style="border:none; overflow:hidden;" 
-				width="100%"
-				height="600px"
-				allowTransparency="true">
-			</iframe>
-		</div>
-	<% } %>
+	<div class="sidepage" id="content">	
+<!--
+		<% if (!sidebar || sidebar == "church_update") { %>
+			<div id="church_update">
+				<iframe src="http://ccac-church-update.blogspot.com/" width="100%" height="100%" frameborder="0"></iframe>
+			</div>
+		<% } else if (sidebar == "building_update") {%>
+			<div id="building_update">
+				<iframe src="http://ccac-building-update.blogspot.com/" width="100%" height="100%" frameborder="0"></iframe>
+			</div>
+		<% } else if (sidebar == "facebook") {%>
+			<div id="facebook">
+				<iframe 
+					src="//www.facebook.com/plugins/likebox.php?
+						href=https://www.facebook.com/pages/Calgary-Chinese-Alliance-Church/690506447729653?pnref=lhc&amp;
+						colorscheme=light&amp;
+						show_faces=true&amp;
+						header=true&amp;
+						stream=true&amp;
+						show_border=true&amp;
+						appId=1532523910335784" 
+					scrolling="no" 
+					frameborder="0" 
+					width="100%"
+					height="100%"
+					allowTransparency="true">
+				</iframe>
+			</div>
+		<% } %>
 -->
 	</div>
 </div>
@@ -61,6 +40,8 @@
 	$(document).ready(function() {
 		$("iframe").height(Math.round($(window).height() * 0.8));
 	});
+
+	$("#content").load("http://church-update.calgarychinesealliance.org/");
 </script>
 
 <% include ./layout/footer.html %>

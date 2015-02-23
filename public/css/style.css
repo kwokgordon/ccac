@@ -69,6 +69,7 @@ body {
 	float: left;
 	position: fixed;
 	overflow-y: auto;
+	z-index: 10;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -120,3 +121,22 @@ body {
 }
 
 /* Footer */
+.full_footer {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: -10;
+}
+
+.side_footer {
+	width: 70%;
+	float: right;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: -10;
+}
+
+.side_footer>hr {
+	z-index: -10;
+}

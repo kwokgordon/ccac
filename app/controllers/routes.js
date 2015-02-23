@@ -64,6 +64,7 @@ function setup_arg(req, res) {
 	res.locals.sidebar = req.params.sidebar;
 	res.locals.room = req.params.room;
 	res.locals.room_booking_calendar = room_booking;
+	res.locals.page_size = "full";
 	
 	if(arg[1] == "mobile") {
 		res.locals.path = req.path.mobilecut();
@@ -106,6 +107,8 @@ function fullpageRender(req, res) {
 
 function sidepageRender(req, res) {
 	setup_arg(req, res);
+
+	res.locals.page_size = "side";
 	
 	res.render('lang/sidepage');
 }
@@ -157,6 +160,8 @@ module.exports = function(app, transporter) {
 			});
 			
 			app.get('/AGM', function(req, res) {
+				setup_arg(req, res);
+
 				res.redirect('https://docs.google.com/document/d/1yeDvid7f4YaU8JycVAjApr2Cq3pI_cISnTGwrQh9Sck/pub?embedded=true');
 			});
 		
