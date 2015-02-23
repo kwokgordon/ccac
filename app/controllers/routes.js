@@ -220,14 +220,20 @@ module.exports = function(app, transporter) {
 		app.get('/news', function(req, res) {
 			setup_arg(req, res);
 			
+			res.locals.page_size = "side";
+
 			res.render('lang/news');	
 		});
 
+/*
 		app.get('/news/:sidebar', function(req, res) {
 			setup_arg(req, res);
 			
+			res.locals.page_size = "side";
+			
 			res.render('lang/news');	
 		});
+*/
 
 		app.get('/AGM', function(req, res) {
 			fullpageRender(req, res);
