@@ -12,6 +12,11 @@
 	"church_update": "Church Update",
 	"building_update": "Building Update",
 	"facebook": "Facebook",
+
+	"church_update_all": "All",
+	"church_update_english": "English",
+	"church_update_cantonese": "Cantonese",
+	"church_update_mandarin": "Mandarin",
 	
 	"when_where": "When & Where",
 	"our_staff": "Our Staff",
@@ -67,7 +72,7 @@
 	"events_english": "Events - English",
 	"events_children": "Events - Children",
 	
-	"sermon": "Sermon",
+	"sermon": "Sermon Download",
 	"bulletin": "Bulletin",
 
 	"room_booking": "Room Booking",
@@ -89,6 +94,14 @@
 	"room_booking_room_5": "Room 5",
 	"room_booking_room_6": "Room 6",
 	"room_booking_room_8": "Room 8",
+
+	"sunday_service": "Sunday Service Schedule",
+	"sunday": "Sunday",
+	"sanctuary": "Sanctuary",
+	
+	"map": "Map",
+	"phone": "Phone",
+	"email": "Email",
 	
 	"aaa": "aaa"
 }

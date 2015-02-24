@@ -140,3 +140,14 @@ body {
 .side_footer>hr {
 	z-index: -10;
 }
+
+
+/* widget */
+.widget-header {
+	font-size: 13px;
+}
+
+.widget-body {
+	font-size: 13px;
+	height: 140px;
+}

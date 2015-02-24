@@ -12,6 +12,11 @@
 	"church_update": "Church Update",
 	"building_update": "Building Update",
 	"facebook": "Facebook",
+
+	"church_update_all": "全部",
+	"church_update_english": "英语部",
+	"church_update_cantonese": "粤语部",
+	"church_update_mandarin": "国语部",
 	
 	"when_where": "崇拜时间及地点",
 	"our_staff": "教牧同工",
@@ -67,7 +72,7 @@
 	"events_english": "行事历 - 英语部",
 	"events_children": "行事历 - 儿童部",
 
-	"sermon": "讲道",
+	"sermon": "讲道下载",
 	"bulletin": "报告",
 
 	"room_booking": "Room Booking",
@@ -89,6 +94,14 @@
 	"room_booking_room_5": "5 号房",
 	"room_booking_room_6": "6 号房",
 	"room_booking_room_8": "8 号房",
+
+	"sunday_service": "主日崇拜时间",
+	"sunday": "星期日",
+	"sanctuary": "礼堂",
+
+	"map": "地图",
+	"phone": "电话",
+	"email": "电邮",
 	
 	"aaa": "aaa"
 }

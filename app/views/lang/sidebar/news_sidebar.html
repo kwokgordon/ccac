@@ -1,6 +1,40 @@
 <div class="sidebar">
 	<ul class="nav navbar-nav">
-		<li id="church_update"><a href="#" onclick="loadIframe('iframe', 'http://church-update.calgarychinesealliance.org/')"><%= __('church_update') %></a></li>
+		<li>
+			<div class="panel">
+				<div class="panel-heading" role="tab" id="church_update_heading">
+					<a href="#" onclick="loadIframe('iframe', 'http://church-update.calgarychinesealliance.org/')">
+						<%= __('church_update') %>
+					</a>
+				</div>
+				<div id="church_update" class="collapse in" role="tabpanel" aria-labelledby="church_update_heading">
+					<div class="panel-body">
+						<ul class="nav">
+							<li id="church_update_all">
+								<a href="#" onclick="loadIframe('iframe', 'http://church-update.calgarychinesealliance.org/')">
+									<%= __('church_update_all') %>
+								</a>
+							</li>
+							<li id="church_update_english">
+								<a href="#" onclick="loadIframe('iframe', 'http://church-update.calgarychinesealliance.org/search/label/english')">
+									<%= __('church_update_english') %>
+								</a>
+							</li>
+							<li id="church_update_cantonese">
+								<a href="#" onclick="loadIframe('iframe', 'http://church-update.calgarychinesealliance.org/search/label/cantonese')">
+									<%= __('church_update_cantonese') %>
+								</a>
+							</li>
+							<li id="church_update_mandarin">
+								<a href="#" onclick="loadIframe('iframe', 'http://church-update.calgarychinesealliance.org/search/label/mandarin')">
+									<%= __('church_update_mandarin') %>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
 		<li id="building_update"><a href="#" onclick="loadIframe('iframe', 'http://building-update.calgarychinesealliance.org/')"><%= __('building_update') %></a></li>
 		<li id="facebook"><a href="#" onclick="loadIframe('iframe', '//www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/pages/Calgary-Chinese-Alliance-Church/690506447729653?pnref=lhc&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=1532523910335784')"><%= __('facebook') %></a></li>
 <!--
