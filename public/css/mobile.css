@@ -1,0 +1,32 @@
+body { 
+	padding:0px !important;
+	margin:0px !important;
+} 
+
+.ui-content {
+	height: 100%;
+}
+
+.ui-listview>.ui-li-static {
+	padding: 0px;
+}
+
+.ui-content .ui-listview-inset, .ui-panel-inner>.ui-listview-inset {
+	margin: 0px;
+}
+
+.ui-content .ui-listview, .ui-panel-inner>.ui-listview {
+	margin: 0px;
+}
+
+.ui-collapsible-inset, .ui-collapsible-set {
+	margin: 0px;
+}
+
+.ui-collapsible {
+	margin: 0px;
+}
+
+.ui-listview>li h1, .ui-listview>li h2, .ui-listview>li h3, .ui-listview>li h4, .ui-listview>li h5, .ui-listview>li h6 {
+	margin: 0px;
+}

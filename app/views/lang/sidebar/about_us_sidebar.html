@@ -1,0 +1,14 @@
+<div class="sidebar">
+	<ul class="nav navbar-nav">
+		<li id="when_where"><a href="/<%= lang %>/<%= header %>/when_where/"><%= __('when_where') %></a></li>
+		<li id="our_staff"><a href="/<%= lang %>/<%= header %>/our_staff/"><%= __('our_staff') %></a></li>
+		<li id="our_vision"><a href="/<%= lang %>/<%= header %>/our_vision/"><%= __('our_vision') %></a></li>
+		<li id="contact_us"><a href="/<%= lang %>/<%= header %>/contact_us/"><%= __('contact_us') %></a></li>
+	</ul>
+</div>
+
+<script>
+	<% if (sidebar) { %>
+		document.getElementById("<%= sidebar %>").className = "active"; 
+	<% } %>
+</script>

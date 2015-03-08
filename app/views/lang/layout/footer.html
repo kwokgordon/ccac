@@ -1,0 +1,38 @@
+		<footer id="footer" class="footer">
+			<hr />
+			<br />
+			<div class="container">
+				<div class="row">
+					<div name="widget" class="col-md-4">
+						<% include ./../widget/sunday_service.html %>
+					</div>
+					<div name="widget" class="col-md-4">
+						<% include ./../widget/contact_us.html %>
+					</div>
+					<div name="widget" class="col-md-4">
+						<% include ./../widget/sermon.html %>
+					</div>
+				</div>
+
+				<p />
+				<small>&copy; <a href="http://calgarychinesealliance.org">Calgary Chinese Alliance Church</a>.</small>
+			</div>
+		</footer>
+		
+		<script>
+			<% if (page_size && page_size == "side") { %>
+				document.getElementById("footer").className = "side_footer";
+				var widgets = document.getElementsByName("widget");
+				for(var i=0; i<widgets.length; i++) {
+					widgets[i].className = "col-md-3";
+				}				
+			<% } else { %>
+				document.getElementById("footer").className = "full_footer";
+				var widget = document.getElementsByName("widget");
+				for(var i=0; i<widgets.length; i++) {
+					widgets[i].className = "col-md-4";
+				}				
+			<% } %>
+		</script>
+	</body>
+</html>

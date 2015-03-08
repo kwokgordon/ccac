@@ -1,0 +1,73 @@
+<% include ./layout/header.html %>
+
+<div data-role="page" id="<%= path %>" tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
+
+	<div id="mobile_header" data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+		<h1 class="ui-title" role="heading" aria-level="1">
+			<% if (!room) { %>
+				<%= __('room_booking_all') %>
+			<% } else { %>
+				<%= __('room_booking_' + room) %>
+			<% } %>
+		</h1>
+	</div>
+	
+	<div role="main" class="ui-content" id="content">
+		<p>
+			Please email <a href="mailto:ccacem@gmail.com">ccacem@gmail.com</a> to make booking
+		</p>
+		<iframe 
+			src="https://www.google.com/calendar/embed?
+				mode=AGENDA&
+				showTitle=0&
+				showPrint=0&
+				showTabs=0&
+				showCalendars=0&
+				wkst=1&
+				<% if (lang == "eng") { %>
+					hl=en&
+				<% } %>
+				<% if (lang == "cht") { %>
+					hl=zh_TW&
+				<% } %>
+				<% if (lang == "chs") { %>
+					hl=zh_CN&
+				<% } %>
+				bgcolor=%23FFFFFF&
+
+				<% if (!room) { %>
+					<% for(var i=0; i<room_booking_calendar.room_booking.length; i++) { %>
+						src=<%= room_booking_calendar.room_booking[i].email %>&
+						color=<%= room_booking_calendar.room_booking[i].color %>&
+					<% } %>
+				<% } else { %>
+					<% for(var i=0; i<room_booking_calendar.room_booking.length; i++) { %>
+						<% if (room == room_booking_calendar.room_booking[i].tag) { %>
+							src=<%= room_booking_calendar.room_booking[i].email %>&
+							color=<%= room_booking_calendar.room_booking[i].color %>&
+						<% } %>
+					<% } %>
+				<% } %>
+				
+				ctz=America/Edmonton" 
+			style=" border-width:0; float:left; " 
+			width="100%" 
+			height="100%" 
+			frameborder="0" 
+			scrolling="no">
+		</iframe>
+	
+		<script>
+			$(document).ready(function() {
+				$("iframe").height(Math.round($(window).height() * 0.8));
+			});
+		</script>
+
+	</div>
+
+	<div id="mobile_footer" data-role="footer" data-position="fixed" role="contentinfo" class="ui-footer ui-bar-inherit">
+		<h4 class="ui-title" role="heading" aria-level="1">Calgary Chinese Alliance Church</h4>
+	</div>
+</div>
+
+<% include ./layout/footer.html %>

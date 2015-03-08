@@ -1,0 +1,50 @@
+<div class="sidebar">
+	<div class="panel-group" id="resources_panel" role="tablist" aria-multiselectable="true">
+		<div class="panel">
+			<div class="panel-heading" role="tab" id="sermon_heading">
+				<a class="panel-title" data-toggle="collapse" data-parent="#resources_sidebar" href="#sermon" aria-expanded="true" aria-controls="sermon">
+					<%= __('sermon') %><span class="glyphicon glyphicon-collapse-down right" />
+				</a>
+			</div>
+			<div id="sermon" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sermon_heading">
+				<div class="panel-body">
+					<ul class="nav">
+						<li id="english_sermon"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-QXRrV0x4YmNJUjA&usp=sharing#list" ><%= __('english') %></a></li>
+						<li id="cantonese_sermon"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-Z0ZPRVBNT1BhY1k&usp=sharing#list" ><%= __('cantonese') %></a></li>
+						<li id="mandarin_sermon"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-bEI5MlBtUUJfWjA&usp=sharing#list" ><%= __('mandarin') %></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="panel">
+			<div class="panel-heading" role="tab" id="bulletin_heading">
+				<a class="panel-title" data-toggle="collapse" data-parent="#resources_sidebar" href="#bulletin" aria-expanded="true" aria-controls="bulletin">
+					<%= __('bulletin') %><span class="glyphicon glyphicon-collapse-down right" />
+				</a>
+			</div>
+			<div id="bulletin" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="bulletin_heading">
+				<div class="panel-body">
+					<ul class="nav">
+						<li id="english_bulletin"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-QmJFOUU2YlRNVHc&usp=sharing#list" ><%= __('english') %></a></li>
+						<li id="cantonese_bulletin"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-eDVsdGprV0Yyd2c&usp=sharing#list" ><%= __('cantonese') %></a></li>
+						<li id="mandarin_bulletin"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-MjY5djZUUWhhWnc&usp=sharing#list" ><%= __('mandarin') %></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	<% if (lg_lang) { %>
+		document.getElementById("<%= lg_lang %>").className = "collapse in"; 
+	<% } %>
+	<% if (sidebar) { %>
+		document.getElementById("<%= sidebar %>").className = "active"; 
+	<% } %>
+
+	function load_sermon(path) {
+		$("#content").load(path);
+	}
+	
+</script>

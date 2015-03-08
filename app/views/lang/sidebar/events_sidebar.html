@@ -1,0 +1,22 @@
+<div class="sidebar">
+	<ul class="nav">
+		<li>
+			<div class="panel">
+				<div class="panel-heading" role="tab" id="events_heading">
+					<%= __('events') %>
+				</div>
+				<div id="events" class="collapse in" role="tabpanel" aria-labelledby="events_heading">
+					<div class="panel-body">
+						<ul class="nav">
+							<li id="events_all"><a href="/<%= lang %>/<%= header %>/"><%= __('events_all') %></a></li>
+							<li id="events_cantonese"><a href="/<%= lang %>/<%= header %>/cantonese/"><%= __('events_cantonese') %></a></li>
+							<li id="events_mandarin"><a href="/<%= lang %>/<%= header %>/mandarin/"><%= __('events_mandarin') %></a></li>
+							<li id="events_english"><a href="/<%= lang %>/<%= header %>/english/"><%= __('events_english') %></a></li>
+							<li id="events_children"><a href="/<%= lang %>/<%= header %>/children/"><%= __('events_children') %></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

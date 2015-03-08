@@ -1,0 +1,94 @@
+<div class="sidebar">
+	<div class="panel-group" id="life_group_sidebar" role="tablist" aria-multiselectable="true">
+		<div class="panel">
+			<div class="panel-heading" role="tab" id="english_heading">
+				<a class="panel-title" data-toggle="collapse" data-parent="#life_group_sidebar" href="#english" aria-expanded="true" aria-controls="english">
+					<%= __('english') %><span class="glyphicon glyphicon-collapse-down right" />
+				</a>
+			</div>
+			<div id="english" class="panel-collapse collapse" role="tabpanel" aria-labelledby="english_heading">
+				<div class="panel-body">
+					<ul class="nav">
+						<li id="junior_rock"><a href="/<%= lang %>/<%= header %>/english/junior_rock/"><%= __('english_junior_rock') %></a></li>
+						<li id="senior_rock"><a href="/<%= lang %>/<%= header %>/english/senior_rock/"><%= __('english_senior_rock') %></a></li>
+						<li id="basic"><a href="/<%= lang %>/<%= header %>/english/basic/"><%= __('english_basic') %></a></li>
+						<li id="clay"><a href="/<%= lang %>/<%= header %>/english/clay/"><%= __('english_clay') %></a></li>
+						<li id="married_couples"><a href="/<%= lang %>/<%= header %>/english/married_couples/"><%= __('english_married_couples') %></a></li>
+						<li id="jericho"><a href="/<%= lang %>/<%= header %>/english/jericho/"><%= __('english_jericho') %></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="panel">
+			<div class="panel-heading" role="tab" id="cantonese_heading">
+				<a class="panel-title collapsed" data-toggle="collapse" data-parent="#life_group_sidebar" href="#cantonese" aria-expanded="false" aria-controls="cantonese">
+					<%= __('cantonese') %><span class="glyphicon glyphicon-collapse-down right" />
+				</a>
+			</div>
+			<div id="cantonese" class="panel-collapse collapse" role="tabpanel" aria-labelledby="cantonese_heading">
+				<div class="panel-body">
+					<ul class="nav">
+						<li id="bethlehem"><a href="/<%= lang %>/<%= header %>/cantonese/bethlehem/"><%= __('cantonese_bethlehem') %></a></li>
+						<li id="flames"><a href="/<%= lang %>/<%= header %>/cantonese/flames/"><%= __('cantonese_flames') %></a></li>
+						<li id="beracah"><a href="/<%= lang %>/<%= header %>/cantonese/beracah/"><%= __('cantonese_beracah') %></a></li>
+						<li id="children_family"><a href="/<%= lang %>/<%= header %>/cantonese/children_family/"><%= __('cantonese_children_family') %></a></li>
+						<li>
+							<div class="panel">
+								<div class="panel-heading" role="tab" id="rainbow_groups_heading">
+									<a class="panel-title collapsed" data-toggle="collapse" data-parent="#rainbow_groups_sidebar" href="#rainbow_groups" aria-expanded="false" aria-controls="rainbow_groups">
+										<%= __('cantonese_rainbow_groups') %><span class="glyphicon glyphicon-collapse-down right" />
+									</a>
+								</div>
+								<div id="rainbow_groups" class="panel-collapse collapse" role="tabpanel" aria-labelledby="rainbow_groups_heading">
+									<div class="panel-body">
+										<ul class="nav">
+											<li id="rainbow_1"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_1/"><%= __('cantonese_rainbow_1') %></a></li>
+											<li id="rainbow_2"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_2/"><%= __('cantonese_rainbow_2') %></a></li>
+											<li id="rainbow_3"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_3/"><%= __('cantonese_rainbow_3') %></a></li>
+											<li id="rainbow_4"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_4/"><%= __('cantonese_rainbow_4') %></a></li>
+											<li id="rainbow_5"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_5/"><%= __('cantonese_rainbow_5') %></a></li>
+											<li id="rainbow_6"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_6/"><%= __('cantonese_rainbow_6') %></a></li>
+											<li id="rainbow_7"><a href="/<%= lang %>/<%= header %>/cantonese/rainbow_7/"><%= __('cantonese_rainbow_7') %></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li id="men_groups"><a href="/<%= lang %>/<%= header %>/cantonese/men_groups/"><%= __('cantonese_men_groups') %></a></li>
+						<li id="freedom_groups"><a href="/<%= lang %>/<%= header %>/cantonese/freedom_groups/"><%= __('cantonese_freedom_groups') %></a></li>
+						<li id="elijah"><a href="/<%= lang %>/<%= header %>/cantonese/elijah/"><%= __('cantonese_elijah') %></a></li>
+						<li id="joshua"><a href="/<%= lang %>/<%= header %>/cantonese/joshua/"><%= __('cantonese_joshua') %></a></li>
+						<li id="caleb"><a href="/<%= lang %>/<%= header %>/cantonese/caleb/"><%= __('cantonese_caleb') %></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="panel">
+			<div class="panel-heading" role="tab" id="mandarin_heading">
+				<a class="panel-title collapsed" data-toggle="collapse" data-parent="#life_group_sidebar" href="#mandarin" aria-expanded="false" aria-controls="mandarin">
+					<%= __('mandarin') %><span class="glyphicon glyphicon-collapse-down right" />
+				</a>
+			</div>
+			<div id="mandarin" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mandarin_heading">
+				<div class="panel-body">
+					<ul class="nav">
+						<li id="daniel"><a href="/<%= lang %>/<%= header %>/mandarin/daniel/"><%= __('mandarin_daniel') %></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	<% if (lg_lang) { %>
+		document.getElementById("<%= lg_lang %>").className = "collapse in"; 
+	<% } %>
+	<% if (sidebar) { %>
+		document.getElementById("<%= sidebar %>").className = "active"; 
+	<% } %>
+	<% if (sidebar && sidebar.indexOf("rainbow_") != -1) { %>
+		document.getElementById("rainbow_groups").className = "collapse in"; 
+	<% } %>
+	
+</script>

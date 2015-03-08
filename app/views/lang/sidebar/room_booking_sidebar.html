@@ -1,0 +1,26 @@
+<div class="sidebar">
+	<ul class="nav">
+		<li>
+			<div class="panel">
+				<div class="panel-heading" role="tab" id="room_booking_heading">
+					<%= __('room_booking') %>
+				</div>
+				<div id="room_booking" class="collapse in" role="tabpanel" aria-labelledby="room_booking_heading">
+					<div class="panel-body">
+						<ul class="nav">
+							<li id="room_booking_all"><a href="/<%= lang %>/<%= header %>/room_booking/"><%= __('room_booking_all') %></a></li>
+
+							<% for(var i=0; i<room_booking_calendar.room_booking.length; i++) { %>
+								<li id="room_booking_<%= room_booking_calendar.room_booking[i].tag %>">
+									<a href="/<%= lang %>/<%= header %>/room_booking/<%= room_booking_calendar.room_booking[i].tag %>">
+										<%= __('room_booking_' + room_booking_calendar.room_booking[i].tag) %>
+									</a>
+								</li>
+							<% } %>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
