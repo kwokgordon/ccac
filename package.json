@@ -21,6 +21,7 @@
 	"ejs": "~0.8.5",
     "express": "~4.2.0",
     "express-namespace": "~0.1.1",
+	"aws-sdk": "~2.1.25",
     "morgan": "~1.0.0",
     "nodemon": "~1.2.0",
     "serve-favicon": "~2.0.0",

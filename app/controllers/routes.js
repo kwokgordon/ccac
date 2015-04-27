@@ -128,10 +128,32 @@ function mobile_LGRender(req, res) {
 /////////////////////////////////////////////////////////////////////////////
 // routing
 
-module.exports = function(app, transporter) {
+module.exports = function(app, transporter, s3) {
 
 	// Welcome page
 	app.get('/', function(req, res) {
+		res.render('main/index');
+	});
+	
+	app.get('/test', function(req, res) {
+		console.log("I am in test");
+
+		var params = {Bucket: 'calgarychinesealliancechurch', Key: 'myKey', Body: 'Hello!'};
+		
+		s3.putObject(params, function(err, data) {
+			console.log("I am in s3");
+			
+			if (err) {
+				console.log("I am in if");
+				console.log(err);
+			}
+			else {
+				console.log("I am in else");
+				console.log(data);
+				console.log("Successfully uploaded data to bucket");
+			}
+		});
+
 		res.render('main/index');
 	});
 		

@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var namespace = require('express-namespace');
 var ejs = require('ejs');
+var AWS = require('aws-sdk');
 var nodemailer = require('nodemailer');
 var cors = require('cors');
 var i18n = require('i18n');
@@ -34,6 +35,7 @@ var transporter = nodemailer.createTransport({
 	}
 });
 
+var s3 = new AWS.S3();
 
 app.use(i18n.init);
 app.use(favicon(path.join(__basedir, 'public/img/favicon.ico')));
@@ -47,7 +49,7 @@ app.use(express.static(path.join(__basedir, 'public')));
 ////////////////////////////////////////////////////////////////////
 // Routes
 
-require(path.join(__basedir, 'app/controllers/routes'))(app, transporter);
+require(path.join(__basedir, 'app/controllers/routes'))(app, transporter, s3);
 
 ////////////////////////////////////////////////////////////////////
 
