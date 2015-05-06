@@ -196,9 +196,9 @@ module.exports = function(app) {
 		res.locals.s3_credential = amz_credential;
 		res.locals.s3_date = amz_date;
 		res.locals.s3_signature = signature;
-*/
 		res.locals.s3_id = process.env.AWS_ACCESS_KEY_ID;
 		res.locals.s3_key = process.env.AWS_SECRET_KEY;
+*/
 				
 		res.render('main/upload_sunday_service');
 	});
