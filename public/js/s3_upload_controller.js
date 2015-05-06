@@ -3,6 +3,10 @@ var ccac = angular.module('ccacApp', ['ui.bootstrap']);
 ccac.controller('CCACController', function ($scope, $http, $log) {
 
 	$scope.formData = {};
+	
+	$scope.s3_id = '';
+	$scope.s3_key = '';
+	
 	$scope.title = '';
 	$scope.key = {
 		title: 'title',
