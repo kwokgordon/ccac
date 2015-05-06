@@ -40,8 +40,8 @@ ccac.controller('CCACController', function ($scope, $http, $log) {
 	};
 	
 	$scope.creds = {
-		access_key: AWS_ACCESS_KEY_ID,
-		secret_key: AWS_SECRET_KEY,
+		access_key: $scope.s3_id,
+		secret_key: $scope.s3_key,
 		bucket: 'calgarychinesealliancechurch',
 		region: 'us-west-2'
 	}
