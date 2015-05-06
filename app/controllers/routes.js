@@ -6,6 +6,19 @@
 // pre-define function
 
 var path = require('path');
+var crypto = require('crypto-js');
+var configSecret = require(path.join(__basedir, 'config/secret.js'));
+var http_auth = require('http-auth');
+var AWS = require('aws-sdk');
+var s3 = new AWS.S3();
+
+var basic = http_auth.basic({
+		realm: 'Secret Text'
+	}, function(username, password, callback) {
+		callback(username == "ccac" && password == "ccac_admin");
+});
+
+var auth = http_auth.connect(basic);
 
 // Events Calendar
 var calendars = require(path.join(__basedir, 'config/google_calendars.js'));
@@ -126,37 +139,121 @@ function mobile_LGRender(req, res) {
 }
 
 /////////////////////////////////////////////////////////////////////////////
+// AWS S3 Signing Key
+function getSignature(key, dateStamp, regionName, serviceName, string_to_sign) {
+
+	var kDate= crypto.HmacSHA256(dateStamp, "AWS4" + key);
+	var kRegion= crypto.HmacSHA256(regionName, kDate);
+	var kService=crypto.HmacSHA256(serviceName, kRegion);
+	var kSigning= crypto.HmacSHA256("aws4_request", kService);
+
+	var kSignature= crypto.HmacSHA256(string_to_sign, kSigning);
+
+	return kSignature;
+}
+
+/////////////////////////////////////////////////////////////////////////////
 // routing
 
-module.exports = function(app, transporter, s3) {
+module.exports = function(app) {
 
 	// Welcome page
 	app.get('/', function(req, res) {
 		res.render('main/index');
 	});
+
+	app.get('/admin', auth, function(req, res) {
+		res.render('main/admin');
+	});
+
+	app.get('/upload_sunday_service', auth, function(req, res) {
+/*
+		var temp_date = new Date();
+		
+		var acl = "public-read";
+		var amz_algorithm = "AWS4-HMAC-SHA256";
+		var amz_credential = configSecret.aws.s3.access_key + "/" + temp_date.yyyymmdd() + "/" + configSecret.aws.s3.region + "/s3/aws4_request";
+		var amz_date = temp_date.iso8601();
+		
+		var policy = {
+			"expiration": new Date(temp_date.getFullYear(), temp_date.getMonth(), temp_date.getDate()+10).toISOString(),
+			"conditions": [
+				{"bucket": configSecret.aws.s3.bucket},
+				["starts-with", "$key", ""],
+				{"acl": acl},
+				{"x-amz-algorithm": amz_algorithm},
+				{"x-amz-credential": amz_credential},
+				{"x-amz-date": amz_date},
+			]
+		};
+
+		var string_to_sign = new Buffer(JSON.stringify(policy)).toString('base64');
+		var signature = getSignature("Im+wa/Q7Iwj2/+GbwcEydRIbeDfIE91WaKrVvr1k", temp_date.yyyymmdd(), configSecret.aws.s3.region, "s3", string_to_sign);
+		
+		res.locals.s3_acl = acl;
+		res.locals.s3_policy = string_to_sign;
+		res.locals.s3_algorithm = amz_algorithm;
+		res.locals.s3_credential = amz_credential;
+		res.locals.s3_date = amz_date;
+		res.locals.s3_signature = signature;
+*/
+		
+		res.render('main/upload_sunday_service');
+	});
 	
 	app.get('/test', function(req, res) {
-		console.log("I am in test");
+		var temp_date = new Date();
+		var policy = {
+			"expiration": new Date(temp_date.getFullYear(), temp_date.getMonth(), temp_date.getDate()+10).toISOString(),
+			"conditions": [
+				{"acl": "public-read"},
+				{"bucket": configSecret.aws.s3.bucket},
+				["starts-with", "$key", ""],
+				{"x-amz-date": temp_date.iso8601()},
+				{"x-amz-algorithm": "AWS4-HMAC-SHA256"},
+				{"x-amz-credential": configSecret.aws.s3.access_key + "/" + temp_date.yyyymmdd() + "/" + configSecret.aws.s3.region + "/s3/aws4_request" },
+			]
+		};
 
-		var params = {Bucket: 'calgarychinesealliancechurch', Key: 'myKey', Body: 'Hello!'};
+		var string_to_sign = new Buffer(JSON.stringify(policy)).toString('base64');
+		var signature = getSignature("Im+wa/Q7Iwj2/+GbwcEydRIbeDfIE91WaKrVvr1k", temp_date.yyyymmdd(), configSecret.aws.s3.region, "s3", string_to_sign);
 		
-		s3.putObject(params, function(err, data) {
-			console.log("I am in s3");
-			
-			if (err) {
-				console.log("I am in if");
-				console.log(err);
-			}
-			else {
-				console.log("I am in else");
-				console.log(data);
-				console.log("Successfully uploaded data to bucket");
-			}
+		res.locals.s3_date = temp_date.yyyymmdd();
+		res.locals.s3_dateISO = temp_date.iso8601();
+		res.locals.s3_region = configSecret.aws.s3.region;
+		res.locals.s3_aws_key = configSecret.aws.s3.access_key;
+		res.locals.s3_policy = string_to_sign;
+		res.locals.s3_signature = signature;
+		
+		res.render('main/test');
+	});
+
+	app.get('/test1', function(req, res) {
+		var params = {
+			Bucket: configSecret.aws.s3.bucket
+		};
+		
+		s3.getBucketWebsite(params, function(err, data) {
+			if (err) console.log(err, err.stack);
+			else console.log(data);
+		});
+		
+		res.render('main/test');
+	});
+
+	app.get('/test2', function(req, res) {
+		var params = {
+			Bucket: configSecret.aws.s3.bucket
+		};
+		
+		s3.listObjects(params, function(err, data) {
+			if (err) console.log(err, err.stack);
+			else console.log(data);
 		});
 
-		res.render('main/index');
+		res.render('main/test');
 	});
-		
+
 	// Mobile page
 	app.namespace('/mobile', function() {
 
@@ -262,12 +359,6 @@ module.exports = function(app, transporter, s3) {
 		app.get('/about_us', function(req, res) {
 			sidepageRender(req, res);
 		});
-		
-		app.get('/about_us/contact_us', function(req, res) {
-			setup_arg(req, res);
-			
-			res.render('lang/contact_us');
-		});
 
 		app.get('/about_us/:sidebar', function(req, res) {
 			sidepageRender(req, res);
@@ -329,32 +420,6 @@ module.exports = function(app, transporter, s3) {
 //			res.render('lang/room_booking', {room_booking_calendar: room_booking});	
 		});
 		
-		// Contact Us send email
-		app.post('/send_email', function(req, res) {
-		
-			var mailOptions = {
-				from: {
-					name: req.body.name,
-					address: req.body.email
-				},
-				to: "kwokgordon@gmail.com",
-				subject: "Inquiry from church website",
-				text: req.body.name + "\n" + req.body.email + "\n" + req.body.message
-			};
-			
-			transporter.sendMail(mailOptions, function(err, info) {
-				if(err) {
-					console.log("Send Email");
-					console.log(err);
-					
-					res.redirect(req.body.path);
-				} else {
-					console.log("Message sent");
-
-					res.redirect(req.body.path);
-				}
-			});
-		});
 
 /*
 		app.get('/*', function(req, res) {
@@ -364,3 +429,22 @@ module.exports = function(app, transporter, s3) {
 	});
 }
 
+/////////////////////////////////////////////////////////////////////////////
+// Other prototype
+Date.prototype.yyyymmdd = function() {
+	var yyyy = this.getFullYear().toString();
+	var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+	var dd  = this.getDate().toString();
+	return yyyy + (mm[1]?mm:"0"+mm[0]) + (dd[1]?dd:"0"+dd[0]); // padding
+};
+
+Date.prototype.iso8601 = function() {
+	var yyyy = this.getFullYear().toString();
+	var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
+	var dd  = this.getDate().toString();
+	var hh  = this.getHours().toString();
+	var nn  = this.getMinutes().toString();
+	var ss  = this.getSeconds().toString();
+
+	return yyyy + (mm[1]?mm:"0"+mm[0]) + (dd[1]?dd:"0"+dd[0]) + "T" + (dd[1]?dd:"0"+dd[0]) + (nn[1]?nn:"0"+nn[0]) + (ss[1]?ss:"0"+ss[0]) + "Z" ; // padding
+};

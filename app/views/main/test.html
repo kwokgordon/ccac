@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- META -->
+		<title>Calgary Chinese Alliance Church</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		<!-- STYLE -->
+		<link rel="shortcut icon" type="image/ico" href="/img/favicon.ico" />
+		<link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/style.css">
+
+		<script src="/bower/jquery/dist/jquery.min.js"></script>
+		<script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+		<form action="http://calgarychinesealliancechurch.s3-us-west-2.amazonaws.com/" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="acl" value="public-read" />
+			<input type="hidden" name="policy" value="<%= s3_policy %>" />
+			<input type="hidden" name="x-amz-algorithm" value="AWS4-HMAC-SHA256" />
+			<input type="hidden" name="x-amz-credential" value="<%= s3_aws_key %>/<%= s3_date %>/<%= s3_region %>/s3/aws4_request" />
+			<input type="hidden" name="x-amz-date" value="<%= s3_dateISO %>" />
+			<input type="hidden" name="x-amz-signature" value="<%= s3_signature %>" />
+
+			Key to upload: <input type="input" name="key" value="test" /><br />
+			File: <input type="file" name="file" /> <br />
+
+			<input type="submit" name="submit" value="Upload to Amazon S3" />
+
+		</form>
+		
+		<hr>
+		<hr>
+
+		S3
+		<audio controls>
+			<source src="http://calgarychinesealliancechurch.s3-us-west-2.amazonaws.com/song.mp3" type="audio/mpeg">
+		</audio>
+
+		Google 1
+		<audio controls>
+			<source src="https://drive.google.com/open?id=0B4GSugZvzCPbbjZCNWRpbXllUzQ&authuser=0" type="audio/mpeg">
+		</audio>
+
+		Google 2
+		<audio controls>
+			<source src="https://docs.google.com/uc?export=download&confirm=cWmT&id=0B4GSugZvzCPbbjZCNWRpbXllUzQ" type="audio/mpeg">
+		</audio>
+
+		Google 3
+		<audio controls>
+			<source src="https://drive.google.com/file/d/0B4GSugZvzCPbbjZCNWRpbXllUzQ/view?usp=sharing" type="audio/mpeg">
+		</audio>
+		
+	</body>
+</html>

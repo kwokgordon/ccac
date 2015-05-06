@@ -7,8 +7,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var namespace = require('express-namespace');
 var ejs = require('ejs');
-var AWS = require('aws-sdk');
-var nodemailer = require('nodemailer');
 var cors = require('cors');
 var i18n = require('i18n');
 
@@ -27,16 +25,6 @@ i18n.configure({
 	directory: __basedir + '/locales'
 });
 
-var transporter = nodemailer.createTransport({
-	service: 'Gmail',
-	auth: {
-		user: configSecret.nodemailer.user,
-		pass: configSecret.nodemailer.pass
-	}
-});
-
-var s3 = new AWS.S3();
-
 app.use(i18n.init);
 app.use(favicon(path.join(__basedir, 'public/img/favicon.ico')));
 app.use(logger('dev'));
@@ -49,7 +37,7 @@ app.use(express.static(path.join(__basedir, 'public')));
 ////////////////////////////////////////////////////////////////////
 // Routes
 
-require(path.join(__basedir, 'app/controllers/routes'))(app, transporter, s3);
+require(path.join(__basedir, 'app/controllers/routes'))(app);
 
 ////////////////////////////////////////////////////////////////////
 
