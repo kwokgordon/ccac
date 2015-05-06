@@ -201,6 +201,7 @@ module.exports = function(app) {
 		res.render('main/upload_sunday_service');
 	});
 	
+/*
 	app.get('/test', function(req, res) {
 		var temp_date = new Date();
 		var policy = {
@@ -228,31 +229,7 @@ module.exports = function(app) {
 		res.render('main/test');
 	});
 
-	app.get('/test1', function(req, res) {
-		var params = {
-			Bucket: configSecret.aws.s3.bucket
-		};
-		
-		s3.getBucketWebsite(params, function(err, data) {
-			if (err) console.log(err, err.stack);
-			else console.log(data);
-		});
-		
-		res.render('main/test');
-	});
-
-	app.get('/test2', function(req, res) {
-		var params = {
-			Bucket: configSecret.aws.s3.bucket
-		};
-		
-		s3.listObjects(params, function(err, data) {
-			if (err) console.log(err, err.stack);
-			else console.log(data);
-		});
-
-		res.render('main/test');
-	});
+*/	
 
 	// Mobile page
 	app.namespace('/mobile', function() {
