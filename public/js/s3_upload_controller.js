@@ -36,14 +36,16 @@ ccac.controller('CCACController', function ($scope, $http, $log) {
 	};
 	
 	$scope.creds = {
+		access_key: AWS_ACCESS_KEY_ID,
+		secret_key: AWS_SECRET_KEY,
 		bucket: 'calgarychinesealliancechurch',
 		region: 'us-west-2'
 	}
  
 	$scope.upload = function(str) {
 		// Configure The S3 Object 
-//		AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
-//		AWS.config.region = $scope.creds.region;
+		AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
+		AWS.config.region = $scope.creds.region;
 		var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
 
 		if(!$scope.dt) {
