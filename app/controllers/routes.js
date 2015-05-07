@@ -6,16 +6,15 @@
 // pre-define function
 
 var path = require('path');
-var crypto = require('crypto-js');
 var configSecret = require(path.join(__basedir, 'config/secret.js'));
 var http_auth = require('http-auth');
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3();
 
 var basic = http_auth.basic({
-		realm: 'Secret Text'
+		realm: configSecret.http_auth.secret
 	}, function(username, password, callback) {
-		callback(username == "ccac" && password == "ccac_admin");
+		callback(username == configSecret.http_auth.username && password == configSecret.http_auth.password);
 });
 
 var auth = http_auth.connect(basic);
@@ -139,20 +138,6 @@ function mobile_LGRender(req, res) {
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// AWS S3 Signing Key
-function getSignature(key, dateStamp, regionName, serviceName, string_to_sign) {
-
-	var kDate= crypto.HmacSHA256(dateStamp, "AWS4" + key);
-	var kRegion= crypto.HmacSHA256(regionName, kDate);
-	var kService=crypto.HmacSHA256(serviceName, kRegion);
-	var kSigning= crypto.HmacSHA256("aws4_request", kService);
-
-	var kSignature= crypto.HmacSHA256(string_to_sign, kSigning);
-
-	return kSignature;
-}
-
-/////////////////////////////////////////////////////////////////////////////
 // routing
 
 module.exports = function(app) {
@@ -167,38 +152,9 @@ module.exports = function(app) {
 	});
 
 	app.get('/upload_sunday_service', auth, function(req, res) {
-/*
-		var temp_date = new Date();
-		
-		var acl = "public-read";
-		var amz_algorithm = "AWS4-HMAC-SHA256";
-		var amz_credential = configSecret.aws.s3.access_key + "/" + temp_date.yyyymmdd() + "/" + configSecret.aws.s3.region + "/s3/aws4_request";
-		var amz_date = temp_date.iso8601();
-		
-		var policy = {
-			"expiration": new Date(temp_date.getFullYear(), temp_date.getMonth(), temp_date.getDate()+10).toISOString(),
-			"conditions": [
-				{"bucket": configSecret.aws.s3.bucket},
-				["starts-with", "$key", ""],
-				{"acl": acl},
-				{"x-amz-algorithm": amz_algorithm},
-				{"x-amz-credential": amz_credential},
-				{"x-amz-date": amz_date},
-			]
-		};
-
-		var string_to_sign = new Buffer(JSON.stringify(policy)).toString('base64');
-		var signature = getSignature("Im+wa/Q7Iwj2/+GbwcEydRIbeDfIE91WaKrVvr1k", temp_date.yyyymmdd(), configSecret.aws.s3.region, "s3", string_to_sign);
-		
-		res.locals.s3_acl = acl;
-		res.locals.s3_policy = string_to_sign;
-		res.locals.s3_algorithm = amz_algorithm;
-		res.locals.s3_credential = amz_credential;
-		res.locals.s3_date = amz_date;
-		res.locals.s3_signature = signature;
-		res.locals.s3_id = process.env.AWS_ACCESS_KEY_ID;
-		res.locals.s3_key = process.env.AWS_SECRET_KEY;
-*/
+		res.locals.s3_bucket = configSecret.aws.s3.bucket;
+		res.locals.s3_region = configSecret.aws.s3.region;
+		res.locals.s3_access_key = configSecret.aws.s3.access_key;
 				
 		res.render('main/upload_sunday_service');
 	});

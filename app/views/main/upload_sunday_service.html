@@ -17,12 +17,9 @@
 
 		<script src="/bower/jquery/dist/jquery.min.js"></script>
 		<script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script>
-
 		<script src="/bower/angular/angular.min.js"></script>
 		<script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-
 		<script src="/bower/aws-sdk-js/dist/aws-sdk.min.js"></script>
-		
 		<script src="/js/s3_upload_controller.js"></script>
 
 		<script>
@@ -39,6 +36,10 @@
 	</head>
 	<body>
 		<div class="container">
+			<div ng-init="s3_bucket = '<%= s3_bucket %>'" />
+			<div ng-init="s3_region = '<%= s3_region %>'" />
+			<div ng-init="s3_access_key = '<%= s3_access_key%>'" />
+		
 			<div class="row">
 				<h2>Sunday Service Upload</h2>
 			</div>

@@ -3,8 +3,7 @@ var ccac = angular.module('ccacApp', ['ui.bootstrap']);
 ccac.controller('CCACController', function ($scope, $http, $log) {
 
 	$scope.formData = {};
-		
-	$scope.title = '';
+	
 	$scope.key = {
 		title: 'title',
 		sermon: '',
@@ -36,18 +35,36 @@ ccac.controller('CCACController', function ($scope, $http, $log) {
 		startingDay: 0
 	};
 	
-	$scope.creds = {
-		access_key: process.env.AWS_ACCESS_KEY_ID,
-		secret_key: process.env.AWS_SECRET_KEY,
-		bucket: 'calgarychinesealliancechurch',
-		region: 'us-west-2'
-	}
- 
 	$scope.upload = function(str) {
+/*
+		if(!$scope.dt) {
+			// No Date Selected
+			alert('No Date Selected');
+			return;
+		}
+
+		if($scope[str]) {
+			$scope.formData = {
+				Bucket: $scope.s3_bucket,
+				ACL: "public-read",
+				Key: $scope.key[str].createKey($scope.congregation, $scope.dt.yyyymmdd(), str),
+				ContentType: $scope[str].type, 
+				Body: $scope[str] 
+			};
+			
+			$http.post('/api/s3_upload', $scope.formData)
+				.success(function(data) {
+					$log.info(data);
+				})
+				.error(function(data) {
+					$log.info('Error: ' + data);
+				});
+		}
+*/	
 		// Configure The S3 Object 
-		AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
-		AWS.config.region = $scope.creds.region;
-		var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
+		AWS.config.update({ accessKeyId: $scope.s3_access_key, secretAccessKey: 'UA5utWjUmzoy2hYH5WC+ga0mPE0V3eOjyAGxDXSL' });
+		AWS.config.region = $scope.s3_region;
+		var bucket = new AWS.S3({ params: { Bucket: $scope.s3_bucket } });
 
 		if(!$scope.dt) {
 			// No Date Selected
