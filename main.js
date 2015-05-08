@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var namespace = require('express-namespace');
+var mongoose = require('mongoose');
 var ejs = require('ejs');
 var cors = require('cors');
 var i18n = require('i18n');
@@ -14,6 +15,10 @@ var app = express();
 
 global.__basedir = __dirname;
 var configSecret = require(path.join(__basedir, 'config/secret.js'));
+var db = require(path.join(__basedir, 'config/db.js'));
+
+// DB config
+mongoose.connect(db.db.mongo);
 
 // view engine setup
 app.engine('html', ejs.renderFile);
@@ -37,6 +42,7 @@ app.use(express.static(path.join(__basedir, 'public')));
 ////////////////////////////////////////////////////////////////////
 // Routes
 
+require(path.join(__basedir, 'app/controllers/api'))(app);
 require(path.join(__basedir, 'app/controllers/routes'))(app);
 
 ////////////////////////////////////////////////////////////////////
@@ -55,10 +61,11 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('main/error', {
-            message: err.message,
-            error: err
-        });
+		res.send(err.message);
+        // res.render('main/error', {
+            // message: err.message,
+            // error: err
+        // });
     });
 }
 
@@ -66,10 +73,11 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('main/error', {
-        message: err.message,
-        error: {}
-    });
+		res.send(err.message);
+    // res.render('main/error', {
+        // message: err.message,
+        // error: {}
+    // });
 });
 
 

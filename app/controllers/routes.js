@@ -77,6 +77,10 @@ function setup_arg(req, res) {
 	res.locals.room = req.params.room;
 	res.locals.room_booking_calendar = room_booking;
 	res.locals.page_size = "full";
+
+	res.locals.s3_bucket = configSecret.aws.s3.bucket;
+	res.locals.s3_region = configSecret.aws.s3.region;
+	res.locals.s3_access_key = configSecret.aws.s3.access_key;
 	
 	if(arg[1] == "mobile") {
 		res.locals.path = req.path.mobilecut();
@@ -151,11 +155,9 @@ module.exports = function(app) {
 		res.render('main/admin');
 	});
 
-	app.get('/upload_sunday_service', auth, function(req, res) {
-		res.locals.s3_bucket = configSecret.aws.s3.bucket;
-		res.locals.s3_region = configSecret.aws.s3.region;
-		res.locals.s3_access_key = configSecret.aws.s3.access_key;
-				
+	app.get('/upload_sunday_service', auth, function(req, res) {				
+		setup_arg(req, res);
+	
 		res.render('main/upload_sunday_service');
 	});
 	
@@ -212,13 +214,7 @@ module.exports = function(app) {
 				
 				res.render('mobile/lang/news');
 			});
-			
-			app.get('/AGM', function(req, res) {
-				setup_arg(req, res);
-
-				res.redirect('https://docs.google.com/document/d/1yeDvid7f4YaU8JycVAjApr2Cq3pI_cISnTGwrQh9Sck/pub?embedded=true');
-			});
-		
+					
 			app.get('/about_us/:sidebar', function(req, res) {
 				mobileRender(req, res);
 			});
@@ -286,10 +282,6 @@ module.exports = function(app) {
 			res.render('lang/news');	
 		});
 */
-
-		app.get('/AGM', function(req, res) {
-			fullpageRender(req, res);
-		});
 		
 		app.get('/about_us', function(req, res) {
 			sidepageRender(req, res);
@@ -337,6 +329,12 @@ module.exports = function(app) {
 			res.render('lang/resources');	
 		});
 
+		app.get('/resources/sunday_service', function(req, res) {
+			setup_arg(req, res);
+			
+			res.render('lang/sunday_service');	
+		});
+		
 		app.get('/resources/room_booking', function(req, res) {
 			setup_arg(req, res);
 			

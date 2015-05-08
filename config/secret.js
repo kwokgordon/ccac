@@ -10,6 +10,6 @@ module.exports = {
 	'http_auth' : {
 		'username': 'ccac',
 		'password': 'ccac_admin',
-		'secret': 'Secret Text',
+		'secret': 'Secret Text'
 	}
 };

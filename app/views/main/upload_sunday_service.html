@@ -20,7 +20,7 @@
 		<script src="/bower/angular/angular.min.js"></script>
 		<script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 		<script src="/bower/aws-sdk-js/dist/aws-sdk.min.js"></script>
-		<script src="/js/s3_upload_controller.js"></script>
+		<script src="/js/angular/s3_upload_controller.js"></script>
 
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -38,8 +38,7 @@
 		<div class="container">
 			<div ng-init="s3_bucket = '<%= s3_bucket %>'" />
 			<div ng-init="s3_region = '<%= s3_region %>'" />
-			<div ng-init="s3_access_key = '<%= s3_access_key%>'" />
-		
+			
 			<div class="row">
 				<h2>Sunday Service Upload</h2>
 			</div>
@@ -157,69 +156,13 @@
 					<form>
 						<div class="form-group">
 							<div class="row">
-								File1: <input name="file" type="file" file filetype="insert1" />
+								File: <input name="file" type="file" file filetype="insert" />
 							</div>
 							<div class="row">
-								File1 Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.insert1" required></input>
+								File Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.insert" required></input>
 							</div>
 							<div class="row">
-								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('insert1')">Upload Insert 1</button> 
-								Progress {{progress_value}} %
-							</div>
-						</div>
-					</form>
-					<form>
-						<div class="form-group">
-							<div class="row">
-								File2: <input name="file" type="file" file filetype="insert2" />
-							</div>
-							<div class="row">
-								File2 Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.insert2" required></input>
-							</div>
-							<div class="row">
-								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('insert2')">Upload Insert 2</button> 
-								Progress {{progress_value}} %
-							</div>
-						</div>
-					</form>
-					<form>
-						<div class="form-group">
-							<div class="row">
-								File3: <input name="file" type="file" file filetype="insert3" />
-							</div>
-							<div class="row">
-								File3 Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.insert3" required></input>
-							</div>
-							<div class="row">
-								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('insert3')">Upload Insert 3</button> 
-								Progress {{progress_value}} %
-							</div>
-						</div>
-					</form>
-					<form>
-						<div class="form-group">
-							<div class="row">
-								File4: <input name="file" type="file" file filetype="insert4" />
-							</div>
-							<div class="row">
-								File4 Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.insert4" required></input>
-							</div>
-							<div class="row">
-								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('insert4')">Upload Insert 4</button> 
-								Progress {{progress_value}} %
-							</div>
-						</div>
-					</form>
-					<form>
-						<div class="form-group">
-							<div class="row">
-								File5: <input name="file" type="file" file filetype="insert5" />
-							</div>
-							<div class="row">
-								File5 Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.insert5" required></input>
-							</div>
-							<div class="row">
-								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('insert5')">Upload Insert 5</button> 
+								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('insert')">Upload Insert </button> 
 								Progress {{progress_value}} %
 							</div>
 						</div>
@@ -228,7 +171,8 @@
 			</div>
 			
 			<button class="btn btn-primary btn-md" ng-click="upload_all()">Upload All</button>
-			<button class="btn btn-primary btn-md" ng-click="pull_logs()">Pull Logs</button>
+<!--			<button class="btn btn-primary btn-md" ng-click="pull_logs()">Pull Logs</button>
+-->
 		</div>
 	</body>
 </html>
