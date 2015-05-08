@@ -49,7 +49,8 @@ module.exports = function(app) {
 				if(sermon) {
 					for(var x in req.body) {
 						if(x == "insert") {
-							sermon.insert.push(req.body[x]);
+							if(sermon.insert == undefined)
+							sermon.insert.push(req.body.insert);
 						}
 						else {
 							sermon[x] = req.body[x];
@@ -77,11 +78,15 @@ function create_docs(req, res) {
 		sermon: req.body.sermon,
 		bulletin: req.body.bulletin,
 		life_group: req.body.life_group,
-		ppt: req.body.ppt,
-		insert: [req.body.insert]
+		ppt: req.body.ppt
 	}, function(err, sermon) {
 		if (err)
 			res.send(err)
+			
+		if(req.body.insert != undefined) {
+			sermon.insert.push(req.body.insert);
+			sermon.save();
+		}
 
 		res.json(sermon);
 	});
