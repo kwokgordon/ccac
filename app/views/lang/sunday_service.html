@@ -4,17 +4,17 @@
 
 <div class="container" ng-app="ccacApp" ng-controller="SundayServiceController">
 
-<div ng-init="s3_bucket = '<%= s3_bucket %>'" />
-<div ng-init="s3_region = '<%= s3_region %>'" />
-<div ng-init="s3_access_key = '<%= s3_access_key%>'" />
+<div ng-init="s3_bucket = '<%= s3_bucket %>'" ></div>
+<div ng-init="s3_region = '<%= s3_region %>'" ></div>
+<div ng-init="lang = '<%= lang %>'" ></div>
+<div ng-init="init()" ></div>
 
 <% include ./sidebar/resources_sidebar.html %>
 <div class="sidepage" id="content">
 	<tabset justified="true">
-		<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled" ng-click="getSermon()">
-			{{tab.content}}
-			<button class="btn btn-primary btn-md" ng-click="test()">Test</button>
-			
+		<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled" ng-click="getSermons(tab.title)">
+
+
 			<p>
 			{{sermon_list}}
 			</p>
