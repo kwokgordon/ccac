@@ -14,11 +14,61 @@
 	<tabset justified="true">
 		<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled" ng-click="getSermons(tab.title)">
 
-
-			<p>
-			{{sermon_list}}
-			</p>
-		</tab>
+			<accordion close-others="oneAtATime">
+				<accordion-group ng-repeat="sermon in sermons">
+					<accordion-heading ng-click="isopen=!isopen">
+						<div>
+							<span>{{sermon.sermon_date}}</span>
+							<span ng-if="sermon.title"> - {{sermon.title}}</span>
+						</div>
+					</accordion-heading>
+					<div class="row" ng-if="sermon.sermon">
+						<div class="col-md-4">
+							<span>Sermon</span>
+						</div>
+						<div class="col-md-4">
+							<a href="{{sermon.sermon}}" class="btn btn-default">Listen Live</a>
+						</div>
+						<div class="col-md-4">
+							<a href="{{sermon.sermon}}" class="btn btn-default" download >Download</a>
+						</div>
+					</div>
+					<div class="row" ng-if="sermon.bulletin">
+						<div class="col-md-4">
+							<span>Bulletin</span>
+						</div>
+						<div class="col-md-4">
+							<a href="{{sermon.bulletin}}" class="btn btn-default">Open</a>
+						</div>
+						<div class="col-md-4">
+							<a href="{{sermon.bulletin}}" class="btn btn-default" download >Download</a>
+						</div>
+					</div>
+					<div class="row" ng-if="sermon.ppt">
+						<div class="col-md-4">
+							<span>PowerPoint</span>
+						</div>
+						<div class="col-md-4">
+							<a href="{{sermon.ppt}}" class="btn btn-default">Open</a>
+						</div>
+						<div class="col-md-4">
+							<a href="{{sermon.ppt}}" class="btn btn-default" download >Download</a>
+						</div>
+					</div>
+					<div class="row" ng-if="sermon.life_group">
+						<div class="col-md-4">
+							<span>Life Group</span>
+						</div>
+						<div class="col-md-4">
+							<a href="{{sermon.life_group}}" class="btn btn-default">Open</a>
+						</div>
+						<div class="col-md-4">
+							<a href="{{sermon.life_group}}" class="btn btn-default" download >Download</a>
+						</div>
+					</div>
+				</accordion-group>
+			</accordion>
+  		</tab>
 	</tabset>
 </div>
 </div>
