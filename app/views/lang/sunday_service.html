@@ -12,7 +12,10 @@
 <% include ./sidebar/resources_sidebar.html %>
 <div class="sidepage" id="content">
 	<tabset justified="true">
-		<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled" ng-click="getSermons(tab.title)">
+		<tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled" ng-click="getSermons(tab.title)">
+			<tab-heading>
+				{{tab.title}}
+			</tab-heading>
 
 			<accordion close-others="oneAtATime">
 				<accordion-group ng-repeat="sermon in sermons">

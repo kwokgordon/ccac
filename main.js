@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 var ejs = require('ejs');
 var cors = require('cors');
 var i18n = require('i18n');
+var i18nRoutes = require( "i18n-node-angular" );
 
 var app = express();
 
@@ -31,6 +32,7 @@ i18n.configure({
 });
 
 app.use(i18n.init);
+app.use(i18nRoutes.getLocale);
 app.use(favicon(path.join(__basedir, 'public/img/favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());

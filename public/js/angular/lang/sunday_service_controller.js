@@ -1,4 +1,8 @@
-var ccac = angular.module('ccacApp', ['ui.bootstrap']);
+//var ccac = angular.module('ccacApp', ['ui.bootstrap', 'ngRoute', 'i18n']);
+
+//ccac.controller('SundayServiceController', function ($scope, $http, $log, i18n) {
+
+var ccac = angular.module('ccacApp', ['ui.bootstrap', 'ngRoute']);
 
 ccac.controller('SundayServiceController', function ($scope, $http, $log) {
 
@@ -43,6 +47,9 @@ ccac.controller('SundayServiceController', function ($scope, $http, $log) {
 	};
 	
 })
+.config(function($sceProvider) {
+	// Completely disable SCE.  For demonstration purposes only!
+	// Do not use in new projects.
+	$sceProvider.enabled(false);
+});
 
-//////////////////////////////////////////////////////////////////////////
-// Other Function

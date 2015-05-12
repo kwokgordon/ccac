@@ -1,0 +1,31 @@
+{
+  "name": "i18n-node-angular",
+  "version": "1.2.1",
+  "description": "i18n-node for Angular",
+  "main": "i18n-node-angular.js",
+  "homepage": "https://github.com/oliversalzburg/i18n-node-angular",
+  "authors": [
+    "Oliver Salzburg <oliver.salzburg@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "i18n-node-routes.js"
+  ],
+  "dependencies": {
+    "angular": ">=1.2.9",
+    "sprintf": "^1.0.0"
+  },
+  "_release": "1.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.2.1",
+    "commit": "64a5de947cfc6b52370cb78cd50ec1b902e9a671"
+  },
+  "_source": "git://github.com/oliversalzburg/i18n-node-angular.git",
+  "_target": "~1.2.0",
+  "_originalSource": "i18n-node-angular"
+}
