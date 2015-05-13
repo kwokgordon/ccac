@@ -35,7 +35,13 @@ ccac.controller('CCACController', function ($scope, $http, $log) {
 		$http.get('/api/aws_key')
 			.success(function(data) {
 				// Configure The S3 Object 
-				AWS.config.update({ accessKeyId: data.accessKeyId, secretAccessKey: data.secretAccessKey });
+				AWS.config.update({ 
+					accessKeyId: data.accessKeyId, 
+					secretAccessKey: data.secretAccessKey,
+					httpOptions: {
+						timeout: 600000
+					}
+				});
 				AWS.config.region = $scope.s3_region;
 				var bucket = new AWS.S3({ params: { Bucket: $scope.s3_bucket } });
 
@@ -77,6 +83,7 @@ ccac.controller('CCACController', function ($scope, $http, $log) {
 					bucket.putObject(params, function(err, data) {
 						if(err) {
 							// There Was An Error With Your S3 Config
+							console.log(err, err.stack);
 							alert(err.message);
 							return false;
 						}
@@ -102,6 +109,7 @@ ccac.controller('CCACController', function ($scope, $http, $log) {
 					})
 					.on('httpUploadProgress',function(progress) {
 						// Log Progress Information
+//						$log.info(progress);
 						$scope.progress_value = Math.round(progress.loaded / progress.total * 100);
 						$scope.$apply();
 
