@@ -20,6 +20,7 @@ module.exports = function(app) {
 	// API
 	app.namespace('/api', function() {
 
+		// get AWS key
 		app.get('/aws_key', auth, function(req, res) {
 			res.json({
 				accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -27,10 +28,11 @@ module.exports = function(app) {
 			});
 		});
 	
+		// get all sermons for the congregation
 		app.post('/getSermons', function(req, res) {
 			var congregation = req.body.congregation;
 			
-			Sermon.find({congregation: congregation}, function(err, sermons) {
+			Sermon.find({congregation: congregation},{},{sort:{sermon_date:-1}}, function(err, sermons) {
 				if (err)
 					res.send(err);
 					
@@ -38,6 +40,20 @@ module.exports = function(app) {
 			});
 		});
 
+		// get one sermon
+		app.post('/getSermon', function(req, res) {
+			var congregation = req.body.congregation;
+			var sermon_date = req.body.sermon_date;
+			
+			Sermon.findOne({congregation: congregation, sermon_date: sermon_date}, function(err, sermon) {
+				if (err)
+					res.send(err);
+					
+				res.json(sermon);
+			});
+		});
+
+		// update the one sermon information
 		app.post('/updateSermon', function(req, res) {
 			var congregation = req.body.congregation;
 			var sermon_date = req.body.sermon_date;

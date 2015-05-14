@@ -20,7 +20,7 @@
 		<script src="/bower/angular/angular.min.js"></script>
 		<script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 		<script src="/bower/aws-sdk-js/dist/aws-sdk.min.js"></script>
-		<script src="/js/angular/s3_upload_controller.js"></script>
+		<script src="/js/angular/main/s3_upload_controller.js"></script>
 
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -65,7 +65,7 @@
 					<form>
 						<div class="form-group">
 							<div class="row">
-								Title: <input type="input" class="input-md text-center" placeholder="File name" ng-model="title" required></input>
+								Title: <input type="input" class="input-md text-center" placeholder="File name" ng-model="title" ></input>
 							</div>
 							<div class="row">
 								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('title')">Upload Title</button> 
@@ -77,9 +77,6 @@
 						<div class="form-group">
 							<div class="row">
 								File: <input name="file" type="file" file filetype="sermon" />
-							</div>
-							<div class="row">
-								File Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.sermon" required></input>
 							</div>
 							<div class="row">
 								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('sermon')">Upload Sermon</button> 
@@ -99,9 +96,6 @@
 								File: <input name="file" type="file" file filetype="bulletin" />
 							</div>
 							<div class="row">
-								File Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.bulletin" required></input>
-							</div>
-							<div class="row">
 								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('bulletin')">Upload Bulletin</button> 
 								Progress {{progress_value}} %
 							</div>
@@ -117,9 +111,6 @@
 						<div class="form-group">
 							<div class="row">
 								File: <input name="file" type="file" file filetype="life_group" />
-							</div>
-							<div class="row">
-								File Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.life_group" required></input>
 							</div>
 							<div class="row">
 								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('life_group')">Upload Life Group</button> 
@@ -139,9 +130,6 @@
 								File: <input name="file" type="file" file filetype="ppt" />
 							</div>
 							<div class="row">
-								File Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.ppt" required></input>
-							</div>
-							<div class="row">
 								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('ppt')">Upload PowerPoint</button> 
 								Progress {{progress_value}} %
 							</div>
@@ -159,10 +147,7 @@
 								File: <input name="file" type="file" file filetype="insert" />
 							</div>
 							<div class="row">
-								File Name: <input type="input" class="input-md text-center" placeholder="File name" ng-model="key.insert" required></input>
-							</div>
-							<div class="row">
-								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('insert')">Upload Insert </button> 
+								<button type="submit" class="btn btn-primary btn-md" ng-click="upload('insert')" ng-disabled="true">Upload Insert </button> 
 								Progress {{progress_value}} %
 							</div>
 						</div>
@@ -170,7 +155,7 @@
 				</div>
 			</div>
 			
-			<button class="btn btn-primary btn-md" ng-click="upload_all()">Upload All</button>
+			<button class="btn btn-primary btn-md" ng-click="upload_all()" ng-disabled="true">Upload All</button>
 <!--			<button class="btn btn-primary btn-md" ng-click="pull_logs()">Pull Logs</button>
 -->
 		</div>

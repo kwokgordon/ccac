@@ -33,6 +33,8 @@ i18n.configure({
 
 app.use(i18n.init);
 app.use(i18nRoutes.getLocale);
+i18nRoutes.configure( app, { locales:['eng', 'cht', 'chs'], directory : __basedir + '/locales' } );
+
 app.use(favicon(path.join(__basedir, 'public/img/favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());

@@ -1,17 +1,14 @@
-//var ccac = angular.module('ccacApp', ['ui.bootstrap', 'ngRoute', 'i18n']);
+var ccac = angular.module('ccacApp', ['ui.bootstrap', 'ngRoute', 'i18n']);
 
-//ccac.controller('SundayServiceController', function ($scope, $http, $log, i18n) {
-
-var ccac = angular.module('ccacApp', ['ui.bootstrap', 'ngRoute']);
-
-ccac.controller('SundayServiceController', function ($scope, $http, $log) {
+ccac.controller('SundayServiceController', function ($scope, $http, $log, i18n) {
 
 	$scope.oneAtATime = true;
+	$scope.i18n = i18n;
 
 	$scope.tabs = [
-		{ title:'English', lang:'eng' },
-		{ title:'Cantonese', lang:'cht' },
-		{ title:'Mandarin', lang:'chs' }
+		{ title:'English', lang:'eng', tag: 'english' },
+		{ title:'Cantonese', lang:'cht', tag: 'cantonese' },
+		{ title:'Mandarin', lang:'chs', tag: 'mandarin' }
 	];
 
 	$scope.formData = {};
@@ -52,4 +49,3 @@ ccac.controller('SundayServiceController', function ($scope, $http, $log) {
 	// Do not use in new projects.
 	$sceProvider.enabled(false);
 });
-
