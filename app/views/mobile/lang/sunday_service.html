@@ -1,0 +1,44 @@
+<% include ./layout/header.html %>
+
+<link rel="stylesheet" href="/bower/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
+
+<script src="/bower/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+<script src="/js/angular/mobile/lang/sunday_service_controller.js"></script>
+
+<div div class="scrollable" ng-app="ccacApp" ng-controller="SundayServiceController">
+	<div ng-init="congregation = '<%= congregation %>'" ></div>
+	<div ng-init="getSermons('<%= congregation %>')" ></div>
+
+	<div id="mobile_header" data-role="header" data-position="fixed" role="banner" class="scrollable-header">
+		<h1 class="ui-title" role="heading" aria-level="1">
+			CCAC
+		</h1>
+	</div>
+	
+	<div role="main" id="content" class="scrollable-content">			
+		<div class="panel-group" ui-state='myAccordion' ui-default='1'>
+			<div class="panel panel-default" ng-repeat="sermon in sermons">
+				<div class="panel-heading" ui-set="{'myAccordion': i}">
+					<h4 class="panel-title">
+						<div>
+							<span>{{sermon.sermon_date}}</span>
+							<span ng-if="sermon.title"> - {{sermon.title}}</span>
+						</div>
+					</h4>
+				</div>
+				<div ui-if="myAccordion == i">
+					<div class="panel-body">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="mobile_footer" data-role="footer" data-position="fixed" role="contentinfo" class="scrollable-footer">
+		<h4 class="ui-title" role="heading" aria-level="1">Calgary Chinese Alliance Church</h4>
+	</div>
+</div>
+
+<!-- need .html here -->
+
+<% include ./layout/footer.html %>

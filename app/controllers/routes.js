@@ -81,7 +81,7 @@ function setup_arg(req, res) {
 	res.locals.s3_bucket = configSecret.aws.s3.bucket;
 	res.locals.s3_region = configSecret.aws.s3.region;
 	res.locals.s3_access_key = configSecret.aws.s3.access_key;
-	
+
 	if(arg[1] == "mobile") {
 		res.locals.path = req.path.mobilecut();
 		res.locals.header = (arg.length > (header_arg+1)) ? arg[header_arg+1]:"";
@@ -96,23 +96,6 @@ function setup_arg(req, res) {
 		res.locals.calendar = hashTable_cal.get(req.path.cut());
 	}
 	
-/*
-	console.log(req.path);
-	console.log(req.path.cut());
-	console.log(arg.length);
-	console.log(arg);
-	console.log(arg[lang_arg]);
-	console.log(arg[header_arg]);
-	console.log(arg[sidebar_arg]);
-
-	console.log(res.locals.path);
-	console.log(res.locals.lang);
-	console.log(res.locals.header);
-	console.log(res.locals.lg_lang);
-	console.log(res.locals.sidebar);
-	console.log(res.locals.doc_id);
-	console.log(res.locals.calendar);
-*/
 }
 
 function fullpageRender(req, res) {
@@ -161,36 +144,6 @@ module.exports = function(app) {
 		res.render('main/upload_sunday_service');
 	});
 	
-/*
-	app.get('/test', function(req, res) {
-		var temp_date = new Date();
-		var policy = {
-			"expiration": new Date(temp_date.getFullYear(), temp_date.getMonth(), temp_date.getDate()+10).toISOString(),
-			"conditions": [
-				{"acl": "public-read"},
-				{"bucket": configSecret.aws.s3.bucket},
-				["starts-with", "$key", ""],
-				{"x-amz-date": temp_date.iso8601()},
-				{"x-amz-algorithm": "AWS4-HMAC-SHA256"},
-				{"x-amz-credential": configSecret.aws.s3.access_key + "/" + temp_date.yyyymmdd() + "/" + configSecret.aws.s3.region + "/s3/aws4_request" },
-			]
-		};
-
-		var string_to_sign = new Buffer(JSON.stringify(policy)).toString('base64');
-		var signature = getSignature("Im+wa/Q7Iwj2/+GbwcEydRIbeDfIE91WaKrVvr1k", temp_date.yyyymmdd(), configSecret.aws.s3.region, "s3", string_to_sign);
-		
-		res.locals.s3_date = temp_date.yyyymmdd();
-		res.locals.s3_dateISO = temp_date.iso8601();
-		res.locals.s3_region = configSecret.aws.s3.region;
-		res.locals.s3_aws_key = configSecret.aws.s3.access_key;
-		res.locals.s3_policy = string_to_sign;
-		res.locals.s3_signature = signature;
-		
-		res.render('main/test');
-	});
-
-*/	
-
 	// Mobile page
 	app.namespace('/mobile', function() {
 
@@ -243,6 +196,14 @@ module.exports = function(app) {
 				res.render('mobile/lang/events', {calendar: calendars});
 			});			
 
+			app.get('/resources/sunday_service/:congregation', function(req, res) {
+				setup_arg(req, res);
+				
+				res.locals.congregation = req.params.congregation;
+				
+				res.render('mobile/lang/sunday_service');	
+			});
+			
 			app.get('/resources/room_booking', function(req, res) {
 				setup_arg(req, res);
 

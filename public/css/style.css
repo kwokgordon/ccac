@@ -7,6 +7,10 @@
 	float: right;
 }
 
+.full-width {
+	width: 100%;
+}
+
 li.current a, li a:hover {
 	background:blue;
 	-webkit-border-radius:6px;
@@ -151,4 +155,5 @@ body {
 	font-size: 13px;
 	height: 140px;
 }
+
 

@@ -1,5 +1,7 @@
 <% include ./layout/header.html %>
 
+<link rel="stylesheet" href="/css/lang/sunday_service.css">
+
 <script src="/js/angular/lang/sunday_service_controller.js"></script>
 
 <div class="container" ng-app="ccacApp" ng-controller="SundayServiceController">
@@ -31,7 +33,7 @@
 							<span>Sermon</span>
 						</div>
 						<div class="col-md-4">
-							<a href="{{sermon.sermon}}" class="btn btn-default">Listen Live</a>
+							<button class="btn btn-default" ng-click="openAudio(sermon)">Listen</button>
 						</div>
 						<div class="col-md-4">
 							<a href="{{sermon.sermon}}" class="btn btn-default" download >Download</a>
@@ -42,7 +44,7 @@
 							<span>Bulletin</span>
 						</div>
 						<div class="col-md-4">
-							<a href="{{sermon.bulletin}}" class="btn btn-default">Open</a>
+							<a href="{{sermon.bulletin}}" class="btn btn-default" target="_blank">Open</a>
 						</div>
 						<div class="col-md-4">
 							<a href="{{sermon.bulletin}}" class="btn btn-default" download >Download</a>
@@ -53,7 +55,7 @@
 							<span>PowerPoint</span>
 						</div>
 						<div class="col-md-4">
-							<a href="{{sermon.ppt}}" class="btn btn-default">Open</a>
+							<a href="{{sermon.ppt}}" class="btn btn-default" target="_blank">Open</a>
 						</div>
 						<div class="col-md-4">
 							<a href="{{sermon.ppt}}" class="btn btn-default" download >Download</a>
@@ -64,16 +66,53 @@
 							<span>Life Group</span>
 						</div>
 						<div class="col-md-4">
-							<a href="{{sermon.life_group}}" class="btn btn-default">Open</a>
+<!--							<a href="{{sermon.life_group}}" class="btn btn-default" target="_blank">Open</a>
+-->
+							<button class="btn btn-default" ng-click="openDocs(sermon)">Open</button>
 						</div>
 						<div class="col-md-4">
 							<a href="{{sermon.life_group}}" class="btn btn-default" download >Download</a>
 						</div>
 					</div>
 				</accordion-group>
+
+<!--				<pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>			
+-->
 			</accordion>
   		</tab>
 	</tabset>
+
+	<script type="text/ng-template" id="audioModal.html">
+		<div class="modal-header">
+			<span>{{sermon.sermon_date}}</span>
+			<span ng-if="sermon.title"> - {{sermon.title}}</span>
+		</div>
+		<div class="modal-body">
+			<div align="center">
+				<audio class="full-width" controls>
+					<source ng-src="{{sermon.sermon}}" type="audio/mpeg">
+				</audio>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-warning" ng-click="close()">Close</button>
+		</div>
+	</script>
+
+	<script type="text/ng-template" id="docsModal.html">
+		<div class="modal-header">
+			<span>{{sermon.sermon_date}}</span>
+			<span ng-if="sermon.title"> - {{sermon.title}}</span>
+		</div>
+		<div class="modal-body">
+			<div align="center">
+				<iframe ng-src="{{sermon.life_group}}" width="100%" height="600px" ></iframe>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-warning" ng-click="close()">Close</button>
+		</div>
+	</script>
 </div>
 </div>
 
