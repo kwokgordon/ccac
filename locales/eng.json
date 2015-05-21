@@ -72,9 +72,17 @@
 	"events_english": "Events - English",
 	"events_children": "Events - Children",
 	
-	"sermon": "Sermon Download",
+	"sermon_download": "Sermon Download",
+	"sermon": "Sermon",
 	"bulletin": "Bulletin",
+	"ppt": "PowerPoint",
+	"life_group": "Life Group",
 
+	"listen": "Listen",
+	"open": "Open",
+	"download": "Download",
+	"close": "Close",
+	
 	"room_booking": "Room Booking",
 	"room_booking_all": "All Rooms",
 	"room_booking_banquet_room": "Banquet Room",

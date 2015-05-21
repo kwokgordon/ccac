@@ -14,11 +14,19 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 	$scope.formData = {};
 
 	$scope.init = function() {
-		var tab;
-		for(i = 0; i < $scope.tabs.length; i++) {
-			if($scope.lang == $scope.tabs[i].lang) {
-				$scope.tabs[i].active = true;
-				$scope.getSermons($scope.tabs[i].title);
+		if($scope.congregation == undefined || $scope.congregation == 'undefined') {
+			for(i = 0; i < $scope.tabs.length; i++) {
+				if($scope.lang == $scope.tabs[i].lang) {
+					$scope.tabs[i].active = true;
+					$scope.getSermons($scope.tabs[i].title);
+				}
+			}
+		} else {
+			for(i = 0; i < $scope.tabs.length; i++) {
+				if($scope.congregation == $scope.tabs[i].tag) {
+					$scope.tabs[i].active = true;
+					$scope.getSermons($scope.tabs[i].title);
+				}
 			}
 		}
 	};

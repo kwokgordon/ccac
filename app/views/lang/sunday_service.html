@@ -9,6 +9,7 @@
 <div ng-init="s3_bucket = '<%= s3_bucket %>'" ></div>
 <div ng-init="s3_region = '<%= s3_region %>'" ></div>
 <div ng-init="lang = '<%= lang %>'" ></div>
+<div ng-init="congregation = '<%= congregation %>'" ></div>
 <div ng-init="init()" ></div>
 
 <% include ./sidebar/resources_sidebar.html %>
@@ -16,7 +17,6 @@
 	<tabset justified="true">
 		<tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled" ng-click="getSermons(tab.title)">
 			<tab-heading>
-				{{tab.title}}
 				{{i18n.__(tab.tag)}}
 			</tab-heading>
 
@@ -30,48 +30,46 @@
 					</accordion-heading>
 					<div class="row" ng-if="sermon.sermon">
 						<div class="col-md-4">
-							<span>Sermon</span>
+							<span><%= __('sermon') %></span>
 						</div>
 						<div class="col-md-4">
-							<button class="btn btn-default" ng-click="openAudio(sermon)">Listen</button>
+							<button class="btn btn-default" ng-click="openAudio(sermon)"><%= __('listen') %></button>
 						</div>
 						<div class="col-md-4">
-							<a href="{{sermon.sermon}}" class="btn btn-default" download >Download</a>
+							<a href="{{sermon.sermon}}" class="btn btn-default" download ><%= __('download') %></a>
 						</div>
 					</div>
 					<div class="row" ng-if="sermon.bulletin">
 						<div class="col-md-4">
-							<span>Bulletin</span>
+							<span><%= __('bulletin') %></span>
 						</div>
 						<div class="col-md-4">
-							<a href="{{sermon.bulletin}}" class="btn btn-default" target="_blank">Open</a>
+							<a href="{{sermon.bulletin}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
 						</div>
 						<div class="col-md-4">
-							<a href="{{sermon.bulletin}}" class="btn btn-default" download >Download</a>
+							<a href="{{sermon.bulletin}}" class="btn btn-default" download ><%= __('download') %></a>
 						</div>
 					</div>
 					<div class="row" ng-if="sermon.ppt">
 						<div class="col-md-4">
-							<span>PowerPoint</span>
+							<span><%= __('ppt') %></span>
 						</div>
 						<div class="col-md-4">
-							<a href="{{sermon.ppt}}" class="btn btn-default" target="_blank">Open</a>
+							<a href="{{sermon.ppt}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
 						</div>
 						<div class="col-md-4">
-							<a href="{{sermon.ppt}}" class="btn btn-default" download >Download</a>
+							<a href="{{sermon.ppt}}" class="btn btn-default" download ><%= __('download') %></a>
 						</div>
 					</div>
 					<div class="row" ng-if="sermon.life_group">
 						<div class="col-md-4">
-							<span>Life Group</span>
+							<span><%= __('life_group') %></span>
 						</div>
 						<div class="col-md-4">
-<!--							<a href="{{sermon.life_group}}" class="btn btn-default" target="_blank">Open</a>
--->
-							<button class="btn btn-default" ng-click="openDocs(sermon)">Open</button>
+							<button class="btn btn-default" ng-click="openDocs(sermon)"><%= __('open') %></button>
 						</div>
 						<div class="col-md-4">
-							<a href="{{sermon.life_group}}" class="btn btn-default" download >Download</a>
+							<a href="{{sermon.life_group}}" class="btn btn-default" download ><%= __('download') %></a>
 						</div>
 					</div>
 				</accordion-group>
@@ -95,7 +93,7 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<button class="btn btn-warning" ng-click="close()">Close</button>
+			<button class="btn btn-warning" ng-click="close()"><%= __('close') %></button>
 		</div>
 	</script>
 
@@ -110,7 +108,7 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<button class="btn btn-warning" ng-click="close()">Close</button>
+			<button class="btn btn-warning" ng-click="close()"><%= __('close') %></button>
 		</div>
 	</script>
 </div>

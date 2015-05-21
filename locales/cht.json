@@ -72,11 +72,19 @@
 	"events_english": "行事曆 - 英語部",
 	"events_children": "行事曆 - 兒童部",
 
-	"sermon": "講道下載",
+	"sermon_download": "講道下載",
+	"sermon": "講道",
 	"bulletin": "報告",
+	"ppt": "幻燈片",
+	"life_group": "生命團組",
 
-	"room_booking": "Room Booking",
-	"room_booking_all": "All Rooms",
+	"listen": "收聽",
+	"open": "開啟",
+	"download": "下載",
+	"close": "關閉",
+
+	"room_booking": "房間預訂",
+	"room_booking_all": "所有房間",
 	"room_booking_banquet_room": "宴客廳",
 	"room_booking_fireside": "爐邊廳",
 	"room_booking_gym": "體育館",

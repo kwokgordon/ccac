@@ -285,13 +285,24 @@ module.exports = function(app) {
 		});
 		
 		app.get('/resources', function(req, res) {
-			setup_arg(req, res);
-			
-			res.render('lang/resources');	
+			res.redirect('/' + req.params.lang + '/resources/sunday_service');
 		});
 
 		app.get('/resources/sunday_service', function(req, res) {
 			setup_arg(req, res);
+			
+			res.locals.congregation = 'undefined';
+			res.locals.page_size = "side";
+
+			res.render('lang/sunday_service');	
+		});
+
+		
+		app.get('/resources/sunday_service/:congregation', function(req, res) {
+			setup_arg(req, res);
+			
+			res.locals.congregation = req.params.congregation;
+			res.locals.page_size = "side";
 			
 			res.render('lang/sunday_service');	
 		});

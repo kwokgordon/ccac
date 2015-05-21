@@ -72,11 +72,19 @@
 	"events_english": "行事历 - 英语部",
 	"events_children": "行事历 - 儿童部",
 
-	"sermon": "讲道下载",
+	"sermon_download": "讲道下载",
+	"sermon": "讲道",
 	"bulletin": "报告",
+	"ppt": "幻灯片",
+	"life_group": "生命团组",
 
-	"room_booking": "Room Booking",
-	"room_booking_all": "All Rooms",
+	"listen": "收听",
+	"open": "开启",
+	"download": "下载",
+	"close": "关闭",
+	
+	"room_booking": "房间预订",
+	"room_booking_all": "所有房间",
 	"room_booking_banquet_room": "宴客厅",
 	"room_booking_fireside": "炉边厅",
 	"room_booking_gym": "体育馆",
