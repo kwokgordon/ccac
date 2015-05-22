@@ -1,9 +1,8 @@
 var ccac = angular.module('ccacApp', ['ui.bootstrap', 'ngRoute', 'i18n']);
 
-ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log, i18n) {
+ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log) {
 
 	$scope.oneAtATime = true;
-	$scope.i18n = i18n;
 
 	$scope.tabs = [
 		{ title:'English', lang:'eng', tag: 'english' },
@@ -14,15 +13,14 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 	$scope.formData = {};
 
 	$scope.init = function() {
-		if($scope.congregation == undefined || $scope.congregation == 'undefined') {
-			for(i = 0; i < $scope.tabs.length; i++) {
+		
+		for(i = 0; i < $scope.tabs.length; i++) {
+			if($scope.congregation == undefined || $scope.congregation == 'undefined') {
 				if($scope.lang == $scope.tabs[i].lang) {
 					$scope.tabs[i].active = true;
 					$scope.getSermons($scope.tabs[i].title);
 				}
-			}
-		} else {
-			for(i = 0; i < $scope.tabs.length; i++) {
+			} else {
 				if($scope.congregation == $scope.tabs[i].tag) {
 					$scope.tabs[i].active = true;
 					$scope.getSermons($scope.tabs[i].title);

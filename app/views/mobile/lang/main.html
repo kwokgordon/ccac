@@ -8,8 +8,8 @@
 		</h1>
 	</div>
 	
-	<div role="main" class="ui-content" id="content">
-		<div data-role="listview" class="ui-listview-outer" data-inset="true">
+	<div role="main" class="ui-content" id="content" data-role="content">
+		<div data-role="collapsible-set" class="ui-listview-outer" data-inset="true">
 
 			<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
 				<h3><%= __('news') %></h3>
@@ -132,20 +132,11 @@
 			<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
 				<h3><%= __('resources') %></h3>
 				<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
-					<h3><%= __('sermon') %></h3>
+					<h3><%= __('sermon_download') %></h3>
 					<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
-						<li id="english_sermon"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-QXRrV0x4YmNJUjA&usp=sharing#list" target="_blank"><%= __('english') %></a></li>
-						<li id="cantonese_sermon"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-Z0ZPRVBNT1BhY1k&usp=sharing#list" target="_blank"><%= __('cantonese') %></a></li>
-						<li id="mandarin_sermon"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-bEI5MlBtUUJfWjA&usp=sharing#list" target="_blank"><%= __('mandarin') %></a></li>
-					</ul>
-				</div>
-
-				<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
-					<h3><%= __('bulletin') %></h3>
-					<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
-						<li id="english_bulletin"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-QmJFOUU2YlRNVHc&usp=sharing#list" target="_blank"><%= __('english') %></a></li>
-						<li id="cantonese_bulletin"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-eDVsdGprV0Yyd2c&usp=sharing#list" target="_blank"><%= __('cantonese') %></a></li>
-						<li id="mandarin_bulletin"><a href="https://drive.google.com/folderview?id=0B1xLzF4Ksd4-MjY5djZUUWhhWnc&usp=sharing#list" target="_blank"><%= __('mandarin') %></a></li>
+						<li id="english_sermon"><a href="/mobile/<%= lang %>/resources/sunday_service/English" ><%= __('english') %></a></li>
+						<li id="cantonese_sermon"><a href="/mobile/<%= lang %>/resources/sunday_service/Cantonese" ><%= __('cantonese') %></a></li>
+						<li id="mandarin_sermon"><a href="/mobile/<%= lang %>/resources/sunday_service/Mandarin" ><%= __('mandarin') %></a></li>
 					</ul>
 				</div>
 
@@ -163,17 +154,6 @@
 						<% } %>
 					</ul>
 				</div>
-
-<!--				
-				<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
-					<h3><%= __('sermon') %></h3>
-					<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
-						<li id="english_sermon"><a href="/mobile/<%= lang %>/resources/sunday_service/English" ><%= __('english') %></a></li>
-						<li id="cantonese_sermon"><a href="/mobile/<%= lang %>/resources/sunday_service/Cantonese" ><%= __('cantonese') %></a></li>
-						<li id="mandarin_sermon"><a href="/mobile/<%= lang %>/resources/sunday_service/Mandarin" ><%= __('mandarin') %></a></li>
-					</ul>
-				</div>
--->
 			</div>
 		</div>
 	</div>
@@ -184,7 +164,10 @@
 </div>
 
 <script>
-
+$(document).on("collapsibleexpand", "[data-role=collapsible]", function () {
+	var position = $(this).offset().top;
+	$.mobile.silentScroll(position);
+});
 </script>
 
 <% include ./layout/footer.html %>

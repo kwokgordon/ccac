@@ -17,7 +17,7 @@
 	<tabset justified="true">
 		<tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled" ng-click="getSermons(tab.title)">
 			<tab-heading>
-				{{i18n.__(tab.tag)}}
+				{{tab.title}}
 			</tab-heading>
 
 			<accordion close-others="oneAtATime">

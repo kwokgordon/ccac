@@ -1,24 +1,117 @@
 <% include ./layout/header.html %>
 
+<!--
 <link rel="stylesheet" href="/bower/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
 
 <script src="/bower/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+-->
+
+<script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="/js/angular/mobile/lang/sunday_service_controller.js"></script>
 
 <div div class="scrollable" ng-app="ccacApp" ng-controller="SundayServiceController">
 	<div ng-init="congregation = '<%= congregation %>'" ></div>
 	<div ng-init="getSermons('<%= congregation %>')" ></div>
 
-	<div id="mobile_header" data-role="header" data-position="fixed" role="banner" class="scrollable-header">
+	<div id="mobile_header" data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 		<h1 class="ui-title" role="heading" aria-level="1">
-			CCAC
+			<%= __('sermon_download') %>
 		</h1>
 	</div>
 	
-	<div role="main" id="content" class="scrollable-content">			
+	<div role="main" id="content" class="scrollable-content">
+
+		<accordion close-others="oneAtATime">
+			<accordion-group ng-repeat="sermon in sermons" >
+				<accordion-heading ng-click="isopen=!isopen">
+					<div>
+						<span>{{sermon.sermon_date}}</span>
+						<span ng-if="sermon.title"> - {{sermon.title}}</span>
+					</div>
+				</accordion-heading>
+				<div class="row" ng-if="sermon.sermon">
+					<div class="col-xs-4">
+						<span><%= __('sermon') %></span>
+					</div>
+					<div class="col-xs-4">
+						<a href="#" class="btn btn-default" ng-click="openAudio(sermon)"><%= __('listen') %></a>
+					</div>
+					<div class="col-xs-4">
+						<a href="{{sermon.sermon}}" class="btn btn-default" download ><%= __('download') %></a>
+					</div>
+				</div>
+				<div class="row" ng-if="sermon.bulletin">
+					<div class="col-xs-4">
+						<span><%= __('bulletin') %></span>
+					</div>
+					<div class="col-xs-4">
+						<a href="{{sermon.bulletin}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
+					</div>
+					<div class="col-xs-4">
+						<a href="{{sermon.bulletin}}" class="btn btn-default" download ><%= __('download') %></a>
+					</div>
+				</div>
+				<div class="row" ng-if="sermon.ppt">
+					<div class="col-xs-4">
+						<span><%= __('ppt') %></span>
+					</div>
+					<div class="col-xs-4">
+						<a href="{{sermon.ppt}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
+					</div>
+					<div class="col-xs-4">
+						<a href="{{sermon.ppt}}" class="btn btn-default" download ><%= __('download') %></a>
+					</div>
+				</div>
+				<div class="row" ng-if="sermon.life_group">
+					<div class="col-xs-4">
+						<span><%= __('life_group') %></span>
+					</div>
+					<div class="col-xs-4">
+						<a href="{{sermon.life_group}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
+					</div>
+					<div class="col-xs-4">
+						<a href="{{sermon.life_group}}" class="btn btn-default" download ><%= __('download') %></a>
+					</div>
+				</div>
+			</accordion-group>
+		</accordion>
+
+		<script type="text/ng-template" id="audioModal.html">
+			<div class="modal-header">
+				<span>{{sermon.sermon_date}}</span>
+				<span ng-if="sermon.title"> - {{sermon.title}}</span>
+			</div>
+			<div class="modal-body">
+				<div align="center">
+					<audio class="full-width" controls>
+						<source ng-src="{{sermon.sermon}}" type="audio/mpeg">
+					</audio>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-warning" ng-click="close()"><%= __('close') %></button>
+			</div>
+		</script>
+
+		<script type="text/ng-template" id="docsModal.html">
+			<div class="modal-header">
+				<span>{{sermon.sermon_date}}</span>
+				<span ng-if="sermon.title"> - {{sermon.title}}</span>
+			</div>
+			<div class="modal-body">
+				<div align="center">
+					<iframe ng-src="{{sermon.life_group}}" width="100%" height="80%" ></iframe>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-warning" ng-click="close()"><%= __('close') %></button>
+			</div>
+		</script>
+			
+<!--
 		<div class="panel-group" ui-state='myAccordion' ui-default='1'>
-			<div class="panel panel-default" ng-repeat="sermon in sermons">
-				<div class="panel-heading" ui-set="{'myAccordion': i}">
+			<div class="panel panel-default" ng-repeat="sermon in sermons track by $index">
+				<div class="panel-heading" ui-set="{'myAccordion': $index}">
 					<h4 class="panel-title">
 						<div>
 							<span>{{sermon.sermon_date}}</span>
@@ -26,15 +119,16 @@
 						</div>
 					</h4>
 				</div>
-				<div ui-if="myAccordion == i">
+				<div ui-if="myAccordion == $index">
 					<div class="panel-body">
 					</div>
 				</div>
 			</div>
 		</div>
+-->
 	</div>
 
-	<div id="mobile_footer" data-role="footer" data-position="fixed" role="contentinfo" class="scrollable-footer">
+	<div id="mobile_footer" data-role="footer" data-position="fixed" role="contentinfo" class="ui-footer ui-bar-inherit">
 		<h4 class="ui-title" role="heading" aria-level="1">Calgary Chinese Alliance Church</h4>
 	</div>
 </div>
