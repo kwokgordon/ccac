@@ -63,7 +63,8 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 	$scope.openAudio = function(sermon) {
 
 		var audioModalInstance = $modal.open({
-			templateUrl: 'audioModal.html',
+//			templateUrl: 'audioModal.html',
+			templateUrl: '/ng-template/lang/audioModal.html',
 			controller: 'AudioModalController',
 			resolve: {
 				sermon: function() {
@@ -73,15 +74,19 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 		});
 	}
 
-	$scope.openDocs = function(sermon) {
+	$scope.openDocs = function(sermon, file) {
 
 		var docsModalInstance = $modal.open({
-			templateUrl: 'docsModal.html',
+//			templateUrl: 'docsModal.html',
+			templateUrl: '/ng-template/lang/docsModal.html',
 			controller: 'DocsModalController',
 			windowClass: 'full-size-modal',
 			resolve: {
 				sermon: function() {
 					return sermon;
+				},
+				file: function() {
+					return file;
 				}
 			}
 		});
@@ -102,8 +107,16 @@ ccac.controller('AudioModalController', function($scope, $modalInstance, sermon)
 	};	
 });
 
-ccac.controller('DocsModalController', function($scope, $modalInstance, sermon) {
+ccac.controller('DocsModalController', function($scope, $modalInstance, sermon, file) {
 	$scope.sermon = sermon;
+	$scope.file = file;
+	
+	if(sermon[file].split('.').pop() == 'pdf') {
+		$scope.src = sermon[file];
+	}
+	else {
+		$scope.src = "http://docs.google.com/gview?url=" + sermon[file] + "&embedded=true";
+	}
 	
 	$scope.close = function () {
 		$modalInstance.dismiss('close');

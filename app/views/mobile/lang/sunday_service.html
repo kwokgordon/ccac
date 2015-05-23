@@ -1,17 +1,10 @@
 <% include ./layout/header.html %>
 
-<!--
-<link rel="stylesheet" href="/bower/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
-
-<script src="/bower/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
--->
-
-<script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="/js/angular/mobile/lang/sunday_service_controller.js"></script>
 
 <div div class="scrollable" ng-app="ccacApp" ng-controller="SundayServiceController">
 	<div ng-init="congregation = '<%= congregation %>'" ></div>
-	<div ng-init="getSermons('<%= congregation %>')" ></div>
+	<div ng-init="init()" ></div>
 
 	<div id="mobile_header" data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 		<h1 class="ui-title" role="heading" aria-level="1">
@@ -45,8 +38,9 @@
 						<span><%= __('bulletin') %></span>
 					</div>
 					<div class="col-xs-4">
-						<a href="{{sermon.bulletin}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
-					</div>
+						<a href="#" class="btn btn-default" ng-click="openDocs(sermon, 'bulletin')"><%= __('open') %></a>
+<!--						<a href="{{sermon.bulletin}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
+-->					</div>
 					<div class="col-xs-4">
 						<a href="{{sermon.bulletin}}" class="btn btn-default" download ><%= __('download') %></a>
 					</div>
@@ -56,8 +50,9 @@
 						<span><%= __('ppt') %></span>
 					</div>
 					<div class="col-xs-4">
-						<a href="{{sermon.ppt}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
-					</div>
+						<a href="#" class="btn btn-default" ng-click="openDocs(sermon, 'ppt')"><%= __('open') %></a>
+<!--						<a href="{{sermon.ppt}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
+-->					</div>
 					<div class="col-xs-4">
 						<a href="{{sermon.ppt}}" class="btn btn-default" download ><%= __('download') %></a>
 					</div>
@@ -67,47 +62,16 @@
 						<span><%= __('life_group') %></span>
 					</div>
 					<div class="col-xs-4">
-						<a href="{{sermon.life_group}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
-					</div>
+						<a href="#" class="btn btn-default" ng-click="openDocs(sermon, 'life_group')"><%= __('open') %></a>
+<!--						<a href="{{sermon.life_group}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
+-->					</div>
 					<div class="col-xs-4">
 						<a href="{{sermon.life_group}}" class="btn btn-default" download ><%= __('download') %></a>
 					</div>
 				</div>
 			</accordion-group>
 		</accordion>
-
-		<script type="text/ng-template" id="audioModal.html">
-			<div class="modal-header">
-				<span>{{sermon.sermon_date}}</span>
-				<span ng-if="sermon.title"> - {{sermon.title}}</span>
-			</div>
-			<div class="modal-body">
-				<div align="center">
-					<audio class="full-width" controls>
-						<source ng-src="{{sermon.sermon}}" type="audio/mpeg">
-					</audio>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-warning" ng-click="close()"><%= __('close') %></button>
-			</div>
-		</script>
-
-		<script type="text/ng-template" id="docsModal.html">
-			<div class="modal-header">
-				<span>{{sermon.sermon_date}}</span>
-				<span ng-if="sermon.title"> - {{sermon.title}}</span>
-			</div>
-			<div class="modal-body">
-				<div align="center">
-					<iframe ng-src="{{sermon.life_group}}" width="100%" height="80%" ></iframe>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-warning" ng-click="close()"><%= __('close') %></button>
-			</div>
-		</script>
-			
+	
 <!--
 		<div class="panel-group" ui-state='myAccordion' ui-default='1'>
 			<div class="panel panel-default" ng-repeat="sermon in sermons track by $index">

@@ -1,0 +1,18 @@
+<div class="modal-header">
+	<span>{{sermon.sermon_date}}</span>
+	<span ng-if="sermon.title"> - {{sermon.title}}</span>
+</div>
+<div class="modal-body">
+	<div align="center">
+		<iframe ng-src="{{src}}" width="100%" height="100%" ></iframe>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-warning" ng-click="close()">Close</button>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$("iframe").height(Math.round($(window).height() * 0.7));
+	});
+</script>

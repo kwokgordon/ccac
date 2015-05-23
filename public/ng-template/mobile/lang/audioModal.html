@@ -1,0 +1,14 @@
+<div class="modal-header">
+	<span>{{sermon.sermon_date}}</span>
+	<span ng-if="sermon.title"> - {{sermon.title}}</span>
+</div>
+<div class="modal-body">
+	<div align="center">
+		<audio class="full-width" controls>
+			<source ng-src="{{sermon.sermon}}" type="audio/mpeg">
+		</audio>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-warning" ng-click="close()">Close</button>
+</div>

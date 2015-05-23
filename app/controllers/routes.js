@@ -108,7 +108,7 @@ function sidepageRender(req, res) {
 	setup_arg(req, res);
 
 	res.locals.page_size = "side";
-	
+
 	res.render('lang/sidepage');
 }
 
