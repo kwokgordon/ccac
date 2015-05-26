@@ -1,14 +1,15 @@
 <% include ./layout/header.html %>
 
-<script src="/js/angular/mobile/lang/sunday_service_controller.js"></script>
-
-<div div class="scrollable" ng-app="ccacApp" ng-controller="SundayServiceController">
+<div div class="scrollable" ng-controller="SundayServiceController">
 	<div ng-init="congregation = '<%= congregation %>'" ></div>
 	<div ng-init="init()" ></div>
-
+	
 	<div id="mobile_header" data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 		<h1 class="ui-title" role="heading" aria-level="1">
-			<%= __('sermon_download') %>
+			<%= __('sermon_download') %> - 
+			<span ng-if="congregation == 'English'"><%= __('english') %></span>
+			<span ng-if="congregation == 'Cantonese'"><%= __('cantonese') %></span>
+			<span ng-if="congregation == 'Mandarin'"><%= __('mandarin') %></span>
 		</h1>
 	</div>
 	
@@ -39,8 +40,7 @@
 					</div>
 					<div class="col-xs-4">
 						<a href="#" class="btn btn-default" ng-click="openDocs(sermon, 'bulletin')"><%= __('open') %></a>
-<!--						<a href="{{sermon.bulletin}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
--->					</div>
+					</div>
 					<div class="col-xs-4">
 						<a href="{{sermon.bulletin}}" class="btn btn-default" download ><%= __('download') %></a>
 					</div>
@@ -51,8 +51,7 @@
 					</div>
 					<div class="col-xs-4">
 						<a href="#" class="btn btn-default" ng-click="openDocs(sermon, 'ppt')"><%= __('open') %></a>
-<!--						<a href="{{sermon.ppt}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
--->					</div>
+					</div>
 					<div class="col-xs-4">
 						<a href="{{sermon.ppt}}" class="btn btn-default" download ><%= __('download') %></a>
 					</div>
@@ -63,8 +62,7 @@
 					</div>
 					<div class="col-xs-4">
 						<a href="#" class="btn btn-default" ng-click="openDocs(sermon, 'life_group')"><%= __('open') %></a>
-<!--						<a href="{{sermon.life_group}}" class="btn btn-default" target="_blank"><%= __('open') %></a>
--->					</div>
+					</div>
 					<div class="col-xs-4">
 						<a href="{{sermon.life_group}}" class="btn btn-default" download ><%= __('download') %></a>
 					</div>
@@ -72,31 +70,11 @@
 			</accordion-group>
 		</accordion>
 	
-<!--
-		<div class="panel-group" ui-state='myAccordion' ui-default='1'>
-			<div class="panel panel-default" ng-repeat="sermon in sermons track by $index">
-				<div class="panel-heading" ui-set="{'myAccordion': $index}">
-					<h4 class="panel-title">
-						<div>
-							<span>{{sermon.sermon_date}}</span>
-							<span ng-if="sermon.title"> - {{sermon.title}}</span>
-						</div>
-					</h4>
-				</div>
-				<div ui-if="myAccordion == $index">
-					<div class="panel-body">
-					</div>
-				</div>
-			</div>
-		</div>
--->
 	</div>
 
 	<div id="mobile_footer" data-role="footer" data-position="fixed" role="contentinfo" class="ui-footer ui-bar-inherit">
 		<h4 class="ui-title" role="heading" aria-level="1">Calgary Chinese Alliance Church</h4>
 	</div>
 </div>
-
-<!-- need .html here -->
 
 <% include ./layout/footer.html %>

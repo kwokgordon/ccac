@@ -31,6 +31,9 @@
 	"english": "English",
 	"cantonese": "Cantonese",
 	"mandarin": "Mandarin",
+	
+	"content": "Content",
+	"calendar": "Calendar",
 
 	"english_junior_rock": "Junior Rock",
 	"english_senior_rock": "Senior Rock",
@@ -38,11 +41,12 @@
 	"english_clay": "CLAY",
 	"english_married_couples": "Married Couples",
 	"english_jericho": "Jericho",
+	"english_life_groups": "Life Groups",
 	
 	"cantonese_bethlehem": "Bethlehem Fellowship",
 	"cantonese_flames": "Flames Fellowship",
 	"cantonese_beracah": "Beracah Fellowship",
-	"cantonese_children_family": "Children Family",
+	"cantonese_children_family": "Family Life Groups",
 	"cantonese_rainbow_groups": "Rainbow Groups",
 	"cantonese_rainbow_1": "Rainbow Group 1",
 	"cantonese_rainbow_2": "Rainbow Group 2",

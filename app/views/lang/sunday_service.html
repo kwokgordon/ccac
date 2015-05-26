@@ -15,7 +15,9 @@
 	<tabset justified="true">
 		<tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled" ng-click="getSermons(tab.title)">
 			<tab-heading>
-				{{tab.title}}
+				<span ng-if="tab.id == 'english'"><%= __('english') %></span>
+				<span ng-if="tab.id == 'cantonese'"><%= __('cantonese') %></span>
+				<span ng-if="tab.id == 'mandarin'"><%= __('mandarin') %></span>
 			</tab-heading>
 
 			<accordion close-others="oneAtATime">

@@ -32,17 +32,21 @@
 	"cantonese": "粤语",
 	"mandarin": "国语",
 
+	"content": "内容",
+	"calendar": "行事历",
+
 	"english_junior_rock": "Junior Rock",
 	"english_senior_rock": "Senior Rock",
 	"english_basic": "BASIC",
 	"english_clay": "CLAY",
 	"english_married_couples": "Married Couples",
 	"english_jericho": "Jericho",
+	"english_life_groups": "Life Groups",
 	
 	"cantonese_bethlehem": "伯利恒团契",
 	"cantonese_flames": "火焰团契",
 	"cantonese_beracah": "比拉迦团契",
-	"cantonese_children_family": "儿童家庭团契",
+	"cantonese_children_family": "家庭生命组",
 	"cantonese_rainbow_groups": "云彩小组",
 	"cantonese_rainbow_1": "云彩一组",
 	"cantonese_rainbow_2": "云彩二组",
@@ -74,7 +78,7 @@
 
 	"sermon_download": "讲道下载",
 	"sermon": "讲道",
-	"bulletin": "报告",
+	"bulletin": "简报",
 	"ppt": "幻灯片",
 	"life_group": "生命团组",
 

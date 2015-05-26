@@ -62,6 +62,10 @@ module.exports = {
 			'path': '/eng/life_groups/english/jericho/',
 			'doc_id': '1BXIzmd4D6vWX7OObpE4YaonYz2Vdi1-P7dL5T9QAx-c'
 		},
+		{
+			'path': '/eng/life_groups/english/life_groups/',
+			'doc_id': '1d2JkXNsWn4mC7dUPflOlveNsghYTwN9I4ThX_4Heak0'
+		},
 // English - Life Groups - Cantonese
 		{
 			'path': '/eng/life_groups/cantonese/bethlehem/',
@@ -219,6 +223,10 @@ module.exports = {
 			'path': '/cht/life_groups/english/jericho/',
 			'doc_id': '1LhvW-X0AEMVe3lK-eOeAS9T7rI0s0fuitv3sm09EXmI'
 		},
+		{
+			'path': '/cht/life_groups/english/life_groups/',
+			'doc_id': '1PNpu6dk1dcV29O1jk9E96nWA8ThGZ6qp2LXf9JBDSNk'
+		},
 // Traditional Chinese - Life Groups - Cantonese
 		{
 			'path': '/cht/life_groups/cantonese/bethlehem/',
@@ -375,6 +383,10 @@ module.exports = {
 		{
 			'path': '/chs/life_groups/english/jericho/',
 			'doc_id': '12FGLkR121ZDgWWgRAnJgqpARWByBvPvI0kidfF2UyZY'
+		},
+		{
+			'path': '/chs/life_groups/english/life_groups/',
+			'doc_id': '12xcWXsook67jy89erwLZkPCt1rGmIjnXAaHCjStpUtA'
 		},
 // Simplified Chinese - Life Groups - Cantonese
 		{

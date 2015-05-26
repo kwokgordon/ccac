@@ -1,7 +1,3 @@
-var ccac = angular.module('ccacApp', ['ui.bootstrap', 'ngRoute', 'i18n']);
-
-//var ccac = angular.module('ccacApp', ['mobile-angular-ui', 'ngRoute', 'i18n']);
-
 ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log, i18n) {
 
 	$scope.oneAtATime = true;
@@ -16,7 +12,7 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 		$http.post('/api/getSermons', {congregation: congregation})
 			.success(function(data) {
 				$log.info(data);
-				$scope.sermons = data;				
+				$scope.sermons = data;			
 			})
 			.error(function(data) {
 				$log.info("Error: " + data);

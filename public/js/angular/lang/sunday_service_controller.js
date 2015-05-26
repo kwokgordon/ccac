@@ -5,9 +5,9 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 	$scope.oneAtATime = true;
 
 	$scope.tabs = [
-		{ title:'English', lang:'eng', tag: 'english' },
-		{ title:'Cantonese', lang:'cht', tag: 'cantonese' },
-		{ title:'Mandarin', lang:'chs', tag: 'mandarin' }
+		{ title:'English', lang:'eng', id: 'english' },
+		{ title:'Cantonese', lang:'cht', id: 'cantonese' },
+		{ title:'Mandarin', lang:'chs', id: 'mandarin' }
 	];
 
 	$scope.formData = {};

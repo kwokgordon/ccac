@@ -22,7 +22,11 @@
 	</div>
 
 	<tabset justified="true">
-		<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled" ng-click="tabClick(tab.id)" ng-if="tabs.length > 1">
+		<tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled" ng-click="tabClick(tab.id)" ng-if="tabs.length > 1">
+			<tab-heading>
+				<span ng-if="tab.id == 'content'"><%= __('content') %></span>
+				<span ng-if="tab.id == 'calendar'"><%= __('calendar') %></span>
+			</tab-heading>
 			<div id="content" ng-include="url" ng-if="tab.id == 'content'">
 			</div>
 
