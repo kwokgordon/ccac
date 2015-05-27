@@ -150,6 +150,18 @@ module.exports = {
 			'doc_id': '1gIJDN3FgjJn-Vyc1OtNmW1ETfjWmxAXYrfrC5a2nUP0'
 		},
 		{
+			'path': '/eng/ministries/children_awana_club/',
+			'doc_id': '18T6SI__WsTas2X6THtIW-g3coHY8c9sAChbTPqCJ8lk'
+		},
+		{
+			'path': '/eng/ministries/children_sunday_programs/',
+			'doc_id': '1215XlwilaH_U08KQOKi7iyfClzpKkY6WduJVeD5AzGw'
+		},
+		{
+			'path': '/eng/ministries/children_special_events/',
+			'doc_id': '1RA5Cd0n8KGbVXztVxJHYNZU7NT6uPb32eg9F44vdfiw'
+		},
+		{
 			'path': '/eng/ministries/chinese_school/',
 			'doc_id': '1odx_Z1fxXEJ3R08WyGF6fHBv-5q1W01qxRoOyqlvn94'
 		},
@@ -311,6 +323,18 @@ module.exports = {
 			'doc_id': '15wn9N-t0FqLYho4uCKXLJFgs6uJ_Paath1X9DKjTQL8'
 		},
 		{
+			'path': '/cht/ministries/children_awana_club/',
+			'doc_id': '11Hj4Fe5LS7wU_tjxGRCfU_-YIcymKWDk-8M6juvI4ck'
+		},
+		{
+			'path': '/cht/ministries/children_sunday_programs/',
+			'doc_id': '1oRjwKdvpgW8ufQcimaARX8DvkQi6UfWNMmMgnWF7bHw'
+		},
+		{
+			'path': '/cht/ministries/children_special_events/',
+			'doc_id': '1q5sjzp0rVshMY8l2LUk3lCIPDyVrz75LIp3AHOMCMq0	'
+		},
+		{
 			'path': '/cht/ministries/chinese_school/',
 			'doc_id': '1kdb14Wx39j9JSpdjqO_MkI02MwKBQT1aU1-W--9S5HQ'
 		},
@@ -470,6 +494,18 @@ module.exports = {
 		{
 			'path': '/chs/ministries/children_ministry/',
 			'doc_id': '1PwhnylncYlXcXRvMf0-fWWR2tLk6uqYmFqjKIx-skOA'
+		},
+		{
+			'path': '/chs/ministries/children_awana_club/',
+			'doc_id': '1mz8Z-xPiRMg1JM9C2Yo96sGeXRmvzUky3IU2lsD4XR8'
+		},
+		{
+			'path': '/chs/ministries/children_sunday_programs/',
+			'doc_id': '1V0T4ILyo16GswzDRLNWezXsFxOQemAvGoKvuKPhhAYQ'
+		},
+		{
+			'path': '/chs/ministries/children_special_events/',
+			'doc_id': '1i5cQuxDtQ39UIq3nh7a-9OphP7mpl5ECM1DOuG_G9cw'
 		},
 		{
 			'path': '/chs/ministries/chinese_school/',

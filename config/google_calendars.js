@@ -34,6 +34,11 @@ module.exports = {
 			'email': 'lntuk5nlro8u6nerv3q16vhv60@group.calendar.google.com',
 			'color': '%2323164E'
 		},
+		{
+			'name': 'Children Program',
+			'email': 'qok2110n5egckvvgsif4mosrq8@group.calendar.google.com',
+			'color': '%236B3304'
+		},
 	],
 };
 
