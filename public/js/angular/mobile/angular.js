@@ -1,1 +1,1 @@
-var ccac = angular.module('ccacApp', ['ui.bootstrap', 'ngRoute', 'i18n']);
+var ccac = angular.module('ccacApp', ['ui.bootstrap', 'infinite-scroll', 'ngRoute', 'i18n']);

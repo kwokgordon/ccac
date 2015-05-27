@@ -20,7 +20,7 @@
 				<span ng-if="tab.id == 'mandarin'"><%= __('mandarin') %></span>
 			</tab-heading>
 
-			<accordion close-others="oneAtATime">
+			<accordion close-others="oneAtATime" infinite-scroll="infiniteScroll()"  infinite-scroll-disabled="loading_api || no_more_result" > 
 				<accordion-group ng-repeat="sermon in sermons" is-open="$first">
 					<accordion-heading ng-click="isopen=!isopen">
 						<div>
@@ -72,14 +72,14 @@
 							<a href="{{sermon.life_group}}" class="btn btn-default" download ><%= __('download') %></a>
 						</div>
 					</div>
+					<div style="clear: both;"></div>	
 				</accordion-group>
-
-<!--				<pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>			
--->
 			</accordion>
   		</tab>
 	</tabset>
 </div>
 </div>
 
+<!--
 <% include ./layout/footer.html %>
+-->

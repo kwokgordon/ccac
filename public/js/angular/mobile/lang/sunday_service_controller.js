@@ -1,24 +1,66 @@
 ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log, i18n) {
 
 	$scope.oneAtATime = true;
+	$scope.sermons = [];
+	$scope.loading_api = false;
+	$scope.no_more_result = false;
 
 	$scope.formData = {};
 	
 	$scope.init = function() {
+		$scope.loading_api = false;
 		$scope.getSermons($scope.congregation);
 	};
 		
 	$scope.getSermons = function(congregation) {
-		$http.post('/api/getSermons', {congregation: congregation})
+		$scope.congregation = congregation;
+		$scope.loading_api = true;
+
+		$http.post('/api/getSermons', {congregation: $scope.congregation, limit: 10})
 			.success(function(data) {
 				$log.info(data);
-				$scope.sermons = data;			
+
+				if(data.length == 0) {
+					$scope.no_more_result = true;
+				} else {
+					$scope.no_more_result = false;
+					$scope.sermons = data;
+				}
+
+				$scope.loading_api = false;
 			})
 			.error(function(data) {
 				$log.info("Error: " + data);
+				$scope.loading_api = false;
 			});
 	};
 
+	$scope.infiniteScroll = function() {
+		if($scope.loading_api || $scope.no_more_result) return;
+
+		$scope.loading_api = true;
+
+		$http.post('/api/getSermons', {congregation: $scope.congregation, last: $scope.sermons[$scope.sermons.length-1], limit: 10})
+			.success(function(data) {
+				$log.info(data);
+				
+				if(data.length == 0) {
+					$scope.no_more_result = true;
+				} else {
+					$scope.no_more_result = false;
+					
+					for(var i = 0; i < data.length; i++)
+						$scope.sermons.push(data[i]);
+				}
+
+				$scope.loading_api = false;
+			})
+			.error(function(data) {
+				$log.info("Error: " + data);
+				$scope.loading_api = false;
+			});
+	};
+	
 	$scope.openAudio = function(sermon) {
 
 		var audioModalInstance = $modal.open({

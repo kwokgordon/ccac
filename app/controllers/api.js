@@ -29,11 +29,19 @@ module.exports = function(app) {
 	
 		app.post('/getSermons', function(req, res) {
 			var congregation = req.body.congregation;
+			var last = { sermon_date: '9999' };
+			var limit = 10;
 			
-			Sermon.find({congregation: congregation}, {}, {sort: {sermon_date:-1}}, function(err, sermons) {
+			if(req.body.last) 
+				last = req.body.last;
+			
+			if(req.body.limit) 
+				limit = req.body.limit;
+				
+			Sermon.find({congregation: congregation, sermon_date: { $lt: last.sermon_date }}, {}, {sort: {sermon_date:-1}, limit: limit}, function(err, sermons) {
 				if (err)
 					res.send(err);
-					
+				
 				res.json(sermons);
 			});
 		});
