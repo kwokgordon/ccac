@@ -86,6 +86,8 @@
 	"open": "开启",
 	"download": "下载",
 	"close": "关闭",
+
+	"download_bulletin": "下载简报",
 	
 	"room_booking": "房间预订",
 	"room_booking_all": "所有房间",

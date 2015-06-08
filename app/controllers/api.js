@@ -73,6 +73,20 @@ module.exports = function(app) {
 				}
 			});
 		});
+
+		app.get('/getBulletin/:congregation', function(req, res) {
+			var congregation = req.params.congregation;
+			
+			Sermon.findOne({congregation: congregation, bulletin: {$exists:true} }, {}, {sort: {sermon_date:-1}}, function(err, sermon) {
+				if (err)
+					res.send(err);
+				
+				if(sermon)
+					res.redirect(sermon.bulletin);
+				else
+					res.send("No file found");
+			});
+		});
 		
 	});
 

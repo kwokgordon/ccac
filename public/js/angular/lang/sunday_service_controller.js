@@ -1,4 +1,4 @@
-var ccac = angular.module('ccacApp', ['ui.bootstrap', 'infinite-scroll', 'ngRoute', 'i18n']);
+var ccac = angular.module('ccacApp', ['ui.bootstrap', 'infinite-scroll']);
 
 ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log) {
 

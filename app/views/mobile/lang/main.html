@@ -10,7 +10,16 @@
 	
 	<div role="main" class="ui-content" id="content" data-role="content">
 		<div data-role="collapsible-set" class="ui-listview-outer" data-inset="true">
-
+<!--		
+			<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+				<h3><%= __('download_bulletin') %></h3>
+				<ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+					<li id="english_bulletin"><a href="/api/getBulletin/English" target="_blank"><%= __('english') %></a></li>
+					<li id="cantonese_bulletin"><a href="/api/getBulletin/Cantonese" target="_blank"><%= __('cantonese') %></a></li>
+					<li id="mandarin_bulletin"><a href="/api/getBulletin/Mandarin" target="_blank"><%= __('mandarin') %></a></li>
+				</ul>
+			</div>
+-->
 			<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
 				<h3><%= __('news') %></h3>
 				<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
@@ -164,10 +173,10 @@
 </div>
 
 <script>
-//$(document).on("collapsibleexpand", "[data-role=collapsible]", function () {
-//	var position = $(this).offset().top;
-//	$.mobile.silentScroll(position);
-//});
+$(document).on("collapsibleexpand", "[data-role=collapsible]", function () {
+	var position = $(this).offset().top;
+	$.mobile.silentScroll(position);
+});
 </script>
 
 <% include ./layout/footer.html %>

@@ -1,4 +1,4 @@
-ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log, i18n) {
+ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log) {
 
 	$scope.oneAtATime = true;
 	$scope.sermons = [];

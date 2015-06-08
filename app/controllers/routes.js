@@ -143,6 +143,14 @@ module.exports = function(app) {
 	
 		res.render('main/upload_sunday_service');
 	});
+
+	app.get('/remove_sunday_service/:congregation', auth, function(req, res) {				
+		setup_arg(req, res);
+
+		res.locals.congregation = req.params.congregation;
+		
+		res.render('main/remove_sunday_service');
+	});
 	
 	// Mobile page
 	app.namespace('/mobile', function() {
