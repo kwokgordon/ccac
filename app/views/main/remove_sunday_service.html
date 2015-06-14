@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="ccacApp" ng-controller="CCACController">
+<html lang="en" ng-app="ccacApp" ng-controller="SundayServiceController">
 	<head>
 		<!-- META -->
 		<title>Calgary Chinese Alliance Church</title>
@@ -20,6 +20,7 @@
 		<script src="/bower/angular/angular.min.js"></script>
 		<script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 		<script src="/bower/aws-sdk-js/dist/aws-sdk.min.js"></script>
+		<script src="/bower/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
 		<script src="/js/angular/lang/sunday_service_controller.js"></script>
 
 		<script>
@@ -35,6 +36,9 @@
 		
 	</head>
 	<body>
+		<div ng-init="congregation = '<%= congregation %>'" ></div>
+		<div ng-init="init()" ></div>
+		
 		<div class="container">
 			<div class="row">
 				<h2><%= congregation %></h2>
@@ -50,46 +54,34 @@
 					</accordion-heading>
 					<div class="row" ng-if="sermon.sermon">
 						<div class="col-md-4">
-							<span><%= __('sermon') %></span>
+							<span>Sermon</span>
 						</div>
 						<div class="col-md-4">
 							<button class="btn btn-default" ng-click="openAudio(sermon)"><%= __('listen') %></button>
 						</div>
-						<div class="col-md-4">
-							<a href="{{sermon.sermon}}" class="btn btn-default" download ><%= __('download') %></a>
-						</div>
 					</div>
 					<div class="row" ng-if="sermon.bulletin">
 						<div class="col-md-4">
-							<span><%= __('bulletin') %></span>
+							<span>Bulletin</span>
 						</div>
 						<div class="col-md-4">
 							<button class="btn btn-default" ng-click="openDocs(sermon, 'bulletin')"><%= __('open') %></button>
 						</div>
-						<div class="col-md-4">
-							<a href="{{sermon.bulletin}}" class="btn btn-default" download ><%= __('download') %></a>
-						</div>
 					</div>
 					<div class="row" ng-if="sermon.ppt">
 						<div class="col-md-4">
-							<span><%= __('ppt') %></span>
+							<span>PowerPoint</span>
 						</div>
 						<div class="col-md-4">
 							<button class="btn btn-default" ng-click="openDocs(sermon, 'ppt')"><%= __('open') %></button>
 						</div>
-						<div class="col-md-4">
-							<a href="{{sermon.ppt}}" class="btn btn-default" download ><%= __('download') %></a>
-						</div>
 					</div>
 					<div class="row" ng-if="sermon.life_group">
 						<div class="col-md-4">
-							<span><%= __('life_group') %></span>
+							<span>Life Group</span>
 						</div>
 						<div class="col-md-4">
 							<button class="btn btn-default" ng-click="openDocs(sermon, 'life_group')"><%= __('open') %></button>
-						</div>
-						<div class="col-md-4">
-							<a href="{{sermon.life_group}}" class="btn btn-default" download ><%= __('download') %></a>
 						</div>
 					</div>
 					<div style="clear: both;"></div>	

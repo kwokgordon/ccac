@@ -16,5 +16,7 @@
 	"map": "map",
 	"phone": "phone",
 	"email": "email",
-	"sermon": "sermon"
+	"sermon": "sermon",
+	"listen": "listen",
+	"open": "open"
 }
