@@ -238,6 +238,8 @@ module.exports = function(app) {
 
 		app.get('/news', function(req, res) {
 			setup_arg(req, res);
+
+			res.locals.page_size = "side";
 			
 			res.render('lang/news');	
 		});
