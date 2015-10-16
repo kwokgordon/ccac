@@ -39,28 +39,44 @@ module.exports = {
 		},
 // English - Life Groups - English
 		{
-			'path': '/eng/life_groups/english/junior_rock/',
+			'path': '/eng/life_groups/english/youth_ministry/',
 			'doc_id': '16CnkCLk4R3FcYTRa_K9UbQn6_e45xlGrv2In7_wnwoc'
-		},
-		{
-			'path': '/eng/life_groups/english/senior_rock/',
-			'doc_id': '157xxgy6yOVnehRmYuDEzr6wrTorfwefbnsqJdk057b4'
 		},
 		{
 			'path': '/eng/life_groups/english/basic/',
 			'doc_id': '1ZEeLUiqpNLo8vpuM_TpMYKRXNedzWb9NgNN1N2kpmHA'
 		},
 		{
-			'path': '/eng/life_groups/english/clay/',
+			'path': '/eng/life_groups/english/downtown_edgemont/',
 			'doc_id': '1eMEcgwTW81ilMtpVRsc6JII6lb1Ug-Gc8v2gvIVii6k'
 		},
 		{
-			'path': '/eng/life_groups/english/married_couples/',
+			'path': '/eng/life_groups/english/young_family/',
+			'doc_id': '157xxgy6yOVnehRmYuDEzr6wrTorfwefbnsqJdk057b4'
+		},
+		{
+			'path': '/eng/life_groups/english/hamptons/',
 			'doc_id': '1QcrWdJ75uCJUF0JbCMTqD9DD6hEHY0k8L1kY6n_LPCY'
 		},
 		{
-			'path': '/eng/life_groups/english/jericho/',
+			'path': '/eng/life_groups/english/beddington/',
 			'doc_id': '1BXIzmd4D6vWX7OObpE4YaonYz2Vdi1-P7dL5T9QAx-c'
+		},
+		{
+			'path': '/eng/life_groups/english/cambrian_heights/',
+			'doc_id': '1wWgvCnX_Jo-wdjHkxBy9Hc6G0JRfmtr66j-v7LlqRXw'
+		},
+		{
+			'path': '/eng/life_groups/english/panorama_1/',
+			'doc_id': '1xkh1xfYWVNd85B9cvhSpMBGF3C2kpdhddER3Bt1Xq3Y'
+		},
+		{
+			'path': '/eng/life_groups/english/panorama_2/',
+			'doc_id': '1Yk50Ecqhv9ApSFQkn4B6eKEqiCM_kK6H7i9poiOJgDs'
+		},
+		{
+			'path': '/eng/life_groups/english/naomi/',
+			'doc_id': '1Mu7OAYQcGwojm9n9iTSpEmAAcHTOtUEvszzL33vizlo'
 		},
 		{
 			'path': '/eng/life_groups/english/life_groups/',
@@ -212,28 +228,44 @@ module.exports = {
 		},
 // Traditional Chinese - Life Groups - English
 		{
-			'path': '/cht/life_groups/english/junior_rock/',
+			'path': '/cht/life_groups/english/youth_ministry/',
 			'doc_id': '1W9XhajXl4FEFQN4jZPWxdQ8qbuLFVVbh3cDYdRwDB9c'
-		},
-		{
-			'path': '/cht/life_groups/english/senior_rock/',
-			'doc_id': '1rxIoA_TXYmz0AdYRHV5HuksBDNriGQveQ50LgiMCG24'
 		},
 		{
 			'path': '/cht/life_groups/english/basic/',
 			'doc_id': '1edoM0Vd03h2vFiFEHlCkmvVhbVM6YhPAGFNHlWUTew4'
 		},
 		{
-			'path': '/cht/life_groups/english/clay/',
+			'path': '/cht/life_groups/english/downtown_edgemont/',
+			'doc_id': '1rxIoA_TXYmz0AdYRHV5HuksBDNriGQveQ50LgiMCG24'
+		},
+		{
+			'path': '/cht/life_groups/english/young_family/',
 			'doc_id': '1h94goBDMRk1yWD3RMvczCdiNtV9MBSfu_mE6woBJVZ4'
 		},
 		{
-			'path': '/cht/life_groups/english/married_couples/',
+			'path': '/cht/life_groups/english/hamptons/',
 			'doc_id': '1fz6PyxWQunYwMFfw565tkYRisWUfXd82G2TXMq8H_Y0'
 		},
 		{
-			'path': '/cht/life_groups/english/jericho/',
+			'path': '/cht/life_groups/english/beddington/',
 			'doc_id': '1LhvW-X0AEMVe3lK-eOeAS9T7rI0s0fuitv3sm09EXmI'
+		},
+		{
+			'path': '/cht/life_groups/english/cambrian_heights/',
+			'doc_id': '1tgkpaYl-0pJTWJEXyb51dHtKikeaNwD_dllCT5CUO3w'
+		},
+		{
+			'path': '/cht/life_groups/english/panorama_1/',
+			'doc_id': '15IdHZI-R7VKG-q7tp3OhtxjVWmOxjlFTbrvoCh8vNMI'
+		},
+		{
+			'path': '/cht/life_groups/english/panorama_2/',
+			'doc_id': '1SaeaGkvBtLhcD4C0F_rUtPxht9B-FXvQgoGH27D1XkI'
+		},
+		{
+			'path': '/cht/life_groups/english/naomi/',
+			'doc_id': '1ugdY530h7I7CzdpaQn0J2dS0-z840lCBdqCOq0KS3Ak'
 		},
 		{
 			'path': '/cht/life_groups/english/life_groups/',
@@ -385,28 +417,44 @@ module.exports = {
 		},
 // Simplified Chinese - Life Groups - English
 		{
-			'path': '/chs/life_groups/english/junior_rock/',
+			'path': '/chs/life_groups/english/youth_ministry/',
 			'doc_id': '1RCTpKlTJLDrtgpvm7rPE6lEslwgc9qTdL-156o8WwS4'
-		},
-		{
-			'path': '/chs/life_groups/english/senior_rock/',
-			'doc_id': '1v1Equ-FjUUH7Zkf3hb-M3WCosBcXCCvCFv7iW4Oy4qY'
 		},
 		{
 			'path': '/chs/life_groups/english/basic/',
 			'doc_id': '1oAbE6uevV5akTuAacvPTywDWWnEFQ-EyGazkHwSPLhw'
 		},
 		{
-			'path': '/chs/life_groups/english/clay/',
+			'path': '/chs/life_groups/english/downtown_edgemont/',
+			'doc_id': '1v1Equ-FjUUH7Zkf3hb-M3WCosBcXCCvCFv7iW4Oy4qY'
+		},
+		{
+			'path': '/chs/life_groups/english/young_family/',
 			'doc_id': '1JygbxKwAK3ll2zSdUpqLxL5eNruFzxpji4cRdbGBDeg'
 		},
 		{
-			'path': '/chs/life_groups/english/married_couples/',
+			'path': '/chs/life_groups/english/hamptons/',
 			'doc_id': '1bvaGUMB7xmy7IZZwdXM2Pz_3nDs8lfbb8b8ZbdCJrNI'
 		},
 		{
-			'path': '/chs/life_groups/english/jericho/',
+			'path': '/chs/life_groups/english/beddington/',
 			'doc_id': '12FGLkR121ZDgWWgRAnJgqpARWByBvPvI0kidfF2UyZY'
+		},
+		{
+			'path': '/chs/life_groups/english/cambrian_heights/',
+			'doc_id': '1QmZwEQ_uZm-xmy6p85i4O87QpoQy-ty6uEtGAeaNPqE'
+		},
+		{
+			'path': '/chs/life_groups/english/panorama_1/',
+			'doc_id': '1-ldIYUPowfPBwlYY8HFMp1eCrFfCXYyAAlrTZrLpXjY'
+		},
+		{
+			'path': '/chs/life_groups/english/panorama_2/',
+			'doc_id': '1-XELurk_D3Mc4jE5q_x_rFGQgFW_upxGNt7xmemH5AQ'
+		},
+		{
+			'path': '/chs/life_groups/english/naomi/',
+			'doc_id': '1RG_IoeyRW9gL-mSoq-4uSgyVsqJEQJPQ1h48I3nu93U'
 		},
 		{
 			'path': '/chs/life_groups/english/life_groups/',

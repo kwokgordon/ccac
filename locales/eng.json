@@ -9,7 +9,7 @@
 	"others": "Others",
 
 	"AGM": "AGM",
-	
+
 	"church_update": "Church News",
 	"building_update": "Building News",
 	"facebook": "Facebook",
@@ -18,12 +18,12 @@
 	"church_update_english": "English",
 	"church_update_cantonese": "Cantonese",
 	"church_update_mandarin": "Mandarin",
-	
+
 	"when_where": "When & Where",
 	"our_staff": "Our Staff",
 	"our_vision": "Our Vision",
 	"contact_us": "Contact Us",
-	
+
 	"contact_us_name": "Name",
 	"contact_us_email": "Email",
 	"contact_us_message": "Questions/Comments",
@@ -32,16 +32,20 @@
 	"english": "English",
 	"cantonese": "Cantonese",
 	"mandarin": "Mandarin",
-	
+
 	"content": "Content",
 	"calendar": "Calendar",
 
-	"english_junior_rock": "Junior Rock",
-	"english_senior_rock": "Senior Rock",
+	"english_youth_ministry": "Youth Ministry",
 	"english_basic": "BASIC",
-	"english_clay": "CLAY",
-	"english_married_couples": "Married Couples",
-	"english_jericho": "Jericho",
+	"english_downtown_edgemont": "Downtown/Edgemont",
+	"english_young_family": "Young Family",
+	"english_hamptons": "Hamptons",
+	"english_beddington": "Beddington",
+	"english_cambrian_heights": "Cambrian Heights",
+	"english_panorama_1": "Panorama #1",
+	"english_panorama_2": "Panorama #2",
+	"english_naomi": "Naomi",
 	"english_life_groups": "Life Groups",
 	
 	"cantonese_bethlehem": "Bethlehem Fellowship",
@@ -61,9 +65,9 @@
 	"cantonese_elijah": "Elijah Fellowship",
 	"cantonese_joshua": "Joshua Fellowship",
 	"cantonese_caleb": "Caleb Fellowship",
-	
-	"mandarin_daniel": "Daniel Fellowship", 
-	
+
+	"mandarin_daniel": "Daniel Fellowship",
+
 	"children_ministry": "Children's Ministry",
 	"children_awana_club": "Awana Clubs",
 	"children_sunday_programs": "Sunday Programs",
@@ -76,7 +80,7 @@
 	"events_mandarin": "Events - Mandarin",
 	"events_english": "Events - English",
 	"events_children": "Events - Children",
-	
+
 	"sermon_download": "Sermon Download",
 	"sermon": "Sermon",
 	"bulletin": "Bulletin",
@@ -87,9 +91,9 @@
 	"open": "Open",
 	"download": "Download",
 	"close": "Close",
-	
+
 	"download_bulletin": "Download Bulletin",
-	
+
 	"room_booking": "Room Booking",
 	"room_booking_all": "All Rooms",
 	"room_booking_banquet_room": "Banquet Room",
@@ -113,10 +117,10 @@
 	"sunday_service": "Sunday Service Schedule",
 	"sunday": "Sunday",
 	"sanctuary": "Sanctuary",
-	
+
 	"map": "Map",
 	"phone": "Phone",
 	"email": "Email",
-	
+
 	"aaa": "aaa"
 }
