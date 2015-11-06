@@ -22,7 +22,7 @@
 	</div>
 
 	<tabset justified="true">
-		<tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled" ng-click="tabClick(tab.id)" ng-if="tabs.length > 1">
+		<tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled" ng-if="tabs.length > 1">
 			<tab-heading>
 				<span ng-if="tab.id == 'content'"><%= __('content') %></span>
 				<span ng-if="tab.id == 'calendar'"><%= __('calendar') %></span>
@@ -31,6 +31,9 @@
 			</div>
 
 			<% if (calendar) { %>
+				<div id="calendar" ng-include="calendar_url" ng-if="tab.id == 'calendar'">
+				</div>
+<!--
 				<div id="calendar" ng-if="tab.id == 'calendar'">
 					<iframe 
 						src="https://www.google.com/calendar/embed?
@@ -49,6 +52,7 @@
 						scrolling="no">
 					</iframe>
 				</div>
+-->
 			<% } %>
 			
 		</tab>

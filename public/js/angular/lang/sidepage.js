@@ -1,9 +1,10 @@
 var ccac = angular.module('ccacApp', ['ui.bootstrap']);
 
-ccac.controller('SidepageController', function ($scope, $http, $log) {
+ccac.controller('SidepageController', function ($scope, $http, $log, $sce) {
 
 	$scope.tabs = [];
 	$scope.url = '';
+	$scope.calendar_url = '';
 
 	$scope.init = function() {
 
@@ -14,13 +15,20 @@ ccac.controller('SidepageController', function ($scope, $http, $log) {
 		}
 		
 		$scope.url = "https://docs.google.com/document/d/" + $scope.content + "/pub?embedded=true";
+		$scope.calendar_url = "https://www.google.com/calendar/embed?showTitle=0&wkst=1&hl=en&bgcolor=%23FFFFFF&src=" + $scope.calendar + "&ctz=America/Edmonton";
+
 	};
 
-	$scope.tabClick = function(id) {
-	};
 })
-.config(function($sceProvider) {
-	// Completely disable SCE.  For demonstration purposes only!
-	// Do not use in new projects.
-	$sceProvider.enabled(false);
+.config(function($sceDelegateProvider) {
+	$sceDelegateProvider.resourceUrlWhitelist([
+		// Allow same origin resource loads.
+		'self',
+		// Allow loading from outer templates domain.
+		'https://docs.google.com/document/d/**',
+		'https://www.google.com/calendar/**',
+		'http://church-update.calgarychinesealliance.org/**',
+		'https://s3-us-west-2.amazonaws.com/**',
+	]); 
 });
+

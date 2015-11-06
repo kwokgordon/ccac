@@ -6,18 +6,6 @@
 // pre-define function
 
 var path = require('path');
-var configSecret = require(path.join(__basedir, 'config/secret.js'));
-var http_auth = require('http-auth');
-var AWS = require('aws-sdk');
-var s3 = new AWS.S3();
-
-var basic = http_auth.basic({
-		realm: configSecret.http_auth.secret
-	}, function(username, password, callback) {
-		callback(username == configSecret.http_auth.username && password == configSecret.http_auth.password);
-});
-
-var auth = http_auth.connect(basic);
 
 // Events Calendar
 var calendars = require(path.join(__basedir, 'config/google_calendars.js'));
@@ -49,22 +37,13 @@ var header_arg = 2;
 var sidebar_arg = 3;
 
 String.prototype.cut = function() { 
-//	return this.replace(new RegExp('/' + "*$"),'').substring(4); 
 	return this.substring(4); 
 };
 
 String.prototype.mobilecut = function() { 
-//	return this.replace(new RegExp('/' + "*$"),'').substring(4); 
 	return this.substring(11); 
 };
 
-String.prototype.right = function(n) {
-	if(this.length >= n) {
-		return this.substring(this.length - n);
-	} else {
-		return this;
-	}
-};
 
 function setup_arg(req, res) {
 	arg = req.path.split("/");
@@ -77,11 +56,7 @@ function setup_arg(req, res) {
 	res.locals.room = req.params.room;
 	res.locals.room_booking_calendar = room_booking;
 	res.locals.page_size = "full";
-
-	res.locals.s3_bucket = configSecret.aws.s3.bucket;
-	res.locals.s3_region = configSecret.aws.s3.region;
-	res.locals.s3_access_key = configSecret.aws.s3.access_key;
-
+	
 	if(arg[1] == "mobile") {
 		res.locals.path = req.path.mobilecut();
 		res.locals.header = (arg.length > (header_arg+1)) ? arg[header_arg+1]:"";
@@ -95,7 +70,8 @@ function setup_arg(req, res) {
 		res.locals.doc_id = hashTable.get(req.path);
 		res.locals.calendar = hashTable_cal.get(req.path.cut());
 	}
-	
+
+	res.locals.node = res.locals;
 }
 
 function fullpageRender(req, res) {
@@ -134,24 +110,6 @@ module.exports = function(app) {
 		res.render('main/index');
 	});
 
-	app.get('/admin', auth, function(req, res) {
-		res.render('main/admin');
-	});
-
-	app.get('/upload_sunday_service', auth, function(req, res) {				
-		setup_arg(req, res);
-	
-		res.render('main/upload_sunday_service');
-	});
-
-	app.get('/remove_sunday_service/:congregation', auth, function(req, res) {				
-		setup_arg(req, res);
-
-		res.locals.congregation = req.params.congregation;
-		
-		res.render('main/remove_sunday_service');
-	});
-	
 	// Mobile page
 	app.namespace('/mobile', function() {
 
@@ -216,14 +174,12 @@ module.exports = function(app) {
 				setup_arg(req, res);
 
 				res.render('mobile/lang/room_booking');	
-//				res.render('mobile/lang/room_booking', {room_booking_calendar: room_booking});	
 			});
 			
 			app.get('/resources/room_booking/:room', function(req, res) {
 				setup_arg(req, res);
 				
 				res.render('mobile/lang/room_booking');	
-//				res.render('mobile/lang/room_booking', {room_booking_calendar: room_booking});	
 			});
 			
 		});
@@ -244,16 +200,6 @@ module.exports = function(app) {
 			res.render('lang/news');	
 		});
 
-/*
-		app.get('/news/:sidebar', function(req, res) {
-			setup_arg(req, res);
-			
-			res.locals.page_size = "side";
-			
-			res.render('lang/news');	
-		});
-*/
-		
 		app.get('/about_us', function(req, res) {
 			sidepageRender(req, res);
 		});
@@ -323,7 +269,6 @@ module.exports = function(app) {
 			res.locals.page_size = "side";
 
 			res.render('lang/room_booking');	
-//			res.render('lang/room_booking', {room_booking_calendar: room_booking});	
 		});
 
 		app.get('/resources/room_booking/:room', function(req, res) {
@@ -332,34 +277,9 @@ module.exports = function(app) {
 			res.locals.page_size = "side";
 
 			res.render('lang/room_booking');	
-//			res.render('lang/room_booking', {room_booking_calendar: room_booking});	
 		});
 		
 
-/*
-		app.get('/*', function(req, res) {
-			fullpageRender(req, res);
-		});
-*/		
 	});
 }
 
-/////////////////////////////////////////////////////////////////////////////
-// Other prototype
-Date.prototype.yyyymmdd = function() {
-	var yyyy = this.getFullYear().toString();
-	var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
-	var dd  = this.getDate().toString();
-	return yyyy + (mm[1]?mm:"0"+mm[0]) + (dd[1]?dd:"0"+dd[0]); // padding
-};
-
-Date.prototype.iso8601 = function() {
-	var yyyy = this.getFullYear().toString();
-	var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
-	var dd  = this.getDate().toString();
-	var hh  = this.getHours().toString();
-	var nn  = this.getMinutes().toString();
-	var ss  = this.getSeconds().toString();
-
-	return yyyy + (mm[1]?mm:"0"+mm[0]) + (dd[1]?dd:"0"+dd[0]) + "T" + (dd[1]?dd:"0"+dd[0]) + (nn[1]?nn:"0"+nn[0]) + (ss[1]?ss:"0"+ss[0]) + "Z" ; // padding
-};

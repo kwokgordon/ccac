@@ -32,7 +32,7 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 			}
 		}
 	};
-	
+
 	$scope.getSermons = function(congregation) {
 		$scope.congregation = congregation;
 		$scope.loading_api = true;
@@ -115,10 +115,15 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 	}
 	
 })
-.config(function($sceProvider) {
-	// Completely disable SCE.  For demonstration purposes only!
-	// Do not use in new projects.
-	$sceProvider.enabled(false);
+.config(function($sceDelegateProvider) {
+	$sceDelegateProvider.resourceUrlWhitelist([
+		// Allow same origin resource loads.
+		'self',
+		// Allow loading from outer templates domain.
+		'https://docs.google.com/document/d/**',
+		'https://www.google.com/calendar/**',
+		'https://s3-us-west-2.amazonaws.com/**'
+	]); 
 });
 
 ccac.controller('AudioModalController', function($scope, $modalInstance, sermon) {
