@@ -4,7 +4,6 @@ ccac.controller('SidepageController', function ($scope, $http, $log, $sce) {
 
 	$scope.tabs = [];
 	$scope.url = '';
-	$scope.calendar_url = '';
 
 	$scope.init = function() {
 
@@ -15,8 +14,6 @@ ccac.controller('SidepageController', function ($scope, $http, $log, $sce) {
 		}
 		
 		$scope.url = "https://docs.google.com/document/d/" + $scope.content + "/pub?embedded=true";
-		$scope.calendar_url = "https://www.google.com/calendar/embed?showTitle=0&wkst=1&hl=en&bgcolor=%23FFFFFF&src=" + $scope.calendar + "&ctz=America/Edmonton";
-
 	};
 
 })
