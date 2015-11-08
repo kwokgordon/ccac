@@ -51,6 +51,8 @@ app.use(express.static(path.join(__basedir, 'public')));
 
 require(path.join(__basedir, 'app/controllers/api'))(app);
 require(path.join(__basedir, 'app/controllers/routes'))(app);
+require(path.join(__basedir, 'app/controllers/mobile'))(app);
+require(path.join(__basedir, 'app/controllers/desktop'))(app);
 
 ////////////////////////////////////////////////////////////////////
 
