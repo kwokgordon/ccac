@@ -7,19 +7,19 @@
 	"events": "行事曆",
 	"resources": "資源",
 	"others": "其他",
-	
+
 	"AGM": " 年議會",
 
 	"church_update": "教會最新消息",
 	"building_update": "教會裝修最新消息",
 	"facebook": "Facebook",
 	"career": "誠聘牧者",
-	
+
 	"church_update_all": "全部",
 	"church_update_english": "英語部",
 	"church_update_cantonese": "粵語部",
 	"church_update_mandarin": "國語部",
-	
+
 	"when_where": "崇拜時間及地點",
 	"our_staff": "教牧同工",
 	"our_vision": "教會異象",
@@ -48,7 +48,7 @@
 	"english_panorama_2": "Panorama #2",
 	"english_naomi": "Naomi",
 	"english_life_groups": "Life Groups",
-	
+
 	"cantonese_bethlehem": "伯利恆團契",
 	"cantonese_flames": "火焰團契",
 	"cantonese_beracah": "比拉迦團契",
@@ -66,9 +66,9 @@
 	"cantonese_elijah": "以利亞團契",
 	"cantonese_joshua": "約書亞團契",
 	"cantonese_caleb": "迦勒團契",
-	
-	"mandarin_daniel": "但以理團契", 
-	
+
+	"mandarin_daniel": "但以理團契",
+
 	"children_ministry": "兒童事工",
 	"children_awana_club": "Awana Clubs",
 	"children_sunday_programs": "週日活動",
@@ -87,6 +87,7 @@
 	"bulletin": "簡報",
 	"ppt": "幻燈片",
 	"life_group": "生命團組",
+	"share_link": "分享連結",
 
 	"listen": "收聽",
 	"open": "開啟",
@@ -118,7 +119,7 @@
 	"sunday_service": "主日崇拜時間",
 	"sunday": "星期日",
 	"sanctuary": "禮堂",
-	
+
 	"map": "地圖",
 	"phone": "電話",
 	"email": "電郵",

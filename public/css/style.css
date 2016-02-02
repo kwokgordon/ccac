@@ -11,6 +11,10 @@
 	width: 100%;
 }
 
+.percent90-width {
+	width: 90%;
+}
+
 li.current a, li a:hover {
 	background:blue;
 	-webkit-border-radius:6px;

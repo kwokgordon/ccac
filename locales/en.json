@@ -57,5 +57,11 @@
 	"church_update_mandarin": "church_update_mandarin",
 	"building_update": "building_update",
 	"church_parking": "church_parking",
-	"facebook": "facebook"
+	"facebook": "facebook",
+	"room_booking": "room_booking",
+	"share_link": "share_link",
+	"download": "download",
+	"bulletin": "bulletin",
+	"ppt": "ppt",
+	"life_group": "life_group"
 }

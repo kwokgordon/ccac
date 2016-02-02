@@ -29,6 +29,18 @@ module.exports = function(app) {
 			});
 		});
 
+		app.post('/shareLinkSermon', function(req, res) {
+			var congregation = req.body.congregation;
+			var id = req.body.id;
+			
+			Sermon.findOne({congregation: congregation, _id: id}, function(err, sermon) {
+				if (err)
+					res.send(err);
+				
+				res.json(sermon);
+			});
+		});
+		
 		app.get('/getBulletin/:congregation', function(req, res) {
 			var congregation = req.params.congregation;
 			

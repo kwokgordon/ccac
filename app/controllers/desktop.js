@@ -79,16 +79,27 @@ module.exports = function(app) {
 			shared.setup_arg(req, res);
 			
 			res.locals.congregation = 'undefined';
+			res.locals.id = 'undefined';
 			res.locals.page_size = "side";
 
 			res.render('lang/sunday_service');	
 		});
 
-		
 		app.get('/resources/sunday_service/:congregation', function(req, res) {
 			shared.setup_arg(req, res);
 			
 			res.locals.congregation = req.params.congregation;
+			res.locals.id = 'undefined';
+			res.locals.page_size = "side";
+
+			res.render('lang/sunday_service');	
+		});
+
+		app.get('/resources/sunday_service/:congregation/:id', function(req, res) {
+			shared.setup_arg(req, res);
+			
+			res.locals.congregation = req.params.congregation;
+			res.locals.id = req.params.id;
 			res.locals.page_size = "side";
 			
 			res.render('lang/sunday_service');	

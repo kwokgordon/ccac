@@ -7,6 +7,7 @@
 
 <div ng-init="lang = '<%= lang %>'" ></div>
 <div ng-init="congregation = '<%= congregation %>'" ></div>
+<div ng-init="id = '<%= id %>'" ></div>
 <div ng-init="init()" ></div>
 
 <% include ./sidebar/resources_sidebar.html %>
@@ -25,6 +26,7 @@
 						<div>
 							<span>{{sermon.sermon_date}}</span>
 							<span ng-if="sermon.title"> - {{sermon.title}}</span>
+							<a class="right" ng-click="openLink(sermon)"><%= __('share_link') %><span class="glyphicon glyphicon-link" /></a>
 						</div>
 					</accordion-heading>
 					<div class="row" ng-if="sermon.sermon">

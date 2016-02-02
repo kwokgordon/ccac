@@ -25,11 +25,25 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 					$scope.getSermons($scope.tabs[i].title);
 				}
 			} else {
-				if($scope.congregation == $scope.tabs[i].tag) {
+				if($scope.congregation == $scope.tabs[i].id) {
 					$scope.tabs[i].active = true;
 					$scope.getSermons($scope.tabs[i].title);
 				}
 			}
+		}
+		
+		if($scope.id != undefined && $scope.congregation != 'id') {
+			$http.post('/api/shareLinkSermon', {congregation: $scope.congregation, id : $scope.id})
+				.success(function(data) {
+					$log.info(data);
+					
+					$scope.sermon = data;
+					
+					$scope.openSermon($scope.sermon);
+				})
+				.error(function(data) {
+					$log.info("Error: " + data);
+				});
 		}
 	};
 
@@ -85,7 +99,6 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 	$scope.openAudio = function(sermon) {
 
 		var audioModalInstance = $modal.open({
-//			templateUrl: 'audioModal.html',
 			templateUrl: '/ng-template/lang/audioModal.html',
 			controller: 'AudioModalController',
 			resolve: {
@@ -99,7 +112,6 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 	$scope.openDocs = function(sermon, file) {
 
 		var docsModalInstance = $modal.open({
-//			templateUrl: 'docsModal.html',
 			templateUrl: '/ng-template/lang/docsModal.html',
 			controller: 'DocsModalController',
 			windowClass: 'full-size-modal',
@@ -109,6 +121,38 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 				},
 				file: function() {
 					return file;
+				}
+			}
+		});
+	}
+
+	$scope.openLink = function(sermon) {
+
+		var linkModalInstance = $modal.open({
+			templateUrl: '/ng-template/lang/linkModal.html',
+			controller: 'LinkModalController',
+			resolve: {
+				sermon: function() {
+					return sermon;
+				}
+			}
+		});
+	}
+
+	$scope.openSermon = function(sermon) {
+
+		var sermonModalInstance = $modal.open({
+			templateUrl: '/ng-template/lang/sermonModal.html',
+			controller: 'SermonModalController',
+			resolve: {
+				sermon: function() {
+					return sermon;
+				},
+				openAudio: function() {
+					return $scope.openAudio;
+				},
+				openDocs: function() {
+					return $scope.openDocs;
 				}
 			}
 		});
@@ -144,6 +188,25 @@ ccac.controller('DocsModalController', function($scope, $modalInstance, sermon, 
 	else {
 		$scope.src = "http://docs.google.com/gview?url=" + sermon[file] + "&embedded=true";
 	}
+	
+	$scope.close = function () {
+		$modalInstance.dismiss('close');
+	};	
+});
+
+ccac.controller('LinkModalController', function($scope, $modalInstance, sermon) {
+	$scope.sermon = sermon;
+
+	$scope.close = function () {
+		$modalInstance.dismiss('close');
+	};	
+});
+
+ccac.controller('SermonModalController', function($scope, $modalInstance, sermon, openAudio, openDocs) {
+	$scope.sermon = sermon;
+	$scope.openAudio = openAudio;
+	$scope.openDocs = openDocs;
+
 	
 	$scope.close = function () {
 		$modalInstance.dismiss('close');
