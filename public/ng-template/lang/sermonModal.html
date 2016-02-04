@@ -5,46 +5,46 @@
 <div class="modal-body">
 	<div class="row" ng-if="sermon.sermon">
 		<div class="col-md-4">
-			<span><%= __('sermon') %></span>
+			<span>Sermon</span>
 		</div>
 		<div class="col-md-4">
-			<button class="btn btn-default" ng-click="openAudio(sermon)"><%= __('listen') %></button>
+			<button class="btn btn-default" ng-click="openAudio(sermon)">Listen</button>
 		</div>
 		<div class="col-md-4">
-			<a href="{{sermon.sermon}}" class="btn btn-default" download ><%= __('download') %></a>
+			<a href="{{sermon.sermon}}" class="btn btn-default" download >Download</a>
 		</div>
 	</div>
 	<div class="row" ng-if="sermon.bulletin">
 		<div class="col-md-4">
-			<span><%= __('bulletin') %></span>
+			<span>Bulletin</span>
 		</div>
 		<div class="col-md-4">
-			<button class="btn btn-default" ng-click="openDocs(sermon, 'bulletin')"><%= __('open') %></button>
+			<button class="btn btn-default" ng-click="openDocs(sermon, 'bulletin')">Open</button>
 		</div>
 		<div class="col-md-4">
-			<a href="{{sermon.bulletin}}" class="btn btn-default" download ><%= __('download') %></a>
+			<a href="{{sermon.bulletin}}" class="btn btn-default" download >Download</a>
 		</div>
 	</div>
 	<div class="row" ng-if="sermon.ppt">
 		<div class="col-md-4">
-			<span><%= __('ppt') %></span>
+			<span>PowerPoint</span>
 		</div>
 		<div class="col-md-4">
-			<button class="btn btn-default" ng-click="openDocs(sermon, 'ppt')"><%= __('open') %></button>
+			<button class="btn btn-default" ng-click="openDocs(sermon, 'ppt')">Open</button>
 		</div>
 		<div class="col-md-4">
-			<a href="{{sermon.ppt}}" class="btn btn-default" download ><%= __('download') %></a>
+			<a href="{{sermon.ppt}}" class="btn btn-default" download >Download</a>
 		</div>
 	</div>
 	<div class="row" ng-if="sermon.life_group">
 		<div class="col-md-4">
-			<span><%= __('life_group') %></span>
+			<span>Life Group</span>
 		</div>
 		<div class="col-md-4">
-			<button class="btn btn-default" ng-click="openDocs(sermon, 'life_group')"><%= __('open') %></button>
+			<button class="btn btn-default" ng-click="openDocs(sermon, 'life_group')">Open</button>
 		</div>
 		<div class="col-md-4">
-			<a href="{{sermon.life_group}}" class="btn btn-default" download ><%= __('download') %></a>
+			<a href="{{sermon.life_group}}" class="btn btn-default" download >Download</a>
 		</div>
 	</div>
 </div>

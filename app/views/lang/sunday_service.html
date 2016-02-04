@@ -21,7 +21,11 @@
 			</tab-heading>
 
 			<accordion close-others="oneAtATime" infinite-scroll="infiniteScroll()"  infinite-scroll-disabled="loading_api || no_more_result" > 
+				<% if (id == "undefined") { %>
 				<accordion-group ng-repeat="sermon in sermons" is-open="$first">
+				<% } else { %>
+				<accordion-group ng-repeat="sermon in sermons" is-open="sermon._id == id">
+				<% } %>
 					<accordion-heading ng-click="isopen=!isopen">
 						<div>
 							<span>{{sermon.sermon_date}}</span>

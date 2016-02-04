@@ -32,7 +32,7 @@ ccac.controller('SundayServiceController', function ($scope, $http, $modal, $log
 			}
 		}
 		
-		if($scope.id != undefined && $scope.congregation != 'id') {
+		if($scope.id != undefined && $scope.id != 'undefined') {
 			$http.post('/api/shareLinkSermon', {congregation: $scope.congregation, id : $scope.id})
 				.success(function(data) {
 					$log.info(data);
