@@ -32,6 +32,10 @@ module.exports = {
 			'path': '/eng/about_us/contact_us/',
 			'doc_id': '1SJfiXQzuELG3XXfwlLQjouWmHNm7hIDgdTe3nv8eTVQ'
 		},
+		{
+			'path': '/eng/about_us/pastoral_search/',
+			'doc_id': '1J75OVb0Fn8ApOUFnkLTg4Y_ZbNYNpTJfwbkwja_sdNw'
+		},
 // English - Life Groups
 		{
 			'path': '/eng/life_groups/',
@@ -221,6 +225,10 @@ module.exports = {
 			'path': '/cht/about_us/contact_us/',
 			'doc_id': '1qcGI15p--1YA07LmN5bt_lJQv9SbGTMuA0HEg-0Mfic'
 		},
+		{
+			'path': '/cht/about_us/pastoral_search/',
+			'doc_id': '1o1WDfNJ31oY9thM7HObjBFCH8M887r_G45Nu7-A20cE'
+		},
 // Traditional Chinese - Life Groups
 		{
 			'path': '/cht/life_groups/',
@@ -409,6 +417,10 @@ module.exports = {
 		{
 			'path': '/chs/about_us/contact_us/',
 			'doc_id': '1t-2gjvrB_ktEue_EgX6NU4HFSh-d14YE7FG25nclA_k'
+		},
+		{
+			'path': '/chs/about_us/pastoral_search/',
+			'doc_id': '1bjFF8Rl39-JRyaJp6bShnsG4L2DsWI416q62wic3yHk'
 		},
 // Simplified Chinese - Life Groups
 		{
