@@ -7,29 +7,31 @@
 
 var path = require('path');
 
+var Page = require(path.join(__basedir, 'app/models/page'));
+
 // Events Calendar
 var calendars = require(path.join(__basedir, 'config/google_calendars.js'));
 
 // Room Booking Calendar
 var room_booking = require(path.join(__basedir, 'config/room_booking_calendars.js'));
 
-// All Google Docs
-var docs = require(path.join(__basedir, 'config/google_docs.js'));
 var hashTable = require('node-hashtable');
-
-// Life Groups Calendar
-var lg_cal = require(path.join(__basedir, 'config/groups_calendars.js'));
 var hashTable_cal = require('node-hashtable');
 
-// Docs HashTable
-for(var i = 0; i < docs.docs.length; i++) {
-	hashTable.set(docs.docs[i].path, docs.docs[i].doc_id);
-}
+// Mongo Call
+Page.find({}, function(err, pages) {
+	if (err)
+		console.log(err);
+	
+	for(var i = 0; i < pages.length; i++) {
+		hashTable.set(pages[i].eng.lang_path, pages[i].eng.doc_id);
+		hashTable.set(pages[i].cht.lang_path, pages[i].cht.doc_id);
+		hashTable.set(pages[i].chs.lang_path, pages[i].chs.doc_id);
 
-// Life Group Calendar HashTable
-for(var i = 0; i < lg_cal.calendars.length; i++) {
-	hashTable_cal.set(lg_cal.calendars[i].path, lg_cal.calendars[i].calendar);
-}
+		hashTable_cal.set(pages[i].path, pages[i].google_calendar);
+	}
+});
+
 
 // Argument index
 var lang_arg = 1;
