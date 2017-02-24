@@ -9,7 +9,7 @@
 	"others": "其他",
 
 	"AGM": " 年议会",
-	
+
 	"church_update": "教会最新消息",
 	"building_update": "教会装修最新消息",
 	"facebook": "Facebook",
@@ -19,7 +19,7 @@
 	"church_update_english": "英语部",
 	"church_update_cantonese": "粤语部",
 	"church_update_mandarin": "国语部",
-	
+
 	"when_where": "崇拜时间及地点",
 	"our_staff": "教牧同工",
 	"our_vision": "教会异象",
@@ -49,7 +49,7 @@
 	"english_panorama_2": "Monday Men’s Group",
 	"english_naomi": "Naomi",
 	"english_life_groups": "Life Groups",
-	
+
 	"cantonese_bethlehem": "伯利恒团契",
 	"cantonese_flames": "火焰团契",
 	"cantonese_beracah": "比拉迦团契",
@@ -68,8 +68,8 @@
 	"cantonese_joshua": "约书亚团契",
 	"cantonese_caleb": "迦勒团契",
 
-	"mandarin_daniel": "但以理团契", 
-	
+	"mandarin_daniel": "但以理团契",
+
 	"children_ministry": "儿童事工",
 	"children_awana_club": "Awana Clubs",
 	"children_sunday_programs": "周日活动",
@@ -96,7 +96,7 @@
 	"close": "关闭",
 
 	"download_bulletin": "下载简报",
-	
+
 	"room_booking": "房间预订",
 	"room_booking_all": "所有房间",
 	"room_booking_banquet_room": "宴客厅",
@@ -124,6 +124,6 @@
 	"map": "地图",
 	"phone": "电话",
 	"email": "电邮",
-	
+
 	"aaa": "aaa"
 }

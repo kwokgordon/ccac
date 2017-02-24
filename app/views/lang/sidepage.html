@@ -3,58 +3,60 @@
 <script src="/js/angular/lang/sidepage.js"></script>
 
 <div class="container" ng-app="ccacApp" ng-controller="SidepageController">
-	<% if (header == "about_us") { %>
-		<% include ./sidebar/about_us_sidebar.html %>
-	<% } %>
-	<% if (header == "life_groups") { %>
-		<% include ./sidebar/life_groups_sidebar.html %>
-	<% } %>
-	<% if (header == "ministries") { %>
-		<% include ./sidebar/ministries_sidebar.html %>
-	<% } %>
-	
-	<div ng-init="content = '<%= doc_id %>'" ></div>
-	<div ng-init="calendar = '<%= calendar %>'" ></div>
-	<div ng-init="init()" ></div>
+  <% if (header == "news") { %>
+    <% include ./sidebar/news_sidebar.html %>
+  <% } %>
+  <% if (header == "about_us") { %>
+    <% include ./sidebar/about_us_sidebar.html %>
+  <% } %>
+  <% if (header == "life_groups") { %>
+    <% include ./sidebar/life_groups_sidebar.html %>
+  <% } %>
+  <% if (header == "ministries") { %>
+    <% include ./sidebar/ministries_sidebar.html %>
+  <% } %>
 
-	<div class="sidepage">
-	<div id="content" ng-include="url" ng-if="tabs.length == 1">
+  <div ng-init="content = '<%= doc_id %>'" ></div>
+  <div ng-init="calendar = '<%= calendar %>'" ></div>
+  <div ng-init="init()" ></div>
+
+  <div class="sidepage">
+    <div id="content" ng-include="url" ng-if="tabs.length == 1">
+    </div>
+
+    <tabset justified="true">
+      <tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled" ng-if="tabs.length > 1">
+	<tab-heading>
+	  <span ng-if="tab.id == 'content'"><%= __('content') %></span>
+	  <span ng-if="tab.id == 'calendar'"><%= __('calendar') %></span>
+	</tab-heading>
+	<div id="content" ng-include="url" ng-if="tab.id == 'content'">
 	</div>
 
-	<tabset justified="true">
-		<tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled" ng-if="tabs.length > 1">
-			<tab-heading>
-				<span ng-if="tab.id == 'content'"><%= __('content') %></span>
-				<span ng-if="tab.id == 'calendar'"><%= __('calendar') %></span>
-			</tab-heading>
-			<div id="content" ng-include="url" ng-if="tab.id == 'content'">
-			</div>
+	<% if (calendar) { %>
+	<div id="calendar" ng-if="tab.id == 'calendar'">
+	  <iframe
+	     src="https://www.google.com/calendar/embed?
+		  showTitle=0&
+		  wkst=1&
+		  <% if (lang == "eng") { %>hl=en&<% } %>
+		  <% if (lang == "cht") { %>hl=zh_TW&<% } %>
+		  <% if (lang == "chs") { %>hl=zh_CN&<% } %>
+		  bgcolor=%23FFFFFF&
+		  src=<%= calendar %>&
+		  ctz=America/Edmonton"
+		  style=" border-width:0; float:left; "
+		  width="100%"
+		  height="600"
+		  frameborder="0"
+		  scrolling="no">
+	  </iframe>
+	</div>
+	<% } %>
 
-			<% if (calendar) { %>
-				<div id="calendar" ng-if="tab.id == 'calendar'">
-					<iframe 
-						src="https://www.google.com/calendar/embed?
-							showTitle=0&
-							wkst=1&
-							<% if (lang == "eng") { %>hl=en&<% } %>
-							<% if (lang == "cht") { %>hl=zh_TW&<% } %>
-							<% if (lang == "chs") { %>hl=zh_CN&<% } %>
-							bgcolor=%23FFFFFF&
-							src=<%= calendar %>&
-							ctz=America/Edmonton" 
-						style=" border-width:0; float:left; " 
-						width="100%" 
-						height="600" 
-						frameborder="0" 
-						scrolling="no">
-					</iframe>
-				</div>
-			<% } %>
-			
-		</tab>
-	</tabset>
-	</div>	
-
+      </tab>
+    </tabset>
+  </div>
 </div>
 
 <!-- need .html here -->
