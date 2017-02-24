@@ -16,8 +16,8 @@ module.exports = function(app) {
 
 	// Welcome page
 	app.get('/', function(req, res) {
-		res.render('main/index');
+		// res.render('main/index');
+		res.redirect('/eng/');
 	});
 
 }
-

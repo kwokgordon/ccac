@@ -98,6 +98,12 @@ module.exports = {
     res.render('mobile/lang/fullpage');
   },
 
+  mobileRenoRender: function(req, res) {
+    this.setup_arg(req, res);
+
+    res.render('mobile/lang/reno');
+  },
+
   mobile_LGRender: function(req, res) {
     this.setup_arg(req, res);
 

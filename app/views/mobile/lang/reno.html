@@ -1,0 +1,54 @@
+<% include ./layout/header.html %>
+
+<div data-role="page" id="<%= path %>" tabindex="0" class="ui-page ui-page-theme-a ui-page-active">
+	<div id="mobile_header" data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+		<h1 class="ui-title" role="heading" aria-level="1">
+			<a href="/mobile/">Back to main page</a>
+		</h1>
+	</div>
+
+	<div role="main" class="ui-content" id="content">
+		<iframe id="google_doc" src="https://docs.google.com/document/d/<%= doc_id %>/pub" width="100%" height="100%" seamless></iframe>
+
+		<% if (calendar) { %>
+			<div class="event_calendar">
+				<iframe
+					src="https://www.google.com/calendar/embed?
+						mode=AGENDA&
+						showTitle=0&
+						showPrint=0&
+						showTabs=0&
+						showCalendars=0&
+						wkst=1&
+						<% if (lang == "eng") { %>hl=en&<% } %>
+						<% if (lang == "cht") { %>hl=zh_TW&<% } %>
+						<% if (lang == "chs") { %>hl=zh_CN&<% } %>
+						bgcolor=%23FFFFFF&
+						src=<%= calendar %>&
+						ctz=America/Edmonton"
+					style=" border-width:0; float:left; "
+					width="100%"
+					height="100%"
+					frameborder="0"
+					scrolling="no">
+				</iframe>
+			</div>
+		<% } %>
+
+	</div>
+
+	<div id="mobile_footer" data-role="footer" data-position="fixed" role="contentinfo" class="ui-footer ui-bar-inherit">
+		<h4 class="ui-title" role="heading" aria-level="1">Calgary Chinese Alliance Church</h4>
+
+		<script>
+			$(document).ready(function() {
+				$("iframe").height(Math.round($(window).height() * 0.8));
+			});
+		</script>
+
+	</div>
+</div>
+
+<!-- need .html here -->
+
+<% include ./layout/footer.html %>

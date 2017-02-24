@@ -23,6 +23,10 @@ module.exports = function(app) {
 			res.render('mobile/main/index');
 		});
 
+		app.get('/reno', function(req, res) {
+			res.redirect('/mobile/eng/news/');
+		});
+
 		app.get('/error', function(req, res) {
 			res.render('mobile/main/error');
 		});
@@ -39,7 +43,7 @@ module.exports = function(app) {
 			app.get('/news', function(req, res) {
 				shared.setup_arg(req, res);
 
-				shared.mobileRender(req, res);
+				shared.mobileRenoRender(req, res);
 			});
 			/////////////////////////////////////////////////////
 
