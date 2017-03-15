@@ -108,5 +108,9 @@ module.exports = function(app) {
       res.render('lang/room_booking');
     });
 
+    app.get('/giving', function(req, res) {
+      shared.fullpageRender(req, res);
+    });
+
   });
 }

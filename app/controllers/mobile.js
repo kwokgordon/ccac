@@ -101,6 +101,10 @@ module.exports = function(app) {
 				res.render('mobile/lang/room_booking');
 			});
 
+			app.get('/giving', function(req, res) {
+				shared.mobileRender(req, res);
+	    });
+
 		});
 	});
 }
