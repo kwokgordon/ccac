@@ -30,7 +30,13 @@
 	</div>
       </div>
     </li>
-   
+
+    <li id="children_ministry">
+      <a href="http://children-update.calgarychinesealliance.org/" >
+        <%= __('children_ministry') %>
+      </a>
+    </li>
+
     <!--
     <li id="building_update">
       <a href="http://building-update.calgarychinesealliance.org/" >
@@ -43,7 +49,7 @@
       </a>
     </li>
     -->
-    
+
     <li id="facebook">
       <a href="https://www.facebook.com/pages/Calgary-Chinese-Alliance-Church/690506447729653?pnref=lhc&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=1532523910335784" >
 	<!--
@@ -56,6 +62,6 @@
 
 <script>
   <% if (sidebar) { %>
-    document.getElementById("<%= sidebar %>").className = "active"; 
+    document.getElementById("<%= sidebar %>").className = "active";
   <% } %>
 </script>
