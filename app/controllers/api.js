@@ -29,6 +29,27 @@ module.exports = function(app) {
 			});
 		});
 
+		app.get('/getSermons/:congregation', function(req, res) {
+			var congregation = req.params.congregation;
+			var last = { sermon_date: '9999' };
+			var limit = 10;
+			
+			console.log(req.query);
+
+			if(req.query.last) 
+				last = { sermon_date: req.query.last };
+			
+			if(req.query.limit) 
+				limit = req.query.limit;
+				
+			Sermon.find({congregation: congregation, sermon_date: { $lt: last.sermon_date }}, {}, {sort: {sermon_date:-1}, limit: limit}, function(err, sermons) {
+				if (err)
+					res.send(err);
+				
+				res.json(sermons);
+			});
+		});
+
 		app.get('/getBulletin/:congregation', function(req, res) {
 			var congregation = req.params.congregation;
 			
