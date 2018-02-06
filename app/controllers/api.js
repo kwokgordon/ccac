@@ -19,7 +19,7 @@ module.exports = function(app) {
 				last = req.body.last;
 			
 			if(req.body.limit) 
-				limit = req.body.limit;
+				limit = parseInt(req.body.limit);
 				
 			Sermon.find({congregation: congregation, sermon_date: { $lt: last.sermon_date }}, {}, {sort: {sermon_date:-1}, limit: limit}, function(err, sermons) {
 				if (err)
@@ -40,7 +40,7 @@ module.exports = function(app) {
 				last = { sermon_date: req.query.last };
 			
 			if(req.query.limit) 
-				limit = req.query.limit;
+				limit = parseInt(req.query.limit);
 				
 			Sermon.find({congregation: congregation, sermon_date: { $lt: last.sermon_date }}, {}, {sort: {sermon_date:-1}, limit: limit}, function(err, sermons) {
 				if (err)
