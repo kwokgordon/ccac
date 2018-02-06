@@ -63,6 +63,24 @@ module.exports = function(app) {
 					res.send("No file found");
 			});
 		});
+
+		app.get('/getBulletins', function(req, res) {
+			Sermon.aggregate(
+				[
+					{ "$group": { 
+						"_id": "$congregation",
+						"sermon_date": { "$max": "$sermon_date" }
+					}}
+				],
+				function(err, result) {
+					if (err)
+						res.send(err);
+
+					res.send(result);
+				}
+			);
+
+		});
 		
 	});
 
