@@ -21,7 +21,7 @@
 		"ejs": "~0.8.5",
 		"express": "~4.2.0",
 		"express-namespace": "~0.1.1",
-		"mongoose": "~4.13.6",
+		"mongoose": "~5.0.7",
 		"morgan": "~1.0.0",
 		"nodemon": "~1.12.5",
 		"serve-favicon": "~2.0.0",
