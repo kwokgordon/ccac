@@ -89,6 +89,9 @@
     "bulletin": "Bulletin",
     "ppt": "PowerPoint",
     "life_group": "Life Group",
+		"speaker": "Speaker",
+		"sermon_series": "Sermon Series",
+		"bible_verses": "Bible Verses",
 
     "listen": "Listen",
     "open": "Open",

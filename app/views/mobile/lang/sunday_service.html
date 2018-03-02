@@ -21,8 +21,32 @@
 					<div>
 						<span>{{sermon.sermon_date}}</span>
 						<span ng-if="sermon.title"> - {{sermon.title}}</span>
+            <span ng-if="sermon.speaker"> - {{sermon.speaker}}</span>
 					</div>
 				</accordion-heading>
+				<div class="row" ng-if="sermon.speaker">
+	        <div class="col-md-6">
+			      <span><%= __('speaker') %>: {{sermon.speaker}}</span>
+					</div>
+        </div>
+        <div class="row" ng-if="sermon.sermon_series">
+	        <div class="col-md-6">
+		        <span><%= __('sermon_series') %>: {{sermon.sermon_series}}</span>
+          </div>
+        </div>
+        <div class="row" ng-if="sermon.bible_verses">
+	        <div class="col-md-6">
+		        <span ng-if="sermon.congregation == 'English'">
+	            <%= __('bible_verses') %>: <a href="https://www.biblegateway.com/passage/?version=NIV&search={{sermon.bible_verses}}" target="_blank">{{sermon.bible_verses}}</a>
+            </span>
+            <span ng-if="sermon.congregation == 'Cantonese'">
+	            <%= __('bible_verses') %>: <a href="https://www.biblegateway.com/passage/?version=CUV&search={{sermon.bible_verses}}" target="_blank">{{sermon.bible_verses}}</a>
+            </span>
+            <span ng-if="sermon.congregation == 'Mandarin'">
+	            <%= __('bible_verses') %>: <a href="https://www.biblegateway.com/passage/?version=CUVS&search={{sermon.bible_verses}}" target="_blank">{{sermon.bible_verses}}</a>
+            </span>
+          </div>
+        </div>
 				<div class="row" ng-if="sermon.sermon">
 					<div class="col-xs-4">
 						<span><%= __('sermon') %></span>
