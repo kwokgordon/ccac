@@ -65,21 +65,54 @@ module.exports = function(app) {
 		});
 
 		app.get('/getBulletins', function(req, res) {
+
+/*
 			Sermon.aggregate(
 				[
 					{ "$group": { 
 						"_id": "$congregation",
-						"sermon_date": { "$max": "$sermon_date" }
-					}}
+						"sermon_date": { "$max": "$sermon_date" },
+					}},
 				],
 				function(err, result) {
 					if (err)
 						res.send(err);
 
+					for(var i = 0; i < result.length; i++ ) {
+						result[i]['congregation'] = result[i]._id;
+					}
+																																																																						
 					res.send(result);
 				}
 			);
+*/
 
+			var data = [];
+			Sermon.findOne({ 'congregation': 'English' }, null, { sort: { 'sermon_date': -1 }},
+				function(err, eng_result) {
+					if (err)
+						res.send(err);
+
+					data.push(eng_result);
+
+					Sermon.findOne({ 'congregation': 'Cantonese' }, null, { sort: { 'sermon_date': -1 }},
+						function(err, can_result) {
+							if (err)
+								res.send(err);
+
+							data.push(can_result);
+
+							Sermon.findOne({ 'congregation': 'Mandarin' }, null, { sort: { 'sermon_date': -1 }},
+								function(err, man_result) {
+									if (err)
+										res.send(err);
+
+									data.push(man_result);
+
+									res.send(data);
+								});
+						});
+				});
 		});
 		
 	});
