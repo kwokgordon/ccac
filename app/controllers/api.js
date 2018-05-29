@@ -88,21 +88,21 @@ module.exports = function(app) {
 */
 
 			var data = [];
-			Sermon.findOne({ 'congregation': 'English' }, null, { sort: { 'sermon_date': -1 }},
+			Sermon.findOne({ 'congregation': 'English', 'bulletin': { $ne: null } }, null, { sort: { 'sermon_date': -1 }},
 				function(err, eng_result) {
 					if (err)
 						res.send(err);
 
 					data.push(eng_result);
 
-					Sermon.findOne({ 'congregation': 'Cantonese' }, null, { sort: { 'sermon_date': -1 }},
+					Sermon.findOne({ 'congregation': 'Cantonese', 'bulletin': { $ne: null } }, null, { sort: { 'sermon_date': -1 }},
 						function(err, can_result) {
 							if (err)
 								res.send(err);
 
 							data.push(can_result);
 
-							Sermon.findOne({ 'congregation': 'Mandarin' }, null, { sort: { 'sermon_date': -1 }},
+							Sermon.findOne({ 'congregation': 'Mandarin', 'bulletin': { $ne: null } }, null, { sort: { 'sermon_date': -1 }},
 								function(err, man_result) {
 									if (err)
 										res.send(err);
