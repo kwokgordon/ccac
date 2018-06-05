@@ -19,6 +19,10 @@ module.exports = function(app) {
 	// Mobile page
 	app.namespace('/mobile', function() {
 
+		app.get('/app', function(req, res) {
+			res.render('mobile/app');
+		});
+
 		app.get('/', function(req, res) {
 			res.render('mobile/main/index');
 		});
