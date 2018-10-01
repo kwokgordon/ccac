@@ -92,6 +92,22 @@ module.exports = function(app) {
       res.render('lang/sunday_service');
     });
 
+    app.get('/newpage/sunday_service/', function(req, res) {
+      shared.setup_arg(req, res);
+
+      res.locals.congregation = 'undefined';
+
+      res.render('lang/sunday_service');
+    });
+
+    app.get('/newpage/sunday_service/:congregation', function(req, res) {
+      shared.setup_arg(req, res);
+
+      res.locals.congregation = req.params.congregation;
+
+      res.render('lang/sunday_service');
+    });
+
     app.get('/resources/room_booking', function(req, res) {
       shared.setup_arg(req, res);
 
