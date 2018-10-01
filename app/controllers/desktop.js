@@ -97,7 +97,7 @@ module.exports = function(app) {
 
       res.locals.congregation = 'undefined';
 
-      res.render('lang/sunday_service');
+      res.render('lang/new_sunday_service');
     });
 
     app.get('/newpage/sunday_service/:congregation', function(req, res) {
@@ -105,7 +105,7 @@ module.exports = function(app) {
 
       res.locals.congregation = req.params.congregation;
 
-      res.render('lang/sunday_service');
+      res.render('lang/new_sunday_service');
     });
 
     app.get('/resources/room_booking', function(req, res) {
