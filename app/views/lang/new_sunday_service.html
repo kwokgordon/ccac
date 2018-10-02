@@ -30,7 +30,7 @@
 			<div ng-init="congregation = '<%= congregation %>'" ></div>
 			<div ng-init="init()" ></div>
 
-			<div class="sidepage" id="content">
+			<div id="content">
 				<tabset justified="true">
 					<tab ng-repeat="tab in tabs" active="tab.active" disable="tab.disabled" ng-click="getSermons(tab.title)">
 						<tab-heading>
