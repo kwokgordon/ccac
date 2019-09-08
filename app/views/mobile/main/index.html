@@ -73,7 +73,7 @@
 
 			let vid = document.getElementById("videoContent");
 			// console.log(vid);
-			if (type === 'cellular') {
+			if (type != 'cellular') {
 				vid.autoplay = true;
 				vid.load();
 			}
