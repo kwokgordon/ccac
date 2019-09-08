@@ -3,7 +3,8 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"start": "nodemon ./bin/www",
+		"start": "node ./bin/www",
+		"local": "nodemon ./bin/www",
 		"postinstall": "bower install"
 	},
 	"permission": [
@@ -23,11 +24,13 @@
 		"express-namespace": "~0.1.1",
 		"mongoose": "~5.0.7",
 		"morgan": "~1.0.0",
-		"nodemon": "~1.12.5",
 		"serve-favicon": "~2.0.0",
 		"node-hashtable": "~0.1.1",
 		"cors": "~2.5.2",
 		"i18n": "~0.5.0",
 		"i18n-node-angular": "~1.2.0"
+	},
+	"devDependencies": {
+		"nodemon": "~1.12.5"
 	}
 }

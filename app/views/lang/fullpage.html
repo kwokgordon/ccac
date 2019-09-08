@@ -1,14 +1,52 @@
 <% include ./layout/header.html %>
 
 <div class="container">
-<div class="fullpage" id="content">
+    <div class="fullpage" id="content">
 
-</div>
+    </div>
 </div>
 
 <!-- need .html here -->
 <script>
-$("#content").load("https://docs.google.com/document/d/<%= doc_id %>/pub?embedded=true");
+    $("#content").load("https://docs.google.com/document/d/<%= doc_id %>/pub?embedded=true");
 </script>
+
+<script>
+    <% if (header == "") { %>
+        window.onload = function(event) {
+            $('#videoModal').modal('show');
+
+            let vid = document.getElementById("videoContent");
+            console.log(vid);
+            vid.autoplay = true;
+            vid.load();
+
+            $('#videoModal').on('hidden.bs.modal', function (e) {
+                vid.pause();
+            })
+        };
+
+  <% } %>
+
+</script>
+
+<div id="videoModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header video-modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalLabel"> </h4>
+            </div>
+            <div class="modal-body">
+                <video id="videoContent" controls>
+                    <source
+                        src="https://calgarychinesealliancechurch.s3-us-west-2.amazonaws.com/Video/CCAC+Thanksgiving+and+Praise+1080p.m4v"
+                        type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
 
 <% include ./layout/footer.html %>

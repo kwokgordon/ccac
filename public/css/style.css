@@ -164,3 +164,11 @@ body {
 }
 
 
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+.video-modal-header {
+	border-bottom: 0;
+}
