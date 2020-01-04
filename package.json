@@ -23,7 +23,7 @@
 		"express": "~4.2.0",
 		"express-namespace": "~0.1.1",
 		"mongoose": "~5.0.7",
-		"morgan": "~1.0.0",
+		"morgan": "~1.9.1",
 		"serve-favicon": "~2.0.0",
 		"node-hashtable": "~0.1.1",
 		"cors": "~2.5.2",
