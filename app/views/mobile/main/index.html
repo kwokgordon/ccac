@@ -63,30 +63,31 @@
 			window.location = s;
 		}
 
-		window.onload = function (event) {
-			const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-			console.log("Connect", connection);
-			const type = connection.type;
-			console.log("Type", type);
+		// window.onload = function (event) {
+		// 	const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+		// 	console.log("Connect", connection);
+		// 	const type = connection.type;
+		// 	console.log("Type", type);
 
-			$('#videoModal').modal('show');
+		// 	$('#videoModal').modal('show');
 
-			let vid = document.getElementById("videoContent");
-			// console.log(vid);
-			if (type !== 'cellular') {
-				console.log("Not Cellular");
-				vid.autoplay = true;
-				vid.load();
-			}
+		// 	let vid = document.getElementById("videoContent");
+		// 	// console.log(vid);
+		// 	if (type !== 'cellular') {
+		// 		console.log("Not Cellular");
+		// 		vid.autoplay = true;
+		// 		vid.load();
+		// 	}
 
-			$('#videoModal').on('hidden.bs.modal', function (e) {
-				vid.pause();
-			})
-		};
+		// 	$('#videoModal').on('hidden.bs.modal', function (e) {
+		// 		vid.pause();
+		// 	})
+		// };
 
 
 	</script>
 
+<!--
 	<div id="videoModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -105,6 +106,8 @@
 			</div>
 		</div>
 	</div>
+-->
+
 </body>
 
 </html>
