@@ -20,4 +20,7 @@ module.exports = function(app) {
 		res.redirect('/eng/');
 	});
 
+	app.get('/privacy-policy', function(req, res) {
+		res.redirect('https://drive.google.com/open?id=1ddSHxVAz9MNzMCuEgX2qR8obUdxfyBwryObHF3JrzMg');
+	});
 }
