@@ -20,30 +20,11 @@
   </div>
 -->
 
-<!-- <div data-role="listview" class="ui-listview-outer" data-inset="true">
-  <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
-    <li id="chinese_school"><a href="/mobile/<%= lang %>/news/"><%= __('building_update') %></a></li>
-  </ul>
-</div> -->
-
 <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
   <h3><%= __('news') %></h3>
-  <!-- <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
-    <h3><%= __('church_update') %></h3>
-    <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
-      <li id="church_update"><a href="http://church-update.calgarychinesealliance.org/"><%= __('church_update') %></a></li>
-      <li id="church_update_english"><a href="http://church-update.calgarychinesealliance.org/search/label/English"><%= __('church_update_english') %></a></li>
-      <li id="church_update_cantonese"><a href="http://church-update.calgarychinesealliance.org/search/label/Cantonese"><%= __('church_update_cantonese') %></a></li>
-      <li id="church_update_mandarin"><a href="http://church-update.calgarychinesealliance.org/search/label/Mandarin"><%= __('church_update_mandarin') %></a></li>
-    </ul>
-  </div> -->
-
   <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
     <li id="church_update"><a href="/mobile/<%= lang %>/news/"><%= __('church_update') %></a></li>
     <li id="children_ministry"><a href="http://children-update.calgarychinesealliance.org/"><%= __('children_ministry') %></a></li>
-    <!--
-    <li id="building_update"><a href="http://building-update.calgarychinesealliance.org/"><%= __('building_update') %></a></li>
-  -->
   <li id="facebook"><a href="https://www.facebook.com/pages/Calgary-Chinese-Alliance-Church/690506447729653?pnref=lhc&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=1532523910335784"><%= __('facebook') %></a></li>
 </ul>
 </div>
@@ -59,14 +40,13 @@
   </ul>
 </div>
 
-<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+<!-- <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
   <h3><%= __('life_groups') %></h3>
   <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
     <h3><%= __('english') %></h3>
     <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
       <li id="youth_ministry"><a href="/mobile/<%= lang %>/life_groups/english/youth_ministry/"><%= __('english_youth_ministry') %></a></li>
       <li id="lifehouse"><a href="/mobile/<%= lang %>/life_groups/english/lifehouse/"><%= __('english_lifehouse') %></a></li>
-      <!--li id="downtown_edgemont"><a href="/mobile/<%= lang %>/life_groups/english/downtown_edgemont/"><%= __('english_downtown_edgemont') %></a></li-->
       <li id="young_family"><a href="/mobile/<%= lang %>/life_groups/english/young_family/"><%= __('english_young_family') %></a></li>
       <li id="hamptons"><a href="/mobile/<%= lang %>/life_groups/english/hamptons/"><%= __('english_hamptons') %></a></li>
       <li id="thursday_lifegroup"><a href="/mobile/<%= lang %>/life_groups/english/thursday_lifegroup/"><%= __('english_thursday_lifegroup') %></a></li>
@@ -111,14 +91,11 @@
       <li id="daniel"><a href="/mobile/<%= lang %>/life_groups/mandarin/daniel/"><%= __('mandarin_daniel') %></a></li>
     </ul>
   </div>
-</div>
+</div> -->
 
-<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+<!-- <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
   <h3><%= __('ministries') %></h3>
   <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
-    <!--
-    <li id="children_ministry"><a href="/mobile/<%= lang %>/ministries/children_ministry/"><%= __('children_ministry') %></a></li>
-  -->
   <li id="children_ministry">
     <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
       <h3><%= __('children_ministry') %></h3>
@@ -131,10 +108,26 @@
     </div>
   </li>
   <li id="chinese_school"><a href="/mobile/<%= lang %>/ministries/chinese_school/"><%= __('chinese_school') %></a></li>
-  <!--
-  <li id="esl"><a href="/mobile/<%= lang %>/ministries/esl/"><%= __('esl') %></a></li>
--->
 </ul>
+</div> -->
+
+<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+  <h3><%= __('ministry_plan') %></h3>
+  <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+    <li id="ministry_plan"><a href="/mobile/<%= lang %>/ministry_plan/"><%= __('ministry_plan') %></a></li>
+    <li id="church-wide-ministry"><a href="/mobile/<%= lang %>/ministry_plan/church-wide-ministry/"><%= __('church-wide-ministry') %></a></li>
+    <li id="cantonese-ministry"><a href="/mobile/<%= lang %>/ministry_plan/cantonese-ministry/"><%= __('cantonese-ministry') %></a></li>
+    <li id="english-ministry"><a href="/mobile/<%= lang %>/ministry_plan/english-ministry/"><%= __('english-ministry') %></a></li>
+    <li id="mandarin-ministry"><a href="/mobile/<%= lang %>/ministry_plan/mandarin-ministry/"><%= __('mandarin-ministry') %></a></li>
+    <li id="children-ministry"><a href="/mobile/<%= lang %>/ministry_plan/children-ministry/"><%= __('children-ministry') %></a></li>
+    <li id="student-ministry"><a href="/mobile/<%= lang %>/ministry_plan/student-ministry/"><%= __('student-ministry') %></a></li>
+  </ul>
+</div>
+
+<div data-role="listview" class="ui-listview-outer" data-inset="true">
+  <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+    <li id="devotion"><a href="https://devotion.ccac.life/"><%= __('devotion') %></a></li>
+  </ul>
 </div>
 
 <div data-role="listview" class="ui-listview-outer" data-inset="true">
@@ -143,7 +136,7 @@
   </ul>
 </div>
 
-<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+<!-- <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
   <h3><%= __('events') %></h3>
   <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
     <li id="events_all"><a href="/mobile/<%= lang %>/events/"><%= __('events_all') %></a></li>
@@ -160,7 +153,7 @@
       </a>
     </li>
   </ul>
-</div>
+</div> -->
 
 <!--
 <div data-role="listview" class="ui-listview-outer" data-inset="true">

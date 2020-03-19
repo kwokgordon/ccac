@@ -15,6 +15,9 @@
   <% if (header == "ministries") { %>
     <% include ./sidebar/ministries_sidebar.html %>
   <% } %>
+  <% if (header == "ministry_plan") { %>
+    <% include ./sidebar/ministry_plan_sidebar.html %>
+  <% } %>
 
   <div ng-init="content = '<%= doc_id %>'" ></div>
   <div ng-init="calendar = '<%= calendar %>'" ></div>

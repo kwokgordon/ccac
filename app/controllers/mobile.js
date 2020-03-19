@@ -105,6 +105,14 @@ module.exports = function(app) {
 				res.render('mobile/lang/room_booking');
 			});
 
+			app.get('/ministry_plan/', function(req, res) {
+				shared.mobileRender(req, res);
+			});
+
+			app.get('/ministry_plan/:sidebar', function(req, res) {
+				shared.mobileRender(req, res);
+			});
+
 			app.get('/giving', function(req, res) {
 				shared.mobileRender(req, res);
 	    });

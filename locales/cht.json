@@ -131,5 +131,15 @@
 
   "giving": "奉獻",
 
+	"ministry_plan": "事工計劃",
+	"devotion": "靈修",
+
+	"church-wide-ministry": "教會事工",
+  "cantonese-ministry": "粤語事工",
+	"english-ministry": "英語事工",
+  "mandarin-ministry": "國語事工",
+	"children-ministry": "兒童事工",
+	"student-ministry": "學生事工",
+
   "aaa": "aaa"
 }

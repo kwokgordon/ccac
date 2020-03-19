@@ -11,8 +11,7 @@
 		"https://docs.google.com",
 		"https://drive.google.com",
 		"https://www.google.com",
-		"https://sites.google.com",
-		"http://church-update.calgarychinesealliance.org/"
+		"https://sites.google.com"
 	],
 	"dependencies": {
 		"body-parser": "~1.0.0",

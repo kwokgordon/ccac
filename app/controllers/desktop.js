@@ -124,6 +124,22 @@ module.exports = function(app) {
       res.render('lang/room_booking');
     });
 
+    app.get('/ministry_plan', function(req, res) {
+      shared.sidepageRender(req, res);
+    });
+
+    app.get('/ministry_plan/:sidebar', function(req, res) {
+      shared.sidepageRender(req, res);
+    });
+
+    app.get('/devotion', function(req, res) {
+      shared.setup_arg(req, res);
+
+      res.locals.congregation = 'undefined';
+
+      res.render('lang/devotion');
+    });
+
     app.get('/giving', function(req, res) {
       shared.fullpageRender(req, res);
     });
