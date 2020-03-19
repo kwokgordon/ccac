@@ -11,3 +11,9 @@
 -->
 	</ul>
 </div>
+
+<script>
+	<% if (sidebar) { %>
+	  document.getElementById("<%= sidebar %>").className = "active";
+	<% } %>
+  </script>

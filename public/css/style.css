@@ -172,3 +172,7 @@ video {
 .video-modal-header {
 	border-bottom: 0;
 }
+
+.sidebar > .nav > .active {
+	background-color: #e7e7e7;
+}
