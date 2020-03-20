@@ -33,7 +33,11 @@
     <script type="text/javascript">
       window.console.log(navigator.userAgent);
       if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/android/i)) || (navigator.userAgent.match(/Palm/i))) {
-      window.location = "/mobile/reno/";
+        if ("<%= path %>" == "/") {
+          window.location = "/mobile/latest_news";
+        } else {
+          window.location = "/mobile/<%= lang %><%= path %>";
+        }
       }
     </script>
 

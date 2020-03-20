@@ -27,7 +27,7 @@ module.exports = function(app) {
 			res.render('mobile/main/index');
 		});
 
-		app.get('/reno', function(req, res) {
+		app.get('/latest_news', function(req, res) {
 			res.redirect('/mobile/eng/news/');
 		});
 
@@ -47,7 +47,7 @@ module.exports = function(app) {
 			app.get('/news', function(req, res) {
 				shared.setup_arg(req, res);
 
-				shared.mobileRenoRender(req, res);
+				shared.mobileRender(req, res);
 			});
 			/////////////////////////////////////////////////////
 

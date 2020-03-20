@@ -5,7 +5,16 @@
     <h1 class="ui-title" role="heading" aria-level="1">
       CCAC
     </h1>
+		<a href="#menu-panel" data-iconpos="notext" class="ui-link ui-btn-right ui-btn ui-icon-bars ui-btn-icon-notext ui-shadow ui-corner-all" data-role="button" role="button">Menu</a>
   </div>
+
+	<div data-role="panel" id="menu-panel" data-position="right" data-display="overlay" data-theme="a"
+		class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open">
+
+		<a href="#" data-rel="close" data-iconpos="notext" class="ui-link ui-btn-right ui-btn ui-icon-delete ui-btn-icon-notext ui-shadow ui-corner-all" data-role="button" role="button">Close</a>
+		
+		<% include ./layout/menu_panel.html %>
+	</div>	
 
   <div role="main" class="ui-content" id="content" data-role="content">
     <div data-role="collapsible-set" class="ui-listview-outer" data-inset="true">
