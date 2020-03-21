@@ -29,13 +29,10 @@
   </div>
 -->
 
-<div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
-  <h3><%= __('news') %></h3>
+<div data-role="listview" class="ui-listview-outer" data-inset="true">
   <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
     <li id="church_update"><a href="/mobile/<%= lang %>/news/"><%= __('church_update') %></a></li>
-    <li id="children_ministry"><a href="http://children-update.calgarychinesealliance.org/"><%= __('children_ministry') %></a></li>
-  <li id="facebook"><a href="https://www.facebook.com/pages/Calgary-Chinese-Alliance-Church/690506447729653?pnref=lhc&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=1532523910335784"><%= __('facebook') %></a></li>
-</ul>
+  </ul>
 </div>
 
 <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
@@ -123,7 +120,7 @@
 <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
   <h3><%= __('ministry_plan') %></h3>
   <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
-    <li id="ministry_plan"><a href="/mobile/<%= lang %>/ministry_plan/"><%= __('ministry_plan') %></a></li>
+    <!-- <li id="ministry_plan"><a href="/mobile/<%= lang %>/ministry_plan/"><%= __('ministry_plan') %></a></li> -->
     <li id="church-wide-ministry"><a href="/mobile/<%= lang %>/ministry_plan/church-wide-ministry/"><%= __('church-wide-ministry') %></a></li>
     <li id="cantonese-ministry"><a href="/mobile/<%= lang %>/ministry_plan/cantonese-ministry/"><%= __('cantonese-ministry') %></a></li>
     <li id="english-ministry"><a href="/mobile/<%= lang %>/ministry_plan/english-ministry/"><%= __('english-ministry') %></a></li>
@@ -173,6 +170,12 @@
 </div>
 -->
 
+<div data-role="listview" class="ui-listview-outer" data-inset="true">
+  <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+    <li id="children_ministry"><a href="http://children-update.calgarychinesealliance.org/"><%= __('children_ministry') %></a></li>
+  </ul>
+</div>
+
 <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
   <h3><%= __('resources') %></h3>
   <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
@@ -183,8 +186,11 @@
       <li id="mandarin_sermon"><a href="/mobile/<%= lang %>/resources/sunday_service/Mandarin" target="_blank"><%= __('mandarin') %></a></li>
     </ul>
   </div>
+  <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
+    <li id="facebook"><a href="https://www.facebook.com/pages/Calgary-Chinese-Alliance-Church/690506447729653?pnref=lhc&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=1532523910335784"><%= __('facebook') %></a></li>
+  </ul>
 
-  <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
+  <!-- <div data-role="collapsible" data-iconpos="left" data-shadow="false" data-corners="false">
     <h3><%= __('room_booking') %></h3>
     <ul data-role="listview" data-shadow="false" data-inset="true" data-corners="false">
       <li id="room_booking_all"><a href="/mobile/<%= lang %>/resources/room_booking/"><%= __('room_booking_all') %></a></li>
@@ -197,7 +203,7 @@
         </li>
         <% } %>
       </ul>
-    </div>
+    </div> -->
   </div>
 </div>
 </div>
