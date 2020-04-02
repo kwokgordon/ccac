@@ -114,9 +114,10 @@ module.exports = function(app) {
 			});
 
 			app.get('/giving', function(req, res) {
-				shared.mobileRender(req, res);
-	    });
+				shared.setup_arg(req, res);
 
+				res.render('mobile/lang/giving');
+		    });
 		});
 	});
 }

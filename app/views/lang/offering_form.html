@@ -1,0 +1,239 @@
+
+<html>
+    <head>
+    <title>CCAC E-Transfer Offering Form</title>
+    <style>
+            * {
+                    font-family: Helvetica, Arial;
+            }
+            h1 {
+                    font-size: 20;
+            }
+            h3 {
+                    font-size: 14;
+            }
+            h6 {
+                    font-size: 10;
+            }
+            td {
+                    font-size: 14;
+            }
+            input {
+                    font-size: 14;
+            }
+            .error {
+                    font-size: 14; color: red;
+            }
+            .plain {
+                    font-size: 14;
+            }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+    
+    <script>
+    function condenseName(input)
+    {
+        var output = "";
+        for (var i = 0; i < input.length; i++) {
+            var cc = input.charCodeAt(i);
+            if (i == 0 || input.charAt(i - 1) == " ") {
+                // Must be upper case
+                if ((cc >= 65 && cc <= 90) || (cc >= 95 && cc <= 122)) {
+                    output += input.charAt(i).toUpperCase();
+                }
+            }
+            else {
+                if ((cc >= 65 && cc <= 90) || (cc >= 95 && cc <= 122)) {
+                    output += input.charAt(i).toLowerCase();
+                }
+            }
+        }
+        return output;
+    }
+    
+    function updateMessage()
+    {
+        nameObj = document.getElementById("name");
+        numberObj = document.getElementById("number");
+        generalObj = document.getElementById("general");
+        missionsObj = document.getElementById("missions");
+        buildingObj = document.getElementById("building");
+        thanksgivingObj = document.getElementById("thanksgiving");
+        otherObj = document.getElementById("other");
+        otherTypeObj = document.getElementById("othertype");
+        totalObj = document.getElementById("total");
+        errorDiv = document.getElementById("errormsg");
+        messageObj = document.getElementById("message");
+        messageLengthObj = document.getElementById("messagelen");
+        copybuttonObj = document.getElementById("copybutton");
+        
+        errorDiv.innerHTML = "";
+        messageObj.value = "";
+        messageLengthObj.innerHTML = "";
+        totalObj.value = "";
+        copybuttonObj.disabled = true;
+        
+        if (nameObj.value == "") {
+            errorDiv.innerHTML = "<div class='error'>Please enter your name.</div>";
+            return;
+        }
+        
+        number = parseInt(numberObj.value);
+        if (numberObj.value.length == 0) {
+            number = "-";
+        }
+        else if (isNaN(number)) {
+            errorDiv.innerHTML = "Please enter a valid envelope number.";
+            return;
+        }
+        
+        general = parseFloat(generalObj.value);
+        if (isNaN(general)) {
+            errorDiv.innerHTML = "Please enter a valid number in General Fund.";
+            return;
+        }
+        missions = parseFloat(missionsObj.value);
+        if (isNaN(missions)) {
+            errorDiv.innerHTML = "Please enter a valid number in Missions Fund.";
+            return;
+        }
+        building  = parseFloat(buildingObj.value);
+        if (isNaN(building)) {
+            errorDiv.innerHTML = "Please enter a valid number in Building Fund.";
+            return;
+        }
+        thanksgiving  = parseFloat(thanksgivingObj.value);
+        if (isNaN(thanksgiving)) {
+            errorDiv.innerHTML = "Please enter a valid number in Thanksgiving.";
+            return;
+        }
+        other = parseFloat(otherObj.value);
+        if (isNaN(other)) {
+            errorDiv.innerHTML = "Please enter a valid number in Other.";
+            return;
+        }
+        
+        total = (general + missions + building + thanksgiving + other);
+        total = total.toFixed(2);
+        totalObj.value = total;
+    
+        total2 = total;
+        if (total2 < 0) {
+            errorDiv.innerHTML = "The total must be greater than zero.";
+            return;
+        }
+        
+        if (other > 0 && otherTypeObj.value.length == 0) {
+            errorDiv.innerHTML = "Please enter a description for Other.";
+            return;
+        }
+        
+        messageObj.value = condenseName(nameObj.value) + "\n";
+        messageObj.value += number;
+        if (general > 0) {
+            if (Number.isInteger(general))
+                messageObj.value += "\nG" + general.toFixed(0);
+            else
+                messageObj.value += "\nG" + general.toFixed(2);
+        }
+        if (missions > 0) {
+            if (Number.isInteger(missions))
+                messageObj.value += "\nM" + missions.toFixed(0);
+            else
+                messageObj.value += "\nM" + missions.toFixed(2);
+        }
+        if (building > 0) {
+            if (Number.isInteger(building))
+                messageObj.value += "\nB" + building.toFixed(0);
+            else
+                messageObj.value += "\nB" + building.toFixed(2);
+        }
+        if (thanksgiving > 0) {
+            if (Number.isInteger(thanksgiving))
+                messageObj.value += "\nT" + thanksgiving.toFixed(0);
+            else
+                messageObj.value += "\nT" + thanksgiving.toFixed(2);
+        }
+        if (other > 0) {
+            otherType = otherTypeObj.value.replace(/[^a-z0-9]/gmi, "");
+            // The last character can't be a number
+            var lastChar = otherType.charCodeAt(otherType.length - 1);
+            if (lastChar >= 48 && lastChar <= 57)
+                otherType += ':';
+            messageObj.value += "\nO" + otherType;
+            if (Number.isInteger(other))
+                messageObj.value += other.toFixed(0);
+            else
+                messageObj.value += other.toFixed(2);
+        }
+        
+        messageLengthObj.innerHTML = "Message length: " + messageObj.value.length + " characters";
+        if (messageObj.value.length > 40) {
+            messageLengthObj.innerHTML += "<div class='error'>The message length exceeds 40 characters, and may be too long for some e-transfer messages. You may need to shorten the text in some of your fields.</div>";
+        }
+    
+        if (messageObj.value.length > 0) {
+            copybuttonObj.disabled = false;
+        }
+    }
+    
+    function copyToClipboard()
+    {
+        messageObj = document.getElementById("message");
+        message = messageObj.value;
+        if (message.length == 0) {
+            alert("Please complete all fields before pressing copy.");
+            return;
+        }
+        
+        totalObj = document.getElementById("total");
+        total = parseFloat(totalObj.value);
+        if (isNaN(total) || total <= 0) {
+            alert("The total must be greater than zero.");
+            return;
+        }
+    
+        messageObj.select();
+        document.execCommand("Copy");
+        alert("Message copied to clipboard.\n\nPlease paste this in the e-transfer message field.");
+    }
+    
+    </script>
+    
+    <h1>CCAC E-Transfer Offering Form</h1>
+    
+    <table border="0" cellpadding="5" cellspacing="0">
+    <tr><td colspan="3">Name: &nbsp;&nbsp;&nbsp;<input type="text" name="name" id="name" autofocus size="25" oninput="updateMessage()"/></td></tr>
+    <tr><td>Envelope Number**:</td><td></td><td><input type="text" name="number" id="number" size="6" oninput="updateMessage()"/></td></tr>
+    <tr><td>General Fund:</td><td>$</td><td><input type="text" name="general" id="general" value="0" size="6" oninput="updateMessage()"/></td></tr>
+    <tr><td>Missions Fund:</td><td>$</td><td><input type="text" name="missions" id="missions" value="0" size="6" oninput="updateMessage()"/></td></tr>
+    <tr><td>Building Fund:</td><td>$</td><td><input type="text" name="building" id="building" value="0" size="6" oninput="updateMessage()"/></td></tr>
+    <tr><td>Thanksgiving:</td><td>$</td><td><input type="text" name="thanksgiving" id="thanksgiving" value="0" size="6" oninput="updateMessage()"/></td></tr>
+    <tr><td>Other: <input type="text" id="othertype" oninput="updateMessage()" size="15"/></td><td>$</td><td><input type="text" name="other" id="other" value="0" size="6" oninput="updateMessage()"/></td></tr>
+    <tr><td>Total:</td><td>$</td><td><input type="text" name="total" id="total" disabled value="0" size="6"/></td></tr>
+    </table>
+    
+    <h6>**Forgot your envelope number?<br/>Email <a href="mailto:giving@calgarychinesealliance.org">giving@calgarychinesealliance.org</a>
+     and we will respond with your number. Don't have a number or forgot? You can still give today and our 
+     team will reach out to you afterwards for additional information to issue you your tax receipt.</h6>
+    
+    <div id="errormsg" class="error"></div>
+    
+    <h3>Message for e-transfer:</h3>
+    
+    <textarea rows="8" cols="30" id="message" name="message" oninput="updateMessage()"></textarea>
+    
+    <br/>
+    
+    <div id="messagelen" class="plain"></div>
+    
+    <br/>
+    
+    <input type="button" id="copybutton" value="Copy to message to clipboard" disabled onclick="copyToClipboard()"/>
+    
+    
+    </body>
+    </html>
+    

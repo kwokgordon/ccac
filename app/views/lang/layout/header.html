@@ -82,7 +82,7 @@
       <% if (lang) { %>
         document.getElementById("<%= lang %>").className = "active";
       <% } %>
-      <% if (header) { %>
+      <% if (header && header != "giving") { %>
         document.getElementById("<%= header %>").className = "active";
       <% } %>
     </script>
