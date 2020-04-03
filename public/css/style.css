@@ -176,3 +176,7 @@ video {
 .sidebar > .nav > .active {
 	background-color: #e7e7e7;
 }
+
+textarea {
+	height: 100px !important;
+}

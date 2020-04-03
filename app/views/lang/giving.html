@@ -1,20 +1,19 @@
 <% include ./layout/header.html %>
 
 <div class="container">
-    <div class="fullpage" id="content">
-
-    </div>
+    <div class="fullpage" id="content"></div>
 
     <hr>
 
-    <div class="fullpage">
-        <iframe src="/<%= lang %>/offering_form" width="100%" height="580" frameborder="0"></iframe>
+    <div class="fullpage" id="offering_form">
+        <!-- <iframe src="/<%= lang %>/offering_form" width="100%" height="1000" frameborder="0"></iframe> -->
     </div>
 </div>
 
 <!-- need .html here -->
 <script>
     $("#content").load("https://docs.google.com/document/d/<%= doc_id %>/pub?embedded=true");
+    $("#offering_form").load("/<%= lang %>/offering_form");
 </script>
 
 <% include ./layout/footer.html %>

@@ -139,7 +139,22 @@
 	"english-ministry": "English Ministry",
 	"mandarin-ministry": "Mandarin Ministry",
 	"children-ministry": "Children Ministry",
-	"student-ministry": "Student Ministry",
+  "student-ministry": "Student Ministry",
+  
+  "offering_title": "CCAC E-Transfer Offering Form",
+  "offering_email": "Email Address",
+  "offering_envelope": "Envelope Number",
+  "offering_general": "General Fund",
+  "offering_missions": "Missions Fund",
+  "offering_building": "Building Fund",
+  "offering_thanksgiving": "Thanksgiving",
+  "offering_other": "Other",
+  "offering_total": "Total",
+  "offering_message": "Message for e-transfer",
+  "offering_copy": "Copy message to Clipboard",
+  "offering_forgot": "Forgot your envelope number?",
+  "offering_email_message1": "Email",
+  "offering_email_message2": "and we will respond with your number. Don't have a number or forgot? You can still give today and our team will reach out to you afterwards for additional information to issue you your tax receipt.",
 
     "aaa": "aaa"
 }

@@ -143,13 +143,11 @@ module.exports = function(app) {
     app.get('/giving', function(req, res) {
       shared.setup_arg(req, res);
 
-      console.log("Doc id");
-      console.log(req);
-
       res.render('lang/giving');
     });
 
     app.get('/offering_form', function(req, res) {
+      shared.setup_arg(req, res);
       res.render('lang/offering_form');
     });
 

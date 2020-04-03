@@ -1,5 +1,5 @@
-
-<html>
+<!DOCTYPE html>
+<html lang=<%= lang %> i18n-locale=i18n.getLocale()>
     <head>
     <title>CCAC E-Transfer Offering Form</title>
     <style>
@@ -20,6 +20,7 @@
             }
             input {
                     font-size: 14;
+                    width: 100px;
             }
             .error {
                     font-size: 14; color: red;
@@ -29,6 +30,17 @@
             }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/bower/jquery/dist/jquery.min.js"></script>
+    <script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js"></script> 
+    <script src="/bower/angular/angular.min.js"></script>
+    <script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <script src="/js/angular/mobile/angular.js"></script>
+
     </head>
     <body>
     
@@ -38,17 +50,22 @@
         var output = "";
         for (var i = 0; i < input.length; i++) {
             var cc = input.charCodeAt(i);
-            if (i == 0 || input.charAt(i - 1) == " ") {
-                // Must be upper case
-                if ((cc >= 65 && cc <= 90) || (cc >= 95 && cc <= 122)) {
-                    output += input.charAt(i).toUpperCase();
-                }
+            if ((cc >= 65 && cc <= 90) || (cc >= 95 && cc <= 122)) {
+                output += input.charAt(i).toLowerCase();
+            } else {
+                output += input.charAt(i);
             }
-            else {
-                if ((cc >= 65 && cc <= 90) || (cc >= 95 && cc <= 122)) {
-                    output += input.charAt(i).toLowerCase();
-                }
-            }
+            // if (i == 0 || input.charAt(i - 1) == " ") {
+            //     // Must be upper case
+            //     if ((cc >= 65 && cc <= 90) || (cc >= 95 && cc <= 122)) {
+            //         output += input.charAt(i).toUpperCase();
+            //     }
+            // }
+            // else {
+            //     if ((cc >= 65 && cc <= 90) || (cc >= 95 && cc <= 122)) {
+            //         output += input.charAt(i).toLowerCase();
+            //     }
+            // }
         }
         return output;
     }
@@ -89,27 +106,27 @@
             return;
         }
         
-        general = parseFloat(generalObj.value);
+        general = Number(generalObj.value);
         if (isNaN(general)) {
             errorDiv.innerHTML = "Please enter a valid number in General Fund.";
             return;
         }
-        missions = parseFloat(missionsObj.value);
+        missions = Number(missionsObj.value);
         if (isNaN(missions)) {
             errorDiv.innerHTML = "Please enter a valid number in Missions Fund.";
             return;
         }
-        building  = parseFloat(buildingObj.value);
+        building  = Number(buildingObj.value);
         if (isNaN(building)) {
             errorDiv.innerHTML = "Please enter a valid number in Building Fund.";
             return;
         }
-        thanksgiving  = parseFloat(thanksgivingObj.value);
+        thanksgiving  = Number(thanksgivingObj.value);
         if (isNaN(thanksgiving)) {
             errorDiv.innerHTML = "Please enter a valid number in Thanksgiving.";
             return;
         }
-        other = parseFloat(otherObj.value);
+        other = Number(otherObj.value);
         if (isNaN(other)) {
             errorDiv.innerHTML = "Please enter a valid number in Other.";
             return;
@@ -130,31 +147,31 @@
             return;
         }
         
-        messageObj.value = condenseName(nameObj.value) + "\n";
+        messageObj.value = condenseName(nameObj.value) + " ";
         messageObj.value += number;
         if (general > 0) {
             if (Number.isInteger(general))
-                messageObj.value += "\nG" + general.toFixed(0);
+                messageObj.value += " G" + general.toFixed(0);
             else
-                messageObj.value += "\nG" + general.toFixed(2);
+                messageObj.value += " G" + general.toFixed(2);
         }
         if (missions > 0) {
             if (Number.isInteger(missions))
-                messageObj.value += "\nM" + missions.toFixed(0);
+                messageObj.value += " M" + missions.toFixed(0);
             else
-                messageObj.value += "\nM" + missions.toFixed(2);
+                messageObj.value += " M" + missions.toFixed(2);
         }
         if (building > 0) {
             if (Number.isInteger(building))
-                messageObj.value += "\nB" + building.toFixed(0);
+                messageObj.value += " B" + building.toFixed(0);
             else
-                messageObj.value += "\nB" + building.toFixed(2);
+                messageObj.value += " B" + building.toFixed(2);
         }
         if (thanksgiving > 0) {
             if (Number.isInteger(thanksgiving))
-                messageObj.value += "\nT" + thanksgiving.toFixed(0);
+                messageObj.value += " T" + thanksgiving.toFixed(0);
             else
-                messageObj.value += "\nT" + thanksgiving.toFixed(2);
+                messageObj.value += " T" + thanksgiving.toFixed(2);
         }
         if (other > 0) {
             otherType = otherTypeObj.value.replace(/[^a-z0-9]/gmi, "");
@@ -162,7 +179,7 @@
             var lastChar = otherType.charCodeAt(otherType.length - 1);
             if (lastChar >= 48 && lastChar <= 57)
                 otherType += ':';
-            messageObj.value += "\nO" + otherType;
+            messageObj.value += " O" + otherType;
             if (Number.isInteger(other))
                 messageObj.value += other.toFixed(0);
             else
@@ -170,8 +187,8 @@
         }
         
         messageLengthObj.innerHTML = "Message length: " + messageObj.value.length + " characters";
-        if (messageObj.value.length > 40) {
-            messageLengthObj.innerHTML += "<div class='error'>The message length exceeds 40 characters, and may be too long for some e-transfer messages. You may need to shorten the text in some of your fields.</div>";
+        if (messageObj.value.length > 400) {
+            messageLengthObj.innerHTML += "<div class='error'>The message length exceeds 400 characters, and may be too long for some e-transfer messages. You may need to shorten the text in some of your fields.</div>";
         }
     
         if (messageObj.value.length > 0) {
@@ -202,26 +219,26 @@
     
     </script>
     
-    <h1>CCAC E-Transfer Offering Form</h1>
+    <h1><%= __('offering_title') %></h1>
     
+    <form id="inputform">
     <table border="0" cellpadding="5" cellspacing="0">
-    <tr><td colspan="3">Name: &nbsp;&nbsp;&nbsp;<input type="text" name="name" id="name" autofocus size="25" oninput="updateMessage()"/></td></tr>
-    <tr><td>Envelope Number**:</td><td></td><td><input type="text" name="number" id="number" size="6" oninput="updateMessage()"/></td></tr>
-    <tr><td>General Fund:</td><td>$</td><td><input type="text" name="general" id="general" value="0" size="6" oninput="updateMessage()"/></td></tr>
-    <tr><td>Missions Fund:</td><td>$</td><td><input type="text" name="missions" id="missions" value="0" size="6" oninput="updateMessage()"/></td></tr>
-    <tr><td>Building Fund:</td><td>$</td><td><input type="text" name="building" id="building" value="0" size="6" oninput="updateMessage()"/></td></tr>
-    <tr><td>Thanksgiving:</td><td>$</td><td><input type="text" name="thanksgiving" id="thanksgiving" value="0" size="6" oninput="updateMessage()"/></td></tr>
-    <tr><td>Other: <input type="text" id="othertype" oninput="updateMessage()" size="15"/></td><td>$</td><td><input type="text" name="other" id="other" value="0" size="6" oninput="updateMessage()"/></td></tr>
-    <tr><td>Total:</td><td>$</td><td><input type="text" name="total" id="total" disabled value="0" size="6"/></td></tr>
-    </table>
-    
-    <h6>**Forgot your envelope number?<br/>Email <a href="mailto:giving@calgarychinesealliance.org">giving@calgarychinesealliance.org</a>
-     and we will respond with your number. Don't have a number or forgot? You can still give today and our 
-     team will reach out to you afterwards for additional information to issue you your tax receipt.</h6>
+    <tr><td colspan="3"><%= __('offering_email') %>: &nbsp;&nbsp;&nbsp;<input type="text" name="name" id="name" autofocus size="25" oninput="updateMessage()" data-index="1" /></td></tr>
+    <tr><td><%= __('offering_envelope') %>**:</td><td></td><td><input type="text" name="number" id="number" size="6" oninput="updateMessage()" data-index="2"/></td></tr>
+    <tr><td><%= __('offering_general') %>:</td><td>$</td><td><input type="text" name="general" id="general" placeholder="0" size="6" oninput="updateMessage()" data-index="3"/></td></tr>
+    <tr><td><%= __('offering_missions') %>:</td><td>$</td><td><input type="text" name="missions" id="missions" placeholder="0" size="6" oninput="updateMessage()" data-index="4"/></td></tr>
+    <tr><td><%= __('offering_building') %>:</td><td>$</td><td><input type="text" name="building" id="building" placeholder="0" size="6" oninput="updateMessage()" data-index="5"/></td></tr>
+    <tr><td><%= __('offering_thanksgiving') %>:</td><td>$</td><td><input type="text" name="thanksgiving" id="thanksgiving" placeholder="0" size="6" oninput="updateMessage()" data-index="6"/></td></tr>
+    <tr><td><%= __('offering_other') %>: <input type="text" id="othertype" oninput="updateMessage()" size="15" data-index="7"/></td><td>$</td><td><input type="text" name="other" id="other" placeholder="0" size="6" oninput="updateMessage()" data-index="8"/></td></tr>
+    <tr><td><%= __('offering_total') %>:</td><td>$</td><td><input type="text" name="total" id="total" disabled value="0" size="6" /></td></tr>
+    </table>  
+
+    <h5>**<%= __('offering_forgot') %><br/><%= __('offering_email_message1') %> <a href="mailto:giving@calgarychinesealliance.org">giving@calgarychinesealliance.org</a>
+        <%= __('offering_email_message2') %></h5>
     
     <div id="errormsg" class="error"></div>
     
-    <h3>Message for e-transfer:</h3>
+    <h3><%= __('offering_message') %>:</h3>
     
     <textarea rows="8" cols="30" id="message" name="message" oninput="updateMessage()"></textarea>
     
@@ -231,9 +248,20 @@
     
     <br/>
     
-    <input type="button" id="copybutton" value="Copy to message to clipboard" disabled onclick="copyToClipboard()"/>
+    <button type="button" id="copybutton" class="btn btn-primary" disabled onclick="copyToClipboard()" data-index="9"><%= __('offering_copy') %></button>
     
-    
+    </form>
+
+    <script>
+        $("#inputform").on('keydown', 'input', function(event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                var $this = $(event.target);
+                var index = parseFloat($this.attr('data-index'));
+                $('[data-index="' + (index + 1).toString() + '"]').focus();
+            }
+        });
+    </script>
     </body>
     </html>
     

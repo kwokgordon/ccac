@@ -141,5 +141,20 @@
 	"children-ministry": "儿童事工",
 	"student-ministry": "学生事工",
 
+	"offering_title": "CCAC 网上奉献",
+	"offering_email": "电邮地址",
+	"offering_envelope": "信封号码",
+	"offering_general": "一般事工",
+	"offering_missions": "宣教",
+	"offering_building": "建筑",
+	"offering_thanksgiving": "感恩",
+	"offering_other": "其他",
+	"offering_total": "总额",
+	"offering_message": "用于电子传输的消息",
+	"offering_copy": "将消息复制到剪贴板",
+	"offering_forgot": "忘记信封号码？",
+	"offering_email_message1": "请电邮到",
+	"offering_email_message2": "我们将会回覆你的电信封号码，如你没有奉献号码，你仍然可以奉献，我们的团队将在之后与你联系，以便向你发退税收据。",  
+
 	"aaa": "aaa"
 }

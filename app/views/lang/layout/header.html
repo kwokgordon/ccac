@@ -67,6 +67,7 @@
 	      <li id="ministry_plan"><a href="/<%= lang %>/ministry_plan/"><%= __('ministry_plan') %></a></li>
 	      <li id="devotion"><a href="/<%= lang %>/devotion/"><%= __('devotion') %></a></li>
 
+        <li id="giving" style="display: none;"><a href="/<%= lang %>/giving/"><%= __('giving') %></a></li>
         <!-- <li id="giving"><a href="/<%= lang %>/giving/"><%= __('giving') %></a></li> -->
         <!-- <li id="giving"><a href="https://ccac.breezechms.com/give"><%= __('giving') %></a></li> -->
 
@@ -82,7 +83,7 @@
       <% if (lang) { %>
         document.getElementById("<%= lang %>").className = "active";
       <% } %>
-      <% if (header && header != "giving") { %>
+      <% if (header) { %>
         document.getElementById("<%= header %>").className = "active";
       <% } %>
     </script>

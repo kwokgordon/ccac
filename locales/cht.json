@@ -141,5 +141,20 @@
 	"children-ministry": "兒童事工",
 	"student-ministry": "學生事工",
 
+	"offering_title": "CCAC 網上奉獻",
+	"offering_email": "電郵地址",
+	"offering_envelope": "信封號碼",
+	"offering_general": "一般事工",
+	"offering_missions": "宣教",
+	"offering_building": "建築",
+	"offering_thanksgiving": "感恩",
+	"offering_other": "其他",
+	"offering_total": "總額",
+	"offering_message": "用於電子傳輸的消息",
+	"offering_copy": "將消息複製到剪貼板",
+  "offering_forgot": "忘記信封號碼？",
+  "offering_email_message1": "請電郵到",
+  "offering_email_message2": "我們將會回覆你的電信封號碼，如你沒有奉獻號碼，你仍然可以奉獻，我們的團隊將在之後與你聯繫，以便向你發退稅收據。",
+
   "aaa": "aaa"
 }
