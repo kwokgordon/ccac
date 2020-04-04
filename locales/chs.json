@@ -156,5 +156,19 @@
 	"offering_email_message1": "请电邮到",
 	"offering_email_message2": "我们将会回覆你的电信封号码，如你没有奉献号码，你仍然可以奉献，我们的团队将在之后与你联系，以便向你发退税收据。",  
 
+	"offering_error_email": "请输入您的电邮地址。",
+	"offering_error_envelope": "请输入有效的信封号码。",
+	"offering_error_general": "请在一般事工中输入有效的数字。",
+	"offering_error_missions": "请在宣教中输入有效的数字。",
+	"offering_error_building": "请在建筑中输入有效的数字。",
+	"offering_error_thanksgiving": "请在感恩中输入有效的数字。",
+	"offering_error_other": "请在其他中输入有效的数字。",
+	"offering_error_other_desc": "请在其他中输入有效的内容。",
+	"offering_error_greater_than_zero": "总数必须大于零。",
+	"offering_error_message_length": "内容长度超过400个字符，对于某些 E-Transfer 而言可能太长。您可能需要缩短某些字段中的文本。",
+  
+	"offering_alert_all_fields": "请在按「复制」之前完成所有字段。",
+	"offering_alert_copied": "内容已复制到剪贴板。请将其粘贴在 E-Transfer 消息字段中。",
+  
 	"aaa": "aaa"
 }

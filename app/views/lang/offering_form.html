@@ -20,7 +20,6 @@
             }
             input {
                     font-size: 14;
-                    width: 100px;
             }
             .error {
                     font-size: 14; color: red;
@@ -93,42 +92,46 @@
         copybuttonObj.disabled = true;
         
         if (nameObj.value == "") {
-            errorDiv.innerHTML = "<div class='error'>Please enter your name.</div>";
-            return;
+            errorDiv.innerHTML += "<%= __('offering_error_email') %><br>";
+            // return;
         }
-        
+
         number = parseInt(numberObj.value);
         if (numberObj.value.length == 0) {
             number = "-";
         }
         else if (isNaN(number)) {
-            errorDiv.innerHTML = "Please enter a valid envelope number.";
-            return;
+            errorDiv.innerHTML += "<%= __('offering_error_envelope') %><br>";
+            // return;
         }
         
         general = Number(generalObj.value);
         if (isNaN(general)) {
-            errorDiv.innerHTML = "Please enter a valid number in General Fund.";
-            return;
+            errorDiv.innerHTML += "<%= __('offering_error_general') %><br>";
+            // return;
         }
         missions = Number(missionsObj.value);
         if (isNaN(missions)) {
-            errorDiv.innerHTML = "Please enter a valid number in Missions Fund.";
-            return;
+            errorDiv.innerHTML += "<%= __('offering_error_missions') %><br>";
+            // return;
         }
         building  = Number(buildingObj.value);
         if (isNaN(building)) {
-            errorDiv.innerHTML = "Please enter a valid number in Building Fund.";
-            return;
+            errorDiv.innerHTML += "<%= __('offering_error_building') %><br>";
+            // return;
         }
         thanksgiving  = Number(thanksgivingObj.value);
         if (isNaN(thanksgiving)) {
-            errorDiv.innerHTML = "Please enter a valid number in Thanksgiving.";
-            return;
+            errorDiv.innerHTML += "<%= __('offering_error_thanksgiving') %><br>";
+            // return;
         }
         other = Number(otherObj.value);
         if (isNaN(other)) {
-            errorDiv.innerHTML = "Please enter a valid number in Other.";
+            errorDiv.innerHTML += "<%= __('offering_error_other') %><br>";
+            // return;
+        }
+
+        if (errorDiv.innerHTML != "") {
             return;
         }
         
@@ -138,12 +141,16 @@
     
         total2 = total;
         if (total2 < 0) {
-            errorDiv.innerHTML = "The total must be greater than zero.";
-            return;
+            errorDiv.innerHTML += "<%= __('offering_error_greater_than_zero') %><br>";
+            // return;
         }
         
         if (other > 0 && otherTypeObj.value.length == 0) {
-            errorDiv.innerHTML = "Please enter a description for Other.";
+            errorDiv.innerHTML += "<%= __('offering_error_other_desc') %><br>";
+            // return;
+        }
+
+        if (errorDiv.innerHTML != "") {
             return;
         }
         
@@ -188,7 +195,7 @@
         
         messageLengthObj.innerHTML = "Message length: " + messageObj.value.length + " characters";
         if (messageObj.value.length > 400) {
-            messageLengthObj.innerHTML += "<div class='error'>The message length exceeds 400 characters, and may be too long for some e-transfer messages. You may need to shorten the text in some of your fields.</div>";
+            messageLengthObj.innerHTML += "<div class='error'><%= __('offering_error_message_length') %></div>";
         }
     
         if (messageObj.value.length > 0) {
@@ -201,20 +208,20 @@
         messageObj = document.getElementById("message");
         message = messageObj.value;
         if (message.length == 0) {
-            alert("Please complete all fields before pressing copy.");
+            alert("<%= __('offering_alert_all_fields') %>");
             return;
         }
         
         totalObj = document.getElementById("total");
         total = parseFloat(totalObj.value);
         if (isNaN(total) || total <= 0) {
-            alert("The total must be greater than zero.");
+            alert("<%= __('offering_error_greater_than_zero') %>");
             return;
         }
     
         messageObj.select();
         document.execCommand("Copy");
-        alert("Message copied to clipboard.\n\nPlease paste this in the e-transfer message field.");
+        alert("<%= __('offering_alert_copied') %>");
     }
     
     </script>
@@ -223,14 +230,14 @@
     
     <form id="inputform">
     <table border="0" cellpadding="5" cellspacing="0">
-    <tr><td colspan="3"><%= __('offering_email') %>: &nbsp;&nbsp;&nbsp;<input type="text" name="name" id="name" autofocus size="25" oninput="updateMessage()" data-index="1" /></td></tr>
+    <tr><td colspan="3"><%= __('offering_email') %>: &nbsp;&nbsp;&nbsp;<input type="text" name="name" id="name" autofocus size="35" oninput="updateMessage()" data-index="1" /></td></tr>
     <tr><td><%= __('offering_envelope') %>**:</td><td></td><td><input type="text" name="number" id="number" size="6" oninput="updateMessage()" data-index="2"/></td></tr>
     <tr><td><%= __('offering_general') %>:</td><td>$</td><td><input type="text" name="general" id="general" placeholder="0" size="6" oninput="updateMessage()" data-index="3"/></td></tr>
     <tr><td><%= __('offering_missions') %>:</td><td>$</td><td><input type="text" name="missions" id="missions" placeholder="0" size="6" oninput="updateMessage()" data-index="4"/></td></tr>
     <tr><td><%= __('offering_building') %>:</td><td>$</td><td><input type="text" name="building" id="building" placeholder="0" size="6" oninput="updateMessage()" data-index="5"/></td></tr>
     <tr><td><%= __('offering_thanksgiving') %>:</td><td>$</td><td><input type="text" name="thanksgiving" id="thanksgiving" placeholder="0" size="6" oninput="updateMessage()" data-index="6"/></td></tr>
     <tr><td><%= __('offering_other') %>: <input type="text" id="othertype" oninput="updateMessage()" size="15" data-index="7"/></td><td>$</td><td><input type="text" name="other" id="other" placeholder="0" size="6" oninput="updateMessage()" data-index="8"/></td></tr>
-    <tr><td><%= __('offering_total') %>:</td><td>$</td><td><input type="text" name="total" id="total" disabled value="0" size="6" /></td></tr>
+    <tr><td><%= __('offering_total') %>:</td><td>$</td><td><input type="text" name="total" id="total" disabled value="0" size="10" /></td></tr>
     </table>  
 
     <h5>**<%= __('offering_forgot') %><br/><%= __('offering_email_message1') %> <a href="mailto:giving@calgarychinesealliance.org">giving@calgarychinesealliance.org</a>

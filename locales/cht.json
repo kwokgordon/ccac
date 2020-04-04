@@ -156,5 +156,19 @@
   "offering_email_message1": "請電郵到",
   "offering_email_message2": "我們將會回覆你的電信封號碼，如你沒有奉獻號碼，你仍然可以奉獻，我們的團隊將在之後與你聯繫，以便向你發退稅收據。",
 
+  "offering_error_email": "請輸入您的電郵地址。",
+  "offering_error_envelope": "請輸入有效的信封號碼。",
+  "offering_error_general": "請在一般事工中輸入有效的數字。",
+  "offering_error_missions": "請在宣教中輸入有效的數字。",
+  "offering_error_building": "請在建築中輸入有效的數字。",
+  "offering_error_thanksgiving": "請在感恩中輸入有效的數字。",
+  "offering_error_other": "請在其他中輸入有效的數字。",
+  "offering_error_other_desc": "請在其他中輸入有效的內容。",
+  "offering_error_greater_than_zero": "總數必須大於零。",
+  "offering_error_message_length": "內容長度超過400個字符，對於某些 E-Transfer 而言可能太長。 您可能需要縮短某些字段中的文本。",
+
+  "offering_alert_all_fields": "請在按「複製」之前完成所有字段。",
+  "offering_alert_copied": "內容已復製到剪貼板。 請將其粘貼在 E-Transfer 消息字段中。",
+
   "aaa": "aaa"
 }

@@ -153,8 +153,22 @@
   "offering_message": "Message for e-transfer",
   "offering_copy": "Copy message to Clipboard",
   "offering_forgot": "Forgot your envelope number?",
-  "offering_email_message1": "Email",
+  "offering_email_message1": "Email ",
   "offering_email_message2": "and we will respond with your number. Don't have a number or forgot? You can still give today and our team will reach out to you afterwards for additional information to issue you your tax receipt.",
+
+  "offering_error_email": "Please enter your email.",
+  "offering_error_envelope": "Please enter a valid envelope number.",
+  "offering_error_general": "Please enter a valid number in General Fund.",
+  "offering_error_missions": "Please enter a valid number in Missions Fund.",
+  "offering_error_building": "Please enter a valid number in Building Fund.",
+  "offering_error_thanksgiving": "Please enter a valid number in Thanksgiving.",
+  "offering_error_other": "Please enter a valid number in Other.",
+  "offering_error_other_desc": "Please enter a description for Other.",
+  "offering_error_greater_than_zero": "The total must be greater than zero.",
+  "offering_error_message_length": "The message length exceeds 400 characters, and may be too long for some e-transfer messages. You may need to shorten the text in some of your fields.",
+
+  "offering_alert_all_fields": "Please complete all fields before pressing copy.",
+  "offering_alert_copied": "Message copied to clipboard. Please paste this in the e-transfer message field.",
 
     "aaa": "aaa"
 }
