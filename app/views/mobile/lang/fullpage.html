@@ -18,7 +18,7 @@
 	</div>	
 	
 	<div role="main" class="ui-content" id="content">
-		<iframe id="google_doc" src="https://docs.google.com/document/d/<%= doc_id %>/pub" width="100%" height="100%" frameborder="0" seamless></iframe>
+		<iframe id="google_doc" src="https://docs.google.com/document/d/<%= doc_id %>/pub?embedded=true" width="100%" height="100%" frameborder="0" seamless></iframe>
 
 		<% if (calendar) { %>
 			<div class="event_calendar">
@@ -44,7 +44,6 @@
 				</iframe>
 			</div>
 		<% } %>
-
 	</div>
 
 	<div id="mobile_footer" data-role="footer" data-position="fixed" role="contentinfo" class="ui-footer ui-bar-inherit">
