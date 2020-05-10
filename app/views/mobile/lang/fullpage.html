@@ -18,7 +18,9 @@
 	</div>	
 	
 	<div role="main" class="ui-content" id="content">
-		<iframe id="google_doc" src="https://docs.google.com/document/d/<%= doc_id %>/pub?embedded=true" width="100%" height="100%" frameborder="0" seamless></iframe>
+		<!-- <iframe id="google_doc" src="https://docs.google.com/document/d/e/2PACX-1vQXEs49hNMvGj-rRu_cSZ7k6YAAGjf2hzabqdYuvQyxKUZIeDFPMuh0ARkFLlDLQn6XZgOMcDnSzr6o/pub?embedded=true" width="100%" height="100%" frameborder="0" seamless></iframe> -->
+		<!-- <iframe id="google_doc" src="https://docs.google.com/document/d/<%= doc_id %>/pub?embedded=true" width="100%" height="100%" frameborder="0" seamless></iframe> -->
+		<!-- <iframe id="google_doc" src="https://docs.google.com/document/d/<%= doc_id %>/pub" width="100%" height="100%" frameborder="0" seamless></iframe> -->
 
 		<% if (calendar) { %>
 			<div class="event_calendar">
@@ -50,6 +52,8 @@
 		<h4 class="ui-title" role="heading" aria-level="1">Calgary Chinese Alliance Church</h4>
 
 		<script>
+		    $("#content").load("https://docs.google.com/document/d/<%= doc_id %>/pub?embedded=true");
+
 			$(document).ready(function() {
 				$("iframe").height(Math.round($(window).height() * 0.8));
 
