@@ -23,4 +23,8 @@ module.exports = function(app) {
 	app.get('/privacy-policy', function(req, res) {
 		res.redirect('https://drive.google.com/open?id=1ddSHxVAz9MNzMCuEgX2qR8obUdxfyBwryObHF3JrzMg');
 	});
+
+	app.get('/reopen-survey', function(req, res) {
+		res.redirect('https://docs.google.com/forms/d/e/1FAIpQLSd8HbqW7IWwhGPVOSGmsiszgEsMpzZLdZCZ1XO5bqIGUd6Oww/viewform?usp=sf_link');
+	})
 }
