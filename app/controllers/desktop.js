@@ -151,5 +151,10 @@ module.exports = function(app) {
       res.render('lang/offering_form');
     });
 
+    app.get('/new_site_offering_form', function(req, res) {
+      shared.setup_arg(req, res);
+      res.render('lang/new_site_offering_form');
+    });
+
   });
 }

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang=<%= lang %> i18n-locale=i18n.getLocale()>
+    <head>
+    <title>CCAC E-Transfer Offering Form</title>
+    <style>
+            * {
+                    font-family: Helvetica, Arial;
+            }
+            body {
+                padding: 0 !important; 
+            }
+            h1 {
+                    font-size: 20;
+            }
+            h3 {
+                    font-size: 14;
+            }
+            h6 {
+                    font-size: 10;
+            }
+            td {
+                    font-size: 14;
+            }
+            input {
+                    font-size: 14;
+            }
+            .error {
+                    font-size: 14; color: red;
+            }
+            .plain {
+                    font-size: 14;
+            }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/bower/jquery/dist/jquery.min.js"></script>
+    <script src="/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js"></script> 
+    <script src="/bower/angular/angular.min.js"></script>
+    <script src="/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <script src="/js/angular/mobile/angular.js"></script>
+
+    </head>
+    <body>
+    
+    <script>
+    function condenseName(input)
+    {
+        var output = "";
+        for (var i = 0; i < input.length; i++) {
+            var cc = input.charCodeAt(i);
+            if ((cc >= 65 && cc <= 90) || (cc >= 95 && cc <= 122)) {
+                output += input.charAt(i).toLowerCase();
+            } else {
+                output += input.charAt(i);
+            }
+            // if (i == 0 || input.charAt(i - 1) == " ") {
+            //     // Must be upper case
+            //     if ((cc >= 65 && cc <= 90) || (cc >= 95 && cc <= 122)) {
+            //         output += input.charAt(i).toUpperCase();
+            //     }
+            // }
+            // else {
+            //     if ((cc >= 65 && cc <= 90) || (cc >= 95 && cc <= 122)) {
+            //         output += input.charAt(i).toLowerCase();
+            //     }
+            // }
+        }
+        return output;
+    }
+    
+    // isInteger is missing from Internet Explorer
+    Number.isInteger = Number.isInteger || function(value) {
+        return typeof value === "number" && isFinite(value) && Math.floor(value) === value;
+    }
+
+    function updateMessage()
+    {
+        nameObj = document.getElementById("name");
+        numberObj = document.getElementById("number");
+        generalObj = document.getElementById("general");
+        missionsObj = document.getElementById("missions");
+        buildingObj = document.getElementById("building");
+        thanksgivingObj = document.getElementById("thanksgiving");
+        otherObj = document.getElementById("other");
+        otherTypeObj = document.getElementById("othertype");
+        totalObj = document.getElementById("total");
+        errorDiv = document.getElementById("errormsg");
+        messageObj = document.getElementById("message");
+        messageLengthObj = document.getElementById("messagelen");
+        copybuttonObj = document.getElementById("copybutton");
+        
+        errorDiv.innerHTML = "";
+        messageObj.value = "";
+        messageLengthObj.innerHTML = "";
+        totalObj.value = "";
+        copybuttonObj.disabled = true;
+        
+        if (nameObj.value == "") {
+            errorDiv.innerHTML += "<%= __('offering_error_email') %><br>";
+            // return;
+        }
+
+        number = parseInt(numberObj.value);
+        if (numberObj.value.length == 0) {
+            number = "-";
+        }
+        else if (isNaN(number)) {
+            errorDiv.innerHTML += "<%= __('offering_error_envelope') %><br>";
+            // return;
+        }
+        
+        general = Number(generalObj.value);
+        if (isNaN(general)) {
+            errorDiv.innerHTML += "<%= __('offering_error_general') %><br>";
+            // return;
+        }
+        missions = Number(missionsObj.value);
+        if (isNaN(missions)) {
+            errorDiv.innerHTML += "<%= __('offering_error_missions') %><br>";
+            // return;
+        }
+        building  = Number(buildingObj.value);
+        if (isNaN(building)) {
+            errorDiv.innerHTML += "<%= __('offering_error_building') %><br>";
+            // return;
+        }
+        thanksgiving  = Number(thanksgivingObj.value);
+        if (isNaN(thanksgiving)) {
+            errorDiv.innerHTML += "<%= __('offering_error_thanksgiving') %><br>";
+            // return;
+        }
+        other = Number(otherObj.value);
+        if (isNaN(other)) {
+            errorDiv.innerHTML += "<%= __('offering_error_other') %><br>";
+            // return;
+        }
+
+        if (errorDiv.innerHTML != "") {
+            return;
+        }
+        
+        total = (general + missions + building + thanksgiving + other);
+        total = total.toFixed(2);
+        totalObj.value = total;
+    
+        total2 = total;
+        if (total2 < 0) {
+            errorDiv.innerHTML += "<%= __('offering_error_greater_than_zero') %><br>";
+            // return;
+        }
+        
+        if (other > 0 && otherTypeObj.value.length == 0) {
+            errorDiv.innerHTML += "<%= __('offering_error_other_desc') %><br>";
+            // return;
+        }
+
+        if (errorDiv.innerHTML != "") {
+            return;
+        }
+        
+        messageObj.value = condenseName(nameObj.value) + " ";
+        messageObj.value += number;
+        if (general > 0) {
+            if (Number.isInteger(general))
+                messageObj.value += " G" + general.toFixed(0);
+            else
+                messageObj.value += " G" + general.toFixed(2);
+        }
+        if (missions > 0) {
+            if (Number.isInteger(missions))
+                messageObj.value += " M" + missions.toFixed(0);
+            else
+                messageObj.value += " M" + missions.toFixed(2);
+        }
+        if (building > 0) {
+            if (Number.isInteger(building))
+                messageObj.value += " B" + building.toFixed(0);
+            else
+                messageObj.value += " B" + building.toFixed(2);
+        }
+        if (thanksgiving > 0) {
+            if (Number.isInteger(thanksgiving))
+                messageObj.value += " T" + thanksgiving.toFixed(0);
+            else
+                messageObj.value += " T" + thanksgiving.toFixed(2);
+        }
+        if (other > 0) {
+            otherType = otherTypeObj.value.replace(/[^a-z0-9]/gmi, "");
+            // The last character can't be a number
+            var lastChar = otherType.charCodeAt(otherType.length - 1);
+            if (lastChar >= 48 && lastChar <= 57)
+                otherType += ':';
+            messageObj.value += " O" + otherType;
+            if (Number.isInteger(other))
+                messageObj.value += other.toFixed(0);
+            else
+                messageObj.value += other.toFixed(2);
+        }
+        
+        messageLengthObj.innerHTML = "Message length: " + messageObj.value.length + " characters";
+        if (messageObj.value.length > 400) {
+            messageLengthObj.innerHTML += "<div class='error'><%= __('offering_error_message_length') %></div>";
+        }
+    
+        if (messageObj.value.length > 0) {
+            copybuttonObj.disabled = false;
+        }
+    }
+    
+    function copyToClipboard()
+    {
+        messageObj = document.getElementById("message");
+        message = messageObj.value;
+        if (message.length == 0) {
+            alert("<%= __('offering_alert_all_fields') %>");
+            return;
+        }
+        
+        totalObj = document.getElementById("total");
+        total = parseFloat(totalObj.value);
+        if (isNaN(total) || total <= 0) {
+            alert("<%= __('offering_error_greater_than_zero') %>");
+            return;
+        }
+    
+        messageObj.select();
+        document.execCommand("Copy");
+        alert("<%= __('offering_alert_copied') %>");
+    }
+    
+    </script>
+    
+    <h1><%= __('offering_title') %></h1>
+    
+    <form id="inputform">
+    <table border="0" cellpadding="5" cellspacing="0">
+    <tr><td colspan="3"><%= __('offering_email') %>: &nbsp;&nbsp;&nbsp;<input type="text" name="name" id="name" autofocus size="35" oninput="updateMessage()" data-index="1" /></td></tr>
+    <tr><td><%= __('offering_envelope') %>**:</td><td></td><td><input type="text" name="number" id="number" size="6" oninput="updateMessage()" data-index="2"/></td></tr>
+    <tr><td><%= __('offering_general') %>:</td><td>$</td><td><input type="text" name="general" id="general" placeholder="0" size="6" oninput="updateMessage()" data-index="3"/></td></tr>
+    <tr><td><%= __('offering_missions') %>:</td><td>$</td><td><input type="text" name="missions" id="missions" placeholder="0" size="6" oninput="updateMessage()" data-index="4"/></td></tr>
+    <tr><td><%= __('offering_building') %>:</td><td>$</td><td><input type="text" name="building" id="building" placeholder="0" size="6" oninput="updateMessage()" data-index="5"/></td></tr>
+    <tr><td><%= __('offering_thanksgiving') %>:</td><td>$</td><td><input type="text" name="thanksgiving" id="thanksgiving" placeholder="0" size="6" oninput="updateMessage()" data-index="6"/></td></tr>
+    <tr><td><%= __('offering_other') %>: <input type="text" id="othertype" oninput="updateMessage()" size="15" data-index="7"/></td><td>$</td><td><input type="text" name="other" id="other" placeholder="0" size="6" oninput="updateMessage()" data-index="8"/></td></tr>
+    <tr><td><%= __('offering_total') %>:</td><td>$</td><td><input type="text" name="total" id="total" disabled value="0" size="10" /></td></tr>
+    </table>  
+
+    <h5>**<%= __('offering_forgot') %><br/><%= __('offering_email_message1') %> <a href="mailto:giving@calgarychinesealliance.org">giving@calgarychinesealliance.org</a>
+        <%= __('offering_email_message2') %></h5>
+    
+    <div id="errormsg" class="error"></div>
+    
+    <h3><%= __('offering_message') %>:</h3>
+    
+    <textarea rows="8" cols="30" id="message" name="message" oninput="updateMessage()"></textarea>
+    
+    <br/>
+    
+    <div id="messagelen" class="plain"></div>
+    
+    <br/>
+    
+    <button type="button" id="copybutton" class="btn btn-primary" disabled onclick="copyToClipboard()" data-index="9"><%= __('offering_copy') %></button>
+    
+    </form>
+
+    <script>
+        $("#inputform").on('keydown', 'input', function(event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                var $this = $(event.target);
+                var index = parseFloat($this.attr('data-index'));
+                $('[data-index="' + (index + 1).toString() + '"]').focus();
+            }
+        });
+    </script>
+    </body>
+    </html>
+    
